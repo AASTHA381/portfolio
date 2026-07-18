@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Aastha Saini — Résumé</title>
+<style>
+  @page { size: A4; margin: 12mm 12mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --ink:#1a1420; --ink2:#4b4553; --muted:#7a7486; --brand:#6d28d9; --line:#e7e2f0; }
+  body { font-family: -apple-system, "Segoe UI", Inter, Arial, sans-serif; color: var(--ink); font-size: 10.3px; line-height: 1.4; }
+  .name { font-size: 24px; font-weight: 800; letter-spacing: -.02em; }
+  .role { color: var(--brand); font-weight: 700; font-size: 11.5px; margin-top: 1px; }
+  .contact { color: var(--muted); font-size: 9.6px; margin-top: 4px; }
+  .contact a { color: var(--ink2); text-decoration: none; }
+  header { border-bottom: 2px solid var(--brand); padding-bottom: 8px; margin-bottom: 9px; display: flex; justify-content: space-between; align-items: flex-end; }
+  h2 { font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--brand); border-bottom: 1px solid var(--line); padding-bottom: 3px; margin: 11px 0 6px; }
+  .summary { color: var(--ink2); }
+  .tags { display: flex; flex-wrap: wrap; gap: 4px 6px; }
+  .tag { background: #f4f0ff; color: var(--brand); border-radius: 5px; padding: 2px 7px; font-size: 9.2px; font-weight: 600; }
+  .proj { margin-bottom: 7px; }
+  .proj .top { display: flex; justify-content: space-between; align-items: baseline; }
+  .proj .nm { font-weight: 700; font-size: 11px; }
+  .proj .nm span { color: var(--muted); font-weight: 500; font-size: 9.4px; }
+  .proj .meta { color: var(--muted); font-size: 9px; white-space: nowrap; }
+  .proj ul { margin: 2px 0 0 14px; }
+  .proj li { margin-bottom: 1px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+  .edu, .foot { color: var(--ink2); }
+  .foot { margin-top: 10px; text-align: center; color: var(--muted); font-size: 9px; border-top: 1px solid var(--line); padding-top: 6px; }
+  b { color: var(--ink); }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="name">Aastha Saini</div>
+      <div class="role">Aspiring Product Manager · Builds 0→1 products</div>
+    </div>
+    <div class="contact" style="text-align:right;">
+      your.email@example.com · +91 XXXXX XXXXX<br>
+      <a href="https://github.com/AASTHA381">github.com/AASTHA381</a> ·
+      <a href="https://github.com/AASTHA381/portfolio">Portfolio</a> ·
+      linkedin.com/in/your-handle
+    </div>
+  </header>
+
+  <p class="summary">
+    MBA candidate and hands-on builder who ships product end-to-end — <b>research → PRD → design → build → deploy</b>.
+    Shipped <b>8 live products</b> across AI, fintech, marketplaces, real-time social and productivity, each with a full PRD (personas, metrics, flows, roadmap). Comfortable turning ambiguous problems into shipped MVPs and measurable outcomes.
+  </p>
+
+  <h2>Core Skills</h2>
+  <div class="tags">
+    <span class="tag">Product Discovery</span><span class="tag">PRD & Specs</span><span class="tag">User Research</span>
+    <span class="tag">Roadmapping</span><span class="tag">Success Metrics</span><span class="tag">Prioritisation</span>
+    <span class="tag">Wireframing / UX</span><span class="tag">AI-native products</span><span class="tag">Rapid Prototyping</span>
+    <span class="tag">A/B thinking</span><span class="tag">HTML/CSS/JS</span><span class="tag">Node.js · Firebase</span>
+    <span class="tag">LLM APIs (Groq)</span><span class="tag">Data-informed decisions</span>
+  </div>
+
+  <h2>Selected Products (self-directed, shipped & live)</h2>
+
+  <div class="proj">
+    <div class="top"><div class="nm">SmartCart — AI purchase decision assistant <span>· Node + Groq LLM, PWA</span></div><div class="meta">Live · PRD · Code</div></div>
+    <ul>
+      <li>Built an AI-native tool giving an objective <b>Buy / Wait / Don't-buy</b> verdict by reasoning over a user's budget, spending and savings goals — not just price.</li>
+      <li>Shipped 3 feature phases: personalisation & dashboard, watchlist with price-drop tracking & 30-day reminders, and product comparison + voice/quick input + share-as-image. Deployed on a Node backend with the API key secured server-side.</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="top"><div class="nm">TeamMatch — teammate matching for MBA projects <span>· Firebase, real-time PWA</span></div><div class="meta">Live · PRD · Code</div></div>
+    <ul>
+      <li>Designed a two-sided matching engine ranking classmates by <b>complementary</b> skills, availability and goals; adopted by a live batch (~146 students).</li>
+      <li>Implemented auth + server-enforced ownership and real-time sync; privacy-minimised data model (no sensitive PII).</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="top"><div class="nm">DayFlow — schedule-aware sleep planner <span>· Firebase + on-device ML, PWA</span></div><div class="meta">Live · PRD · Code</div></div>
+    <ul>
+      <li>Computed an “earliest safe bedtime” from each day's timetable, gym intensity and tasks; added photo-to-dismiss alarms verified <b>on-device</b> (TensorFlow.js) for privacy.</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="top"><div class="nm">YatraYatri — investment planner for a real client <span>· reactive web app</span></div><div class="meta">Live · PRD · Code</div></div>
+    <ul>
+      <li>Turned a trek-tourism founder's brief into a live financial cockpit: 7-category allocation, 0–100 readiness score and real-time risk alerts (emergency fund, HR runway, break-even).</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="top"><div class="nm">Also shipped <span>· each with a full PRD</span></div><div class="meta"></div></div>
+    <ul>
+      <li><b>FoodMatch</b> — Tinder-style group restaurant matcher (serverless real-time, OpenStreetMap data). &nbsp; <b>LinkVault</b> — Chrome extension saving links/docs with AI summaries.</li>
+      <li><b>ClassTrack</b> — attendance tracker surfacing “safe skips left” per subject. &nbsp; <b>PM Study Planner</b> — flexible daily planner with streaks, grids & heatmap.</li>
+    </ul>
+  </div>
+
+  <div class="two">
+    <div>
+      <h2>Education</h2>
+      <p class="edu"><b>MBA</b>, NMIMS &nbsp;·&nbsp; specialising in Product / Marketing<br><span style="color:var(--muted)">Relevant: Product Strategy, Consumer Behaviour, AI for Managers, Analytics</span></p>
+    </div>
+    <div>
+      <h2>What I Bring</h2>
+      <p class="edu">0→1 ownership · ships fast & pragmatically · writes crisp PRDs · reasons with metrics · strong AI-product instinct.</p>
+    </div>
+  </div>
+
+  <div class="foot">Full case studies & live demos → github.com/AASTHA381/portfolio</div>
+</body>
+</html>
