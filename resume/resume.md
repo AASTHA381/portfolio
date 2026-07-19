@@ -1,57 +1,48 @@
 # Aastha Saini — Résumé (one-page outline)
 
-> Editable source for the one-pager. The polished PDF is **`Aastha-Saini-Resume.pdf`** (rendered from `resume.html`).
-> **TODO before sending:** replace the email, phone and LinkedIn placeholders.
+> Editable source. The polished PDF is **`Aastha-Saini-Resume.pdf`** (rendered from `resume.html`).
 
 ---
 
-**Aastha Saini**
-Aspiring Product Manager · Builds 0→1 products
-📧 your.email@example.com · 📱 +91 XXXXX XXXXX
-🔗 github.com/AASTHA381 · Portfolio: github.com/AASTHA381/portfolio · linkedin.com/in/your-handle
-
----
+**Aastha Saini** — Product Manager · Analytics · B2B Platforms
+📧 381aastha@gmail.com · 🔗 linkedin.com/in/aastha-saini03 · github.com/AASTHA381 · Portfolio: aastha381.github.io/portfolio
 
 ## Summary
-MBA candidate and hands-on builder who ships product end-to-end — **research → PRD → design → build → deploy**. Shipped **8 live products** across AI, fintech, marketplaces, real-time social and productivity, each with a full PRD (personas, metrics, flows, roadmap). Turns ambiguous problems into shipped MVPs and measurable outcomes.
+Product manager with a **data & finance analytics** background transitioning into product. At TradeIndia (B2B marketplace) authored **136 PRDs**, led competitor benchmarking vs IndiaMART and structured app audits; at HCLTech built Python/SQL automation and Power BI dashboards. Pairs analytical rigour with 0→1 execution.
 
-## Core Skills
-Product Discovery · PRD & Specs · User Research · Roadmapping · Success Metrics · Prioritisation · Wireframing/UX · AI-native products · Rapid Prototyping · A/B thinking · HTML/CSS/JS · Node.js · Firebase · LLM APIs (Groq) · Data-informed decisions
+## Experience
 
-## Selected Products (self-directed, shipped & live)
+**Product Manager Intern — TradeIndia.com (Infocom Network Pvt Ltd)** · Apr 2026 – Jun 2026
+- Authored **136 PRDs** across buyer & seller journeys (onboarding, profile, inquiry, requirement) covering feature gaps, bug fixes and module improvements.
+- Ran **end-to-end competitor benchmarking** of TradeIndia vs IndiaMART across buyer journeys, seller tools, onboarding and inquiry.
+- Surfaced **55 bugs & feature gaps** in one structured app audit; Jira tickets for developer handoff, several prioritised into active sprints.
+- Contributed to a **1-year product roadmap** (buyer & seller); Play/App Store review sentiment analysis; CTA optimisation (PBR, Call Now, WhatsApp, Send Inquiry) across prod/pre-prod.
 
-**SmartCart — AI purchase decision assistant** · Node + Groq LLM, PWA
-- AI-native tool giving an objective **Buy / Wait / Don't-buy** verdict by reasoning over a user's budget, spending and goals — not just price.
-- Shipped 3 phases: personalisation & dashboard; watchlist with price-drop tracking + 30-day reminders; product comparison + voice/quick input + share-as-image. Deployed on a Node backend with the API key secured server-side.
+**Analyst — HCLTech**, Noida · Aug 2022 – May 2025
+- Automated financial reporting with **Python & SQL** → **−60% manual cost**; improved budget-variance accuracy.
+- **Power BI & Tableau dashboards** for ROI, cost-efficiency & revenue KPIs → **+25% financial response time**.
+- **+10% ETL efficiency**; automated data collection (−15% processing) & validation; built CI/CD pipelines; refined networking LLD.
 
-**TeamMatch — teammate matching for MBA projects** · Firebase, real-time PWA
-- Two-sided matching engine ranking classmates by **complementary** skills, availability and goals; adopted by a live batch (~146 students).
-- Auth + server-enforced ownership + real-time sync; privacy-minimised data model.
+**CSR Intern — Prudent Corporate Advisory Services Ltd.** · Jan 2026 – Feb 2026
+- Built an **MIS Excel dashboard from scratch** (FY 2026–27): head-wise, payment-mode & monthly-trend views.
+- Compiled a **5-year CSR impact report**; ran Project Samarth exhibition support, college outreach & 9+ retail/exhibition partnerships.
 
-**DayFlow — schedule-aware sleep planner** · Firebase + on-device ML, PWA
-- Computes an “earliest safe bedtime” from timetable, gym intensity and tasks; photo-to-dismiss alarms verified **on-device** (TensorFlow.js).
+## Selected Products (self-built, live)
+- **SmartCart** — AI purchase-decision engine (Node · Groq LLM · PWA)
+- **TeamMatch** — two-sided matching marketplace, ~146 users (Firebase)
+- **YatraYatri** — B2B financial-planning tool for a real client
+- **+5 more** — DayFlow, FoodMatch, LinkVault, ClassTrack, PM Study Planner (each with a full PRD)
 
-**YatraYatri — investment planner for a real client** · reactive web app
-- Turned a trek-tourism founder's brief into a live financial cockpit: 7-category allocation, 0–100 readiness score, real-time risk alerts.
-
-**Also shipped (each with a full PRD):**
-- **FoodMatch** — Tinder-style group restaurant matcher (serverless real-time, OpenStreetMap).
-- **LinkVault** — Chrome extension saving links/docs with AI summaries.
-- **ClassTrack** — attendance tracker surfacing “safe skips left” per subject.
-- **PM Study Planner** — flexible daily planner with streaks, grids & heatmap.
+## Skills
+Product Strategy · PRDs · Competitor Benchmarking · App Audits · Roadmapping · Jira/Agile · SQL · Python · Power BI · Tableau · ETL · Wireframing · A/B & CTA testing
 
 ## Education
-**MBA**, NMIMS — Product / Marketing focus. Relevant: Product Strategy, Consumer Behaviour, AI for Managers, Analytics.
-
-## What I Bring
-0→1 ownership · ships fast & pragmatically · writes crisp PRDs · reasons with metrics · strong AI-product instinct.
+**MBA**, NMIMS — Product / Marketing (2025–Present) · **AI for Product Management** certification
 
 ---
-*Full case studies & live demos → github.com/AASTHA381/portfolio*
+*Full case studies & live demos → aastha381.github.io/portfolio*
 
----
-
-## How to regenerate the PDF
+## Regenerate the PDF
 ```bash
 cd resume
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
