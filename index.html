@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#6d28d9" />
+<title>Aastha Saini — Product Portfolio</title>
+<meta name="description" content="Aspiring Product Manager who ships 0→1 products. Live demos, PRDs and code for 8 products across AI, fintech, marketplaces and productivity." />
+<style>
+  :root{
+    --bg:#0d0a14; --bg2:#141021; --surface:#ffffff;
+    --ink:#1a1420; --ink2:#5c5566; --muted:#8b8496; --line:#eceaf2;
+    --brand:#7c3aed; --brand2:#ec4899; --lav:#f4f0ff;
+    --shadow:0 20px 46px -22px rgba(76,29,149,.5); --shadow-sm:0 8px 22px -14px rgba(20,16,32,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;color:var(--ink);background:#f6f5fb;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;padding:12px 20px;transition:transform .1s,box-shadow .2s,background .2s,filter .2s;}
+  .btn:active{transform:scale(.98);}
+  .btn-p{background:var(--brand);color:#fff;box-shadow:var(--shadow);}
+  .btn-p:hover{background:#6d28d9;transform:translateY(-1px);}
+  .btn-g{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.4);}
+  .btn-g:hover{background:rgba(255,255,255,.2);}
+  .btn-w{background:#fff;color:var(--brand);box-shadow:var(--shadow-sm);}
+
+  /* Nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(13,10,20,.72);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);}
+  .nav .in{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
+  .brand{font-weight:800;font-size:17px;color:#fff;letter-spacing:-.01em;}
+  .brand .d{color:var(--brand2);}
+  .nav .links{display:flex;gap:22px;align-items:center;}
+  .nav .links a{font-size:14px;font-weight:600;color:#c9c4d6;}
+  .nav .links a:hover{color:#fff;}
+  @media(max-width:680px){.nav .links a.hide{display:none;}}
+
+  /* Hero */
+  .hero{background:radial-gradient(900px 420px at 80% -10%, #3b2a5e 0%, transparent 60%),linear-gradient(180deg,#0d0a14,#141021);color:#fff;padding:70px 0 84px;position:relative;overflow:hidden;}
+  .hero .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.25);border:1px solid rgba(167,139,250,.5);color:#e9e2ff;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:999px;margin-bottom:22px;}
+  .hero h1{font-size:clamp(34px,6vw,58px);line-height:1.05;letter-spacing:-.03em;font-weight:850;}
+  .hero h1 .g{background:linear-gradient(90deg,#a78bfa,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p.lead{color:#c4bdd4;font-size:17px;margin:20px 0 30px;max-width:620px;}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap;}
+  .hero .stats{display:flex;gap:34px;margin-top:40px;flex-wrap:wrap;}
+  .hero .stat b{display:block;font-size:26px;font-weight:850;}
+  .hero .stat span{color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;}
+
+  section{padding:66px 0;}
+  .eyebrow{color:var(--brand);font-weight:800;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;}
+  h2.sec{font-size:clamp(24px,3.4vw,34px);font-weight:850;letter-spacing:-.02em;margin:8px 0 8px;}
+  .sub{color:var(--ink2);font-size:15.5px;max-width:620px;margin-bottom:34px;}
+
+  /* Skills */
+  .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{background:var(--lav);color:var(--brand);border-radius:8px;padding:7px 13px;font-size:13px;font-weight:600;}
+
+  /* Projects */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:900px){.grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.grid{grid-template-columns:1fr;}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s;}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .card .thumb{height:150px;background:var(--lav);overflow:hidden;position:relative;}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+  .card .thumb.grad{background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;font-size:44px;}
+  .card .body{padding:16px;display:flex;flex-direction:column;flex:1;}
+  .card .t{font-size:16px;font-weight:800;}
+  .card .dom{font-size:11px;color:var(--brand);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin:2px 0 8px;}
+  .card .desc{font-size:13.5px;color:var(--ink2);flex:1;}
+  .card .links{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap;}
+  .card .links a{font-size:12.5px;font-weight:700;padding:6px 11px;border-radius:8px;background:var(--lav);color:var(--brand);}
+  .card .links a.live{background:var(--brand);color:#fff;}
+  .card .links a:hover{filter:brightness(1.05);}
+
+  /* About / contact band */
+  .band{background:linear-gradient(135deg,#1e1533,#2a0f3d);color:#fff;border-radius:24px;padding:44px 38px;position:relative;overflow:hidden;}
+  .band::after{content:"";position:absolute;right:-100px;top:-100px;width:320px;height:320px;background:radial-gradient(circle,rgba(124,58,237,.5),transparent 70%);}
+  .band .in2{position:relative;z-index:1;}
+  .band h2{font-size:clamp(22px,3vw,30px);font-weight:850;margin-bottom:12px;}
+  .band p{color:#d7cfe6;font-size:15.5px;max-width:640px;margin-bottom:22px;}
+  .band .cta{display:flex;gap:12px;flex-wrap:wrap;}
+
+  footer{padding:34px 0 50px;color:var(--muted);font-size:13.5px;text-align:center;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap in">
+      <a class="brand" href="#top">Aastha<span class="d">.</span></a>
+      <nav class="links">
+        <a class="hide" href="#projects">Projects</a>
+        <a class="hide" href="#skills">Skills</a>
+        <a href="resume/Aastha-Saini-Resume.pdf" target="_blank">Résumé</a>
+        <a href="https://github.com/AASTHA381">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <a id="top"></a>
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge">✦ Aspiring Product Manager · Builds 0→1</span>
+      <h1>I turn real problems<br>into <span class="g">shipped products.</span></h1>
+      <p class="lead">MBA candidate and hands-on builder. I take products end-to-end — research → PRD → design → build → deploy — across AI, fintech, marketplaces, real-time social and productivity. Here are 8 I've shipped, each with a full case study.</p>
+      <div class="cta">
+        <a class="btn btn-p" href="#projects">View projects ↓</a>
+        <a class="btn btn-g" href="resume/Aastha-Saini-Resume.pdf" target="_blank">📄 Download résumé</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>8</b><span>Live products</span></div>
+        <div class="stat"><b>8</b><span>Full PRDs</span></div>
+        <div class="stat"><b>0→1</b><span>End-to-end</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="eyebrow">Selected work</div>
+      <h2 class="sec">Products I designed & built</h2>
+      <p class="sub">Each links to a live demo, a detailed PRD (problem, personas, metrics, flowcharts, roadmap) and the code.</p>
+      <div class="grid" id="projGrid"></div>
+    </div>
+  </section>
+
+  <section id="skills" style="padding-top:0;">
+    <div class="wrap">
+      <div class="eyebrow">How I work</div>
+      <h2 class="sec">Product skills & toolkit</h2>
+      <p class="sub">Problem-first, metrics-informed, and pragmatic about shipping.</p>
+      <div class="tags">
+        <span class="tag">Product Discovery</span><span class="tag">PRDs & Specs</span><span class="tag">User Research</span>
+        <span class="tag">Roadmapping</span><span class="tag">Success Metrics</span><span class="tag">Prioritisation</span>
+        <span class="tag">Wireframing / UX</span><span class="tag">AI-native products</span><span class="tag">Rapid Prototyping</span>
+        <span class="tag">Go-to-market thinking</span><span class="tag">HTML · CSS · JS</span><span class="tag">Node.js</span>
+        <span class="tag">Firebase</span><span class="tag">LLM APIs (Groq)</span><span class="tag">Data-informed decisions</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="band">
+        <div class="in2">
+          <h2>Let's build something.</h2>
+          <p>I'm looking for product roles where I can own problems 0→1. Explore the case studies, grab my résumé, or reach out.</p>
+          <div class="cta">
+            <a class="btn btn-w" href="resume/Aastha-Saini-Resume.pdf" target="_blank">📄 Résumé</a>
+            <a class="btn btn-g" href="https://github.com/AASTHA381/portfolio">📚 All case studies</a>
+            <a class="btn btn-g" href="mailto:your.email@example.com">✉️ Email me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">Built & designed by Aastha Saini · <a href="https://github.com/AASTHA381" style="color:var(--brand);font-weight:700;">github.com/AASTHA381</a></div>
+  </footer>
+
+<script>
+  const RAW = "https://raw.githubusercontent.com/AASTHA381";
+  const projects = [
+    { name:"SmartCart", emoji:"🛍️", dom:"Consumer fintech · AI",
+      desc:"AI decision assistant that gives an objective Buy / Wait / Don't-buy verdict by reasoning over your budget, spending & goals — not just price.",
+      img:RAW+"/SmartCart/main/docs/screenshots/01-landing.png",
+      live:"https://smartcart-c2ci.onrender.com", prd:"https://github.com/AASTHA381/SmartCart/blob/main/docs/PRD.md", code:"https://github.com/AASTHA381/SmartCart" },
+    { name:"TeamMatch", emoji:"🤝", dom:"Edu marketplace",
+      desc:"Fit-ranked teammate matching for MBA group projects — by complementary skills, availability & goals. Used by a live batch of ~146.",
+      img:RAW+"/TeamMatch/main/docs/screenshots/01-signin.png",
+      live:"https://aastha381.github.io/TeamMatch/", prd:"https://github.com/AASTHA381/TeamMatch/blob/main/docs/PRD.md", code:"https://github.com/AASTHA381/TeamMatch" },
+    { name:"DayFlow", emoji:"🌙", dom:"Health · productivity",
+      desc:"Sleep planner that computes your earliest safe bedtime from class, gym & tasks, with photo-to-dismiss alarms verified on-device.",
+      img:RAW+"/DayFlow-Sleep-Planner/main/docs/screenshots/02-planner.png",
+      live:"https://aastha381.github.io/DayFlow-Sleep-Planner/", prd:"https://github.com/AASTHA381/DayFlow-Sleep-Planner/blob/main/docs/PRD.md", code:"https://github.com/AASTHA381/DayFlow-Sleep-Planner" },
+    { name:"YatraYatri", emoji:"🏔️", dom:"B2B · real client",
+      desc:"Live investment planner for a trek-tourism founder: 7-category allocation, a 0–100 readiness score and real-time risk alerts.",
+      img:RAW+"/yatrayatri-planner/main/docs/screenshots/01-planner.png",
+      live:"https://aastha381.github.io/yatrayatri-planner/", prd:"https://github.com/AASTHA381/yatrayatri-planner/blob/main/docs/PRD.md", code:"https://github.com/AASTHA381/yatrayatri-planner" },
+    { name:"FoodMatch", emoji:"🍛", dom:"Social · real-time",
+      desc:"Tinder-style group restaurant matcher — everyone swipes on nearby places, first mutual match wins. Serverless real-time, OSM data.",
+      img:RAW+"/tinder-style-restaurant-matcher/main/docs/screenshots/01-home.png",
+      live:"https://aastha381.github.io/tinder-style-restaurant-matcher/", prd:"https://github.com/AASTHA381/tinder-style-restaurant-matcher/blob/main/docs/PRD.md", code:"https://github.com/AASTHA381/tinder-style-restaurant-matcher" },
+    { name:"PM Study Planner", emoji:"🎯", dom:"Habit · learning",
+      desc:"Flexible daily study planner with streaks, per-course progress grids, history and a monthly heatmap. Offline PWA.",
+      img:RAW+"/pm-study-planner/main/docs/screenshots/01-today.png",
+      live:"https://aastha381.github.io/pm-study-planner/", prd:"https://github.com/AASTHA381/pm-study-planner/blob/main/docs/PRD.md", code:"https://github.com/AASTHA381/pm-study-planner" },
+    { name:"ClassTrack", emoji:"📚", dom:"Consumer utility",
+      desc:"Attendance tracker that turns the miss-limit rule into a live 'safe skips left' number per subject, colour-coded.",
+      img:RAW+"/Attendence-Tracker-App/main/docs/screenshots/01-dashboard.png",
+      live:"https://aastha381.github.io/Attendence-Tracker-App/", prd:"https://github.com/AASTHA381/Attendence-Tracker-App/blob/main/docs/PRD.md", code:"https://github.com/AASTHA381/Attendence-Tracker-App" },
+    { name:"LinkVault", emoji:"🔗", dom:"Productivity · KM",
+      desc:"Chrome extension that saves links, PDFs & docs into categories with AI-generated plain-language summaries and full-text search.",
+      img:null,
+      live:null, prd:"https://github.com/AASTHA381/link-vault-extension/blob/main/docs/PRD.md", code:"https://github.com/AASTHA381/link-vault-extension" },
+  ];
+  const grid = document.getElementById("projGrid");
+  grid.innerHTML = projects.map(p => `
+    <article class="card reveal">
+      <div class="thumb ${p.img ? "" : "grad"}">${p.img ? `<img loading="lazy" src="${p.img}" alt="${p.name}">` : p.emoji}</div>
+      <div class="body">
+        <div class="t">${p.emoji} ${p.name}</div>
+        <div class="dom">${p.dom}</div>
+        <div class="desc">${p.desc}</div>
+        <div class="links">
+          ${p.live ? `<a class="live" href="${p.live}" target="_blank">Live ↗</a>` : ""}
+          <a href="${p.prd}" target="_blank">PRD</a>
+          <a href="${p.code}" target="_blank">Code</a>
+        </div>
+      </div>
+    </article>`).join("");
+
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }), {threshold:.12});
+  document.querySelectorAll(".reveal").forEach((n,i)=>{ n.style.transitionDelay=(i%3)*0.06+"s"; io.observe(n); });
+</script>
+</body>
+</html>
