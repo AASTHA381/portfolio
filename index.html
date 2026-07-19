@@ -3,177 +3,198 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#0F172A" />
-<title>Aastha Saini — Technical Product Manager</title>
-<meta name="description" content="Technical Product Manager specializing in analytics and B2B platforms. Data/finance background transitioning into product — building data-driven, scalable products." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="theme-color" content="#ffffff" />
+<title>Aastha Saini — Product Manager · Analytics</title>
+<meta name="description" content="Product Manager specializing in analytics and data-driven products. Building data-driven marketplaces and scalable products." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0F172A; --bg-2:#0b1120; --panel:#131c31; --panel-2:#0f1830;
-    --ink:#f1f5f9; --ink-2:#94a3b8; --ink-3:#64748b;
-    --line:rgba(148,163,184,.14); --line-2:rgba(148,163,184,.28);
-    --accent:#6366f1; --accent-2:#22d3ee; --accent-glow:rgba(99,102,241,.45);
-    --radius:18px;
-    --maxw:1120px;
+    --bg:#ffffff; --panel:#f8fafc; --panel-2:#f1f5f9;
+    --ink:#0f172a; --ink-2:#475569; --ink-3:#94a3b8;
+    --line:#eef2f7; --line-2:#e2e8f0;
+    --blue:#3b82f6; --violet:#8b5cf6; --mint:#34d399; --teal:#14b8a6;
+    --grad:linear-gradient(120deg,#3b82f6,#8b5cf6);
+    --grad-2:linear-gradient(120deg,#34d399,#14b8a6);
+    --soft:0 10px 40px -14px rgba(15,23,42,.10);
+    --soft-lg:0 24px 60px -22px rgba(15,23,42,.16);
+    --radius:20px;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
-  }
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
   a{color:inherit;text-decoration:none;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
-  ::selection{background:var(--accent);color:#fff;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+  ::selection{background:#ddd6fe;color:#0f172a;}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 
-  /* Background layers */
-  .bg-mesh{position:fixed;inset:-20%;z-index:-2;pointer-events:none;
+  /* Page-load mask */
+  #mask{position:fixed;inset:0;z-index:200;background:#fff;display:grid;place-items:center;transition:opacity .5s ease,visibility .5s;}
+  #mask.gone{opacity:0;visibility:hidden;}
+  #mask .m-logo{font-weight:800;font-size:20px;letter-spacing:-.02em;opacity:0;animation:mfade 1s ease forwards;}
+  @keyframes mfade{0%{opacity:0;transform:translateY(6px);}100%{opacity:1;transform:none;}}
+
+  /* Backgrounds */
+  .bg-dots{position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background-image:radial-gradient(#e2e8f0 1px,transparent 1px);background-size:26px 26px;
+    -webkit-mask-image:radial-gradient(circle at 50% 22%,#000,transparent 72%);mask-image:radial-gradient(circle at 50% 22%,#000,transparent 72%);opacity:.7;}
+  .bg-mesh{position:fixed;inset:-25%;z-index:-3;pointer-events:none;filter:blur(30px);opacity:.7;
     background:
-      radial-gradient(600px 400px at 20% 15%, rgba(99,102,241,.28), transparent 60%),
-      radial-gradient(560px 420px at 82% 30%, rgba(34,211,238,.16), transparent 60%),
-      radial-gradient(500px 500px at 60% 90%, rgba(99,102,241,.14), transparent 60%);
-    transition:transform .3s cubic-bezier(.2,.7,.3,1);will-change:transform;}
-  .bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
-    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-    background-size:54px 54px;
-    mask-image:radial-gradient(circle at 50% 30%, #000 0%, transparent 78%);
-    -webkit-mask-image:radial-gradient(circle at 50% 30%, #000 0%, transparent 78%);}
+      radial-gradient(420px 380px at 22% 20%, rgba(59,130,246,.20), transparent 60%),
+      radial-gradient(420px 360px at 80% 24%, rgba(139,92,246,.18), transparent 60%),
+      radial-gradient(420px 400px at 62% 78%, rgba(52,211,153,.16), transparent 62%);
+    transition:transform .4s cubic-bezier(.2,.7,.3,1);will-change:transform;}
 
   /* Nav */
-  header.nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);background:rgba(15,23,42,.6);border-bottom:1px solid transparent;transition:border-color .3s,background .3s;}
-  header.nav.scrolled{border-color:var(--line);background:rgba(11,17,32,.8);}
+  header.nav{position:sticky;top:0;z-index:80;transition:background .3s,border-color .3s,box-shadow .3s;border-bottom:1px solid transparent;}
+  header.nav.scrolled{background:rgba(255,255,255,.72);backdrop-filter:blur(14px);border-color:var(--line);box-shadow:0 4px 24px -18px rgba(15,23,42,.3);}
   .nav .in{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
   .logo{font-weight:800;font-size:17px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px;}
-  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent-glow);}
-  .nav .links{display:flex;gap:30px;align-items:center;}
+  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--grad);}
+  .nav .links{display:flex;gap:28px;align-items:center;}
   .nav .links a{font-size:14px;font-weight:500;color:var(--ink-2);transition:color .2s;}
   .nav .links a:hover{color:var(--ink);}
-  .nav .links .cta{background:var(--accent);color:#fff;padding:9px 16px;border-radius:10px;font-weight:600;}
-  .nav .links .cta:hover{filter:brightness(1.1);color:#fff;}
+  .nav .links .cta{background:var(--ink);color:#fff;padding:9px 16px;border-radius:10px;font-weight:600;}
+  .nav .links .cta:hover{color:#fff;filter:brightness(1.15);}
   @media(max-width:760px){.nav .links a.hide{display:none;}}
 
-  .btn{display:inline-flex;align-items:center;gap:9px;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;padding:14px 24px;transition:transform .12s,box-shadow .25s,background .2s,border-color .2s;font-family:inherit;}
+  .btn{display:inline-flex;align-items:center;gap:9px;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;padding:14px 24px;transition:transform .12s,box-shadow .25s,background .25s,color .25s,border-color .25s;font-family:inherit;border:1px solid transparent;}
   .btn:active{transform:scale(.98);}
-  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 30px -8px var(--accent-glow);}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px -8px var(--accent-glow);}
-  .btn-ghost{background:rgba(148,163,184,.08);color:var(--ink);border:1px solid var(--line-2);}
-  .btn-ghost:hover{border-color:var(--accent);color:#fff;}
+  .btn-outline{background:#fff;color:var(--ink);border-color:var(--line-2);box-shadow:var(--soft);position:relative;overflow:hidden;}
+  .btn-outline span{position:relative;z-index:1;}
+  .btn-outline::before{content:"";position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .3s;}
+  .btn-outline:hover{color:#fff;border-color:transparent;}
+  .btn-outline:hover::before{opacity:1;}
+  .btn-magnet{background:transparent;color:var(--ink);font-weight:700;padding:14px 12px;will-change:transform;}
+  .btn-magnet:hover{color:var(--violet);}
 
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2);}
-  .eyebrow::before{content:"";width:24px;height:1px;background:var(--accent-2);}
-  h2.sec{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.03em;margin:14px 0 12px;line-height:1.1;}
-  .sec-sub{color:var(--ink-2);font-size:16px;max-width:600px;margin-bottom:44px;}
-  section{padding:96px 0;position:relative;}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);}
+  .eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--grad);}
+  h2.sec{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:14px 0 12px;}
+  .sec-sub{color:var(--ink-2);font-size:16.5px;max-width:600px;margin-bottom:46px;}
+  section{padding:100px 0;position:relative;}
 
   /* Hero */
-  .hero{padding:120px 0 90px;position:relative;}
-  .hero .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 15px;border-radius:999px;border:1px solid var(--line-2);background:rgba(99,102,241,.1);font-size:13px;font-weight:500;color:#c7d2fe;margin-bottom:28px;}
-  .hero .badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 0 rgba(34,211,238,.6);animation:pulse 2s infinite;}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,211,238,.5);}70%{box-shadow:0 0 0 10px rgba(34,211,238,0);}100%{box-shadow:0 0 0 0 rgba(34,211,238,0);}}
-  .hero h1{font-size:clamp(38px,7vw,74px);font-weight:900;letter-spacing:-.04em;line-height:1.02;}
-  .hero h1 .grad{background:linear-gradient(110deg,#818cf8 10%,#22d3ee 60%,#818cf8 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite;}
-  @keyframes shine{to{background-position:200% center;}}
-  .hero p.lead{color:var(--ink-2);font-size:clamp(16px,2vw,19px);margin:26px 0 34px;max-width:620px;}
-  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
-  .hero .metrics{display:flex;gap:40px;margin-top:56px;flex-wrap:wrap;}
-  .hero .metric b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;background:linear-gradient(120deg,#fff,#c7d2fe);-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .hero .metric span{color:var(--ink-3);font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;}
+  .hero{padding:120px 0 84px;}
+  .badge{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.6);backdrop-filter:blur(8px);font-size:13px;font-weight:600;color:var(--ink-2);box-shadow:var(--soft);margin-bottom:26px;opacity:0;animation:fadeUp .7s ease forwards;}
+  .badge .pd{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.5);}70%{box-shadow:0 0 0 9px rgba(52,211,153,0);}100%{box-shadow:0 0 0 0 rgba(52,211,153,0);}}
+  h1.hero-h{font-size:clamp(38px,7vw,76px);font-weight:900;letter-spacing:-.045em;line-height:1.01;}
+  h1.hero-h .w{display:inline-block;opacity:0;transform:translateY(24px);animation:wordUp .7s cubic-bezier(.2,.7,.3,1) forwards;}
+  @keyframes wordUp{to{opacity:1;transform:none;}}
+  .hero p.lead{color:var(--ink-2);font-size:clamp(16px,2vw,19px);margin:26px 0 34px;max-width:620px;opacity:0;animation:fadeUp .7s ease .5s forwards;}
+  .hero .cta-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .7s ease .62s forwards;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(16px);}100%{opacity:1;transform:none;}}
 
-  .fade{opacity:0;transform:translateY(22px);animation:fadeUp .8s cubic-bezier(.2,.7,.3,1) forwards;}
-  .fade.d1{animation-delay:.08s;} .fade.d2{animation-delay:.18s;} .fade.d3{animation-delay:.28s;} .fade.d4{animation-delay:.4s;} .fade.d5{animation-delay:.52s;}
-  @keyframes fadeUp{to{opacity:1;transform:none;}}
-
-  /* Bento skills */
+  /* Bento */
   .bento{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
   @media(max-width:860px){.bento{grid-template-columns:1fr 1fr;}}
   @media(max-width:560px){.bento{grid-template-columns:1fr;}}
-  .tile{position:relative;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:var(--radius);padding:24px;overflow:hidden;transform-style:preserve-3d;transition:transform .2s ease,border-color .3s;will-change:transform;}
-  .tile::before{content:"";position:absolute;inset:0;border-radius:var(--radius);padding:1px;background:radial-gradient(200px circle at var(--mx,50%) var(--my,50%),var(--accent),transparent 60%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;pointer-events:none;}
-  .tile:hover::before{opacity:1;}
-  .tile .ic{width:46px;height:46px;border-radius:12px;background:rgba(99,102,241,.14);display:grid;place-items:center;font-size:22px;margin-bottom:16px;border:1px solid var(--line);}
-  .tile h3{font-size:17px;font-weight:700;letter-spacing:-.01em;}
-  .tile p{color:var(--ink-2);font-size:13.5px;margin-top:6px;}
+  .tile{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--soft);transition:transform .2s ease,box-shadow .3s;transform-style:preserve-3d;will-change:transform;overflow:hidden;}
+  .tile .glow{position:absolute;inset:-40%;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.16),transparent 55%);opacity:0;transition:opacity .35s;pointer-events:none;}
+  .tile:hover{box-shadow:var(--soft-lg);} .tile:hover .glow{opacity:1;}
+  .tile .ic{width:44px;height:44px;border-radius:12px;background:var(--panel-2);display:grid;place-items:center;font-size:21px;margin-bottom:14px;}
+  .tile h3{font-size:16.5px;font-weight:700;letter-spacing:-.01em;position:relative;}
+  .tile p{color:var(--ink-2);font-size:13.5px;margin-top:6px;position:relative;}
+  .tile .viz{margin-top:14px;height:52px;position:relative;}
+  /* line graph */
+  .spark{width:100%;height:52px;}
+  .spark path.l{fill:none;stroke:url(#g1);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;}
+  .tile.in .spark path.l{animation:draw 1.6s ease forwards;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  .spark path.a{fill:url(#g2);opacity:0;transition:opacity .8s .6s;} .tile.in .spark path.a{opacity:.14;}
+  .spark circle{fill:#8b5cf6;opacity:0;} .tile.in .spark circle{animation:pop .4s 1.4s forwards;}
+  @keyframes pop{to{opacity:1;}}
+  /* wireframe toggle */
+  .wf{display:flex;flex-direction:column;gap:5px;cursor:pointer;}
+  .wf .bar{height:8px;border-radius:4px;border:1.5px dashed var(--line-2);background:transparent;transition:all .3s;}
+  .wf .bar.b1{width:70%;} .wf .bar.b2{width:100%;height:16px;} .wf .bar.b3{width:45%;}
+  .tile.hifi .wf .bar{border-style:solid;border-color:transparent;background:var(--panel-2);}
+  .tile.hifi .wf .bar.b2{background:var(--grad);}
+  .wf-hint{font-size:11px;color:var(--ink-3);margin-top:8px;}
 
-  /* Projects */
-  .projects{display:flex;flex-direction:column;gap:22px;}
-  .proj{display:grid;grid-template-columns:1.05fr .95fr;gap:0;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .3s cubic-bezier(.2,.7,.3,1),border-color .3s,box-shadow .3s;}
-  .proj:hover{transform:scale(1.02);border-color:var(--line-2);box-shadow:0 30px 60px -30px rgba(0,0,0,.7);}
-  @media(max-width:820px){.proj{grid-template-columns:1fr;}}
-  .proj .info{padding:32px;display:flex;flex-direction:column;}
-  .proj .num{font-size:12px;font-weight:700;color:var(--accent-2);letter-spacing:.1em;}
-  .proj h3{font-size:24px;font-weight:800;letter-spacing:-.02em;margin:8px 0 4px;}
-  .proj .role{color:var(--ink-3);font-size:13px;font-weight:500;margin-bottom:14px;}
-  .proj .blurb{color:var(--ink-2);font-size:14.5px;margin-bottom:16px;}
-  .proj .kpis{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:16px;}
-  .proj .kpi b{display:block;font-size:19px;font-weight:800;color:#fff;}
-  .proj .kpi span{font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;}
-  .pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
-  .pill{font-size:11.5px;font-weight:600;color:#c7d2fe;background:rgba(99,102,241,.12);border:1px solid var(--line);padding:4px 10px;border-radius:999px;}
-  .proj .actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;}
-  .proj .actions a{font-size:13px;font-weight:600;padding:9px 15px;border-radius:10px;transition:all .2s;}
-  .proj .actions a.read{background:var(--accent);color:#fff;}
-  .proj .actions a.read:hover{filter:brightness(1.12);}
-  .proj .actions a.sec{border:1px solid var(--line-2);color:var(--ink-2);}
-  .proj .actions a.sec:hover{color:#fff;border-color:var(--accent);}
-  .proj .media{position:relative;background:#0b1120;overflow:hidden;min-height:240px;}
-  .proj .media img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .5s ease;}
-  .proj:hover .media img{transform:scale(1.05);}
-  .proj .media.grad{display:grid;place-items:center;font-size:64px;background:linear-gradient(135deg,#312e81,#0e7490);}
-  .proj .media .tagline{position:absolute;bottom:0;left:0;right:0;padding:24px 16px 14px;background:linear-gradient(transparent,rgba(11,17,32,.9));font-size:12px;color:var(--ink-2);}
-
-  /* More builds strip */
-  .more{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px;}
-  @media(max-width:820px){.more{grid-template-columns:1fr 1fr;}}
-  .more a{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;transition:transform .2s,border-color .2s;}
-  .more a:hover{transform:translateY(-3px);border-color:var(--accent);}
-  .more .mt{font-weight:700;font-size:14.5px;}
-  .more .md{color:var(--ink-3);font-size:12px;margin-top:3px;}
+  /* Case studies — sticky stacked */
+  .cases-stack{position:relative;}
+  .case{position:sticky;top:96px;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--soft-lg);overflow:hidden;margin-bottom:26px;display:grid;grid-template-columns:1.02fr .98fr;will-change:transform;}
+  @media(max-width:840px){.case{grid-template-columns:1fr;top:80px;}}
+  .case .c-info{padding:34px;}
+  .case .c-num{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--violet);}
+  .case h3{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:8px 0 3px;}
+  .case .c-role{color:var(--ink-3);font-size:13px;font-weight:600;margin-bottom:14px;}
+  .case .c-blurb{color:var(--ink-2);font-size:14.5px;margin-bottom:18px;}
+  .case .c-kpis{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:18px;}
+  .case .c-kpi b{display:block;font-size:26px;font-weight:900;letter-spacing:-.02em;}
+  .case .c-kpi b .grad-text{font-weight:900;}
+  .case .c-kpi span{font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;}
+  .pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px;}
+  .pill{font-size:11.5px;font-weight:600;color:var(--ink-2);background:var(--panel-2);border:1px solid var(--line);padding:5px 11px;border-radius:999px;transition:all .2s;cursor:default;}
+  .pill:hover{color:#fff;background:var(--grad);border-color:transparent;transform:translateY(-1px) scale(1.04);}
+  .case .c-actions{display:flex;gap:10px;flex-wrap:wrap;}
+  .case .c-actions a{font-size:13px;font-weight:600;padding:9px 15px;border-radius:10px;transition:all .2s;}
+  .case .c-actions a.read{background:var(--ink);color:#fff;}
+  .case .c-actions a.read:hover{filter:brightness(1.18);}
+  .case .c-actions a.sec{border:1px solid var(--line-2);color:var(--ink-2);}
+  .case .c-actions a.sec:hover{color:var(--ink);border-color:var(--violet);}
+  .case .c-media{background:var(--panel-2);position:relative;overflow:hidden;min-height:260px;}
+  .case .c-media img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+  .case .c-media.grad{display:grid;place-items:center;font-size:64px;background:var(--grad);}
 
   /* Timeline */
-  .tl{position:relative;padding-left:38px;}
-  .tl .rail{position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:var(--line);border-radius:2px;overflow:hidden;}
-  .tl .rail .fill{position:absolute;top:0;left:0;right:0;height:0;background:linear-gradient(var(--accent),var(--accent-2));transition:height .1s linear;}
-  .tl .item{position:relative;padding:0 0 34px;}
+  .tl{position:relative;padding-left:40px;}
+  .tl .rail{position:absolute;left:12px;top:6px;bottom:6px;width:3px;background:var(--line-2);border-radius:3px;overflow:hidden;}
+  .tl .rail .fill{position:absolute;top:0;left:0;right:0;height:0;background:var(--grad);transition:height .1s linear;}
+  .tl .item{position:relative;padding-bottom:34px;opacity:.45;transition:opacity .5s;}
+  .tl .item.lit{opacity:1;}
   .tl .item:last-child{padding-bottom:0;}
-  .tl .node{position:absolute;left:-33px;top:3px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--line-2);transition:all .3s;}
-  .tl .item.lit .node{border-color:var(--accent-2);background:var(--accent-2);box-shadow:0 0 16px var(--accent-glow);}
-  .tl .when{font-size:12px;font-weight:600;color:var(--accent-2);letter-spacing:.04em;}
+  .tl .node{position:absolute;left:-34px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;border:2.5px solid var(--line-2);transition:all .35s;}
+  .tl .item.lit .node{border-color:var(--violet);background:var(--violet);box-shadow:0 0 0 5px rgba(139,92,246,.14);}
+  .tl .when{font-size:12px;font-weight:700;color:var(--violet);letter-spacing:.04em;}
   .tl h3{font-size:18px;font-weight:700;margin:3px 0 2px;}
   .tl .org{color:var(--ink-2);font-size:14px;}
   .tl p{color:var(--ink-3);font-size:13.5px;margin-top:6px;max-width:560px;}
 
-  /* Certifications marquee */
-  .marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
-  .marquee .track{display:flex;gap:14px;width:max-content;animation:scrollx 26s linear infinite;}
+  /* Marquee dual lane */
+  .marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
+  .marquee + .marquee{margin-top:14px;}
+  .track{display:flex;gap:14px;width:max-content;}
+  .track.l{animation:mL 30s linear infinite;} .track.r{animation:mR 30s linear infinite;}
   .marquee:hover .track{animation-play-state:paused;}
-  @keyframes scrollx{to{transform:translateX(-50%);}}
-  .cert{white-space:nowrap;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:14px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:10px;}
-  .cert .c-ic{color:var(--accent-2);}
+  @keyframes mL{to{transform:translateX(-50%);}} @keyframes mR{from{transform:translateX(-50%);}to{transform:translateX(0);}}
+  .cert{white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 20px;font-size:14px;font-weight:600;color:var(--ink-3);display:flex;align-items:center;gap:10px;filter:grayscale(1);opacity:.8;transition:all .3s;box-shadow:var(--soft);}
+  .cert:hover{filter:grayscale(0);opacity:1;color:var(--ink);transform:translateY(-2px);}
+  .cert .ci{font-size:16px;}
 
   /* Contact */
-  .contact{text-align:center;padding-bottom:40px;}
-  .contact h2{font-size:clamp(32px,6vw,64px);font-weight:900;letter-spacing:-.03em;line-height:1.05;}
-  .contact h2 a{background:linear-gradient(110deg,#818cf8,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent;transition:opacity .2s;}
-  .contact h2 a:hover{opacity:.75;}
-  .contact .links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px;}
-  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--ink-3);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .contact{text-align:center;}
+  .contact h2{font-size:clamp(34px,6.5vw,68px);font-weight:900;letter-spacing:-.03em;line-height:1.04;}
+  .contact .sub{color:var(--ink-2);font-size:17px;margin:16px auto 30px;max-width:520px;}
+  .social{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .sbtn{display:inline-flex;align-items:center;gap:9px;padding:13px 20px;border-radius:12px;border:1px solid var(--line-2);background:#fff;box-shadow:var(--soft);font-weight:600;font-size:14px;will-change:transform;transition:transform .12s,border-color .2s,color .2s;}
+  .sbtn:hover{border-color:var(--violet);color:var(--violet);}
+  .sbtn.copied{border-color:var(--mint);color:var(--teal);}
+  #confetti{position:fixed;inset:0;pointer-events:none;z-index:120;overflow:hidden;}
+  #confetti i{position:absolute;width:8px;height:13px;border-radius:2px;top:-10vh;animation:cf linear forwards;}
+  @keyframes cf{to{transform:translateY(115vh) rotate(680deg);opacity:.9;}}
 
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
+  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--ink-3);font-size:13px;}
+  footer .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
   .reveal.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;} .fade,.reveal{opacity:1!important;transform:none!important;}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;} .reveal,.badge,.hero p.lead,.hero .cta-row,h1.hero-h .w{opacity:1!important;transform:none!important;}}
 </style>
 </head>
 <body>
+  <div id="mask"><div class="m-logo grad-text">Aastha Saini</div></div>
   <div class="bg-mesh" id="mesh"></div>
-  <div class="bg-grid"></div>
+  <div class="bg-dots"></div>
+  <div id="confetti"></div>
 
   <header class="nav" id="nav">
     <div class="wrap in">
       <a class="logo" href="#top"><span class="dot"></span>Aastha Saini</a>
       <nav class="links">
-        <a class="hide" href="#expertise">Expertise</a>
+        <a class="hide" href="#capabilities">Capabilities</a>
         <a class="hide" href="#work">Case Studies</a>
         <a class="hide" href="#experience">Experience</a>
         <a class="cta" href="resume/Aastha-Saini-Resume.pdf" target="_blank">Résumé</a>
@@ -185,35 +206,57 @@
   <a id="top"></a>
   <section class="hero">
     <div class="wrap">
-      <div class="badge fade"><span class="pulse"></span>Technical PM · Analytics · B2B Platforms</div>
-      <h1 class="fade d1">Building <span class="grad">data-driven</span><br>B2B products that scale.</h1>
-      <p class="lead fade d2">Product manager with a data & finance analytics background, now shipping technical products 0→1. I turn ambiguous problems into instrumented, high-leverage products — from AI decision engines to two-sided marketplaces.</p>
-      <div class="cta-row fade d3">
-        <a class="btn btn-primary" href="#work">View case studies</a>
-        <a class="btn btn-ghost" href="LINKEDIN_URL" target="_blank">Connect on LinkedIn →</a>
-      </div>
-      <div class="metrics fade d4">
-        <div class="metric"><b>8</b><span>Products shipped 0→1</span></div>
-        <div class="metric"><b>8</b><span>Full PRDs written</span></div>
-        <div class="metric"><b>~146</b><span>Users on a live product</span></div>
+      <div class="badge"><span class="pd"></span>Product Manager · Analytics · Data-Driven Products</div>
+      <h1 class="hero-h" id="heroH"></h1>
+      <p class="lead">A product manager with an analytics and finance foundation, now shipping data-driven products 0→1. I turn ambiguous problems into instrumented, scalable products — from AI decision engines to two-sided marketplaces.</p>
+      <div class="cta-row">
+        <a class="btn btn-outline" href="#work"><span>View case studies</span></a>
+        <a class="btn btn-magnet" data-magnet href="LINKEDIN_URL" target="_blank">Connect on LinkedIn →</a>
       </div>
     </div>
   </section>
 
-  <!-- EXPERTISE -->
-  <section id="expertise">
+  <!-- CAPABILITIES -->
+  <section id="capabilities">
     <div class="wrap">
-      <div class="reveal"><span class="eyebrow">Core expertise</span>
-        <h2 class="sec">The PM toolkit I lead with</h2>
-        <p class="sec-sub">Technical fluency plus analytical rigour — I speak both product and data.</p>
+      <div class="reveal"><span class="eyebrow">Core capabilities</span>
+        <h2 class="sec">Where product meets <span class="grad-text">data</span></h2>
+        <p class="sec-sub">Analytical rigour and technical fluency — hover the cards.</p>
       </div>
       <div class="bento" id="bento">
-        <div class="tile reveal"><div class="ic">🧭</div><h3>Product Strategy & Roadmap</h3><p>Problem framing, prioritisation, and outcome-driven roadmaps tied to metrics.</p></div>
-        <div class="tile reveal"><div class="ic">📊</div><h3>Data Analytics & Visualization</h3><p>Turning raw data into dashboards, insights and decisions leaders can act on.</p></div>
-        <div class="tile reveal"><div class="ic">✏️</div><h3>UX Audits & Wireframing</h3><p>Heuristic audits, flows and wireframes that de-risk designs before build.</p></div>
-        <div class="tile reveal"><div class="ic">🔁</div><h3>Agile / Scrum</h3><p>Sprint planning, backlog grooming and shipping in tight, iterative loops.</p></div>
-        <div class="tile reveal"><div class="ic">🐍</div><h3>Product Analytics (SQL / Python)</h3><p>Instrumentation, funnels and cohort analysis to measure what matters.</p></div>
-        <div class="tile reveal"><div class="ic">🏢</div><h3>B2B Marketplaces</h3><p>Two-sided matching, supply/demand balance and trust & safety mechanics.</p></div>
+        <div class="tile" data-viz="graph"><div class="glow"></div>
+          <div class="ic">📊</div><h3>Data Analytics & Visualization</h3><p>Turning raw data into dashboards & decisions.</p>
+          <div class="viz">
+            <svg class="spark" viewBox="0 0 240 52" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+                <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#fff"/></linearGradient>
+              </defs>
+              <path class="a" d="M0,44 L18,36 L48,40 L78,22 L108,30 L140,14 L172,22 L204,8 L240,16 L240,52 L0,52 Z"/>
+              <path class="l" d="M0,44 L18,36 L48,40 L78,22 L108,30 L140,14 L172,22 L204,8 L240,16"/>
+              <circle cx="204" cy="8" r="4"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="tile" data-viz="wf"><div class="glow"></div>
+          <div class="ic">✏️</div><h3>UX Audits & Wireframing</h3><p>De-risking designs before a line of code.</p>
+          <div class="viz"><div class="wf"><div class="bar b1"></div><div class="bar b2"></div><div class="bar b3"></div></div><div class="wf-hint">Tap to preview hi-fi ✦</div></div>
+        </div>
+
+        <div class="tile"><div class="glow"></div>
+          <div class="ic">🧭</div><h3>Product Strategy & Roadmap</h3><p>Outcome-driven roadmaps tied to metrics.</p>
+          <div class="viz" style="display:flex;align-items:flex-end;gap:6px;">
+            <div style="flex:1;height:40%;background:var(--panel-2);border-radius:5px;"></div>
+            <div style="flex:1;height:65%;background:var(--panel-2);border-radius:5px;"></div>
+            <div style="flex:1;height:100%;background:var(--grad);border-radius:5px;"></div>
+            <div style="flex:1;height:55%;background:var(--panel-2);border-radius:5px;"></div>
+          </div>
+        </div>
+
+        <div class="tile"><div class="glow"></div><div class="ic">🐍</div><h3>Product Analytics (SQL / Python)</h3><p>Funnels, cohorts & instrumentation.</p></div>
+        <div class="tile"><div class="glow"></div><div class="ic">🔁</div><h3>Agile / Scrum</h3><p>Shipping in tight, iterative loops.</p></div>
+        <div class="tile"><div class="glow"></div><div class="ic">🏢</div><h3>B2B Marketplaces</h3><p>Two-sided matching, trust & safety.</p></div>
       </div>
     </div>
   </section>
@@ -223,12 +266,9 @@
     <div class="wrap">
       <div class="reveal"><span class="eyebrow">Featured work</span>
         <h2 class="sec">Case studies</h2>
-        <p class="sec-sub">Products I took from problem → PRD → design → build → live. Each has a full case study.</p>
+        <p class="sec-sub">Products taken from problem → PRD → design → build → live. Scroll to stack them.</p>
       </div>
-      <div class="projects" id="projects"></div>
-
-      <div class="reveal" style="margin-top:34px;"><span class="eyebrow">More builds</span></div>
-      <div class="more" id="more"></div>
+      <div class="cases-stack" id="cases"></div>
     </div>
   </section>
 
@@ -237,166 +277,147 @@
     <div class="wrap">
       <div class="reveal"><span class="eyebrow">Trajectory</span>
         <h2 class="sec">From analytics to product</h2>
-        <p class="sec-sub">A data & finance foundation, deliberately moving into product management.</p>
+        <p class="sec-sub">A data & finance foundation, deliberately moving into product.</p>
       </div>
       <div class="tl reveal" id="timeline">
         <div class="rail"><div class="fill" id="tlFill"></div></div>
-        <!-- EDIT these entries with your real companies & dates -->
         <div class="item"><div class="node"></div><div class="when">2024 — Present</div><h3>Product Manager (Trainee)</h3><div class="org">MBA capstone & self-directed 0→1 builds</div><p>Shipped 8 live products with full PRDs — AI decision engines, marketplaces, analytics tools — owning discovery through deploy.</p></div>
-        <div class="item"><div class="node"></div><div class="when">Prior</div><h3>Data Analyst</h3><div class="org">[Company — edit]</div><p>Built dashboards and analyses that informed business decisions; grounded my product instinct in real data.</p></div>
+        <div class="item"><div class="node"></div><div class="when">Prior</div><h3>Data Analyst</h3><div class="org">[Company — edit]</div><p>Dashboards and analyses that informed business decisions; grounded my product instinct in real data.</p></div>
         <div class="item"><div class="node"></div><div class="when">Prior</div><h3>Financial Analyst</h3><div class="org">[Company — edit]</div><p>Financial modelling, reporting and insight generation — the foundation for metrics-driven product thinking.</p></div>
-        <div class="item"><div class="node"></div><div class="when">Education</div><h3>MBA — NMIMS</h3><div class="org">Product / Marketing specialisation</div><p>Relevant coursework: Product Strategy, Consumer Behaviour, AI for Managers, Business Analytics.</p></div>
+        <div class="item"><div class="node"></div><div class="when">Education</div><h3>MBA — NMIMS</h3><div class="org">Product / Marketing specialisation</div><p>Coursework: Product Strategy, Consumer Behaviour, AI for Managers, Business Analytics.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- CERTIFICATIONS -->
+  <!-- CERTS -->
   <section id="certs" style="padding-top:0;">
-    <div class="wrap reveal" style="margin-bottom:26px;">
-      <span class="eyebrow">Credentials</span>
-      <h2 class="sec">Certifications & education</h2>
-    </div>
-    <div class="marquee">
-      <div class="track" id="certTrack"></div>
-    </div>
+    <div class="wrap reveal" style="margin-bottom:26px;"><span class="eyebrow">Credentials</span><h2 class="sec">Certifications & education</h2></div>
+    <div class="marquee"><div class="track l" id="certL"></div></div>
+    <div class="marquee"><div class="track r" id="certR"></div></div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact">
-    <div class="wrap">
-      <div class="reveal">
-        <span class="eyebrow" style="justify-content:center;">Get in touch</span>
-        <h2>Let's <a href="mailto:EMAIL_ADDRESS">build something</a><br>together.</h2>
-        <div class="links">
-          <a class="btn btn-primary" href="mailto:EMAIL_ADDRESS">✉️ Email me</a>
-          <a class="btn btn-ghost" href="LINKEDIN_URL" target="_blank">in · LinkedIn</a>
-          <a class="btn btn-ghost" href="https://github.com/AASTHA381" target="_blank">GitHub</a>
-          <a class="btn btn-ghost" href="resume/Aastha-Saini-Resume.pdf" target="_blank">📄 Résumé</a>
-        </div>
+    <div class="wrap reveal">
+      <span class="eyebrow" style="justify-content:center;">Get in touch</span>
+      <h2>Let's <span class="grad-text">build something</span><br>together.</h2>
+      <p class="sub">Open to product roles where I can own problems 0→1.</p>
+      <div class="social">
+        <button class="sbtn" id="copyBtn" data-magnet>✉️ <span id="copyLabel">Copy email</span></button>
+        <a class="sbtn" data-magnet href="LINKEDIN_URL" target="_blank">in · LinkedIn</a>
+        <a class="sbtn" data-magnet href="https://github.com/AASTHA381" target="_blank">GitHub</a>
+        <a class="sbtn" data-magnet href="resume/Aastha-Saini-Resume.pdf" target="_blank">📄 Résumé</a>
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="wrap in" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:10px;">
-      <span>© <span id="yr"></span> Aastha Saini · Technical Product Manager</span>
-      <span>Designed & built from scratch · <a href="https://github.com/AASTHA381/portfolio" style="color:var(--accent-2);">Source</a></span>
-    </div>
-  </footer>
+  <footer><div class="wrap in">
+    <span>© <span id="yr"></span> Aastha Saini · Product Manager</span>
+    <span>Designed & built from scratch · <a href="https://github.com/AASTHA381/portfolio" style="color:var(--violet);font-weight:600;">Source</a></span>
+  </div></footer>
 
 <script>
-  const RAW = "https://raw.githubusercontent.com/AASTHA381";
-  document.getElementById('yr').textContent = new Date().getFullYear();
+  const RAW="https://raw.githubusercontent.com/AASTHA381";
+  const EMAIL="EMAIL_ADDRESS";
+  document.getElementById('yr').textContent=new Date().getFullYear();
 
-  /* Featured case studies */
-  const featured = [
-    { n:"01", name:"SmartCart", role:"Product & Engineering · 0→1", emoji:"🛍️",
-      blurb:"An AI decision engine that reasons over a user's budget, spending and goals to give an objective Buy / Wait / Don't-buy verdict — analytics + LLM reasoning over real data.",
-      kpis:[["3","Feature phases shipped"],["8","REST endpoints"],["LLM","Reasoning engine"]],
-      tags:["Node.js","Express","Groq LLM","PWA","Product Analytics"],
-      img:RAW+"/SmartCart/main/docs/screenshots/01-landing.png",
-      tagline:"AI-native consumer fintech",
-      prd:"https://github.com/AASTHA381/SmartCart/blob/main/docs/PRD.md", live:"https://smartcart-c2ci.onrender.com", code:"https://github.com/AASTHA381/SmartCart" },
-    { n:"02", name:"TeamMatch", role:"Product Lead · Two-sided marketplace", emoji:"🤝",
-      blurb:"A B2B-style matching platform that ranks teammates by complementary skills, availability and goals — with real-time sync and server-enforced ownership.",
-      kpis:[["~146","Users on live batch"],["Real-time","Firestore sync"],["Auth","Ownership rules"]],
-      tags:["Firebase","Firestore","Auth","Matching Engine","B2B Marketplace"],
-      img:RAW+"/TeamMatch/main/docs/screenshots/01-signin.png",
-      tagline:"Two-sided matching marketplace",
-      prd:"https://github.com/AASTHA381/TeamMatch/blob/main/docs/PRD.md", live:"https://aastha381.github.io/TeamMatch/", code:"https://github.com/AASTHA381/TeamMatch" },
-    { n:"03", name:"YatraYatri", role:"Product for a real client · B2B tool", emoji:"🏔️",
-      blurb:"A live financial-planning cockpit for a trek-tourism founder: 7-category capital allocation, a 0–100 business-readiness score and real-time risk alerts on runway, margin and break-even.",
-      kpis:[["7","Financial categories"],["0–100","Readiness score"],["Live","Risk alerts"]],
-      tags:["Financial Modelling","Data Viz","Reactive UI","Client Work"],
-      img:RAW+"/yatrayatri-planner/main/docs/screenshots/01-planner.png",
-      tagline:"B2B financial analytics tool",
-      prd:"https://github.com/AASTHA381/yatrayatri-planner/blob/main/docs/PRD.md", live:"https://aastha381.github.io/yatrayatri-planner/", code:"https://github.com/AASTHA381/yatrayatri-planner" },
-    { n:"04", name:"DayFlow", role:"Product & Engineering · 0→1", emoji:"🌙",
-      blurb:"A scheduling engine that computes the earliest safe bedtime from a user's real day, with photo-to-dismiss alarms verified on-device using an ML model — privacy-first by design.",
-      kpis:[["On-device","ML verification"],["Offline","First architecture"],["Multi-user","Firestore"]],
-      tags:["TensorFlow.js","Firebase","Rules Engine","PWA"],
-      img:RAW+"/DayFlow-Sleep-Planner/main/docs/screenshots/02-planner.png",
-      tagline:"Health / productivity, on-device ML",
-      prd:"https://github.com/AASTHA381/DayFlow-Sleep-Planner/blob/main/docs/PRD.md", live:"https://aastha381.github.io/DayFlow-Sleep-Planner/", code:"https://github.com/AASTHA381/DayFlow-Sleep-Planner" },
+  /* Page mask */
+  addEventListener('load',()=>setTimeout(()=>document.getElementById('mask').classList.add('gone'),450));
+
+  /* Hero word-by-word */
+  const words="Building data-driven marketplaces & scalable products".split(" ");
+  document.getElementById('heroH').innerHTML=words.map((w,i)=>{
+    const grad=/data-driven|scalable/.test(w)?' grad-text':'';
+    return `<span class="w${grad}" style="animation-delay:${.15+i*.08}s">${w}</span>`;
+  }).join(" ");
+
+  /* Mesh parallax + hue drift */
+  const mesh=document.getElementById('mesh');let tx=0,ty=0,cx=0,cy=0,hue=0,raf;
+  addEventListener('mousemove',e=>{tx=(e.clientX/innerWidth-.5)*40;ty=(e.clientY/innerHeight-.5)*40;hue=(e.clientX/innerWidth)*40-20;if(!raf)raf=requestAnimationFrame(loop);});
+  function loop(){cx+=(tx-cx)*.06;cy+=(ty-cy)*.06;mesh.style.transform=`translate3d(${cx}px,${cy}px,0)`;mesh.style.filter=`blur(30px) hue-rotate(${hue}deg)`;if(Math.abs(tx-cx)>.1||Math.abs(ty-cy)>.1)raf=requestAnimationFrame(loop);else raf=null;}
+
+  /* Magnetic elements */
+  document.querySelectorAll('[data-magnet]').forEach(el=>{
+    el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;el.style.transform=`translate(${x*.3}px,${y*.4}px)`;});
+    el.addEventListener('mouseleave',()=>el.style.transform='');
+  });
+
+  /* Bento tilt + glow + wireframe toggle */
+  document.querySelectorAll('.tile').forEach(t=>{
+    t.addEventListener('mousemove',e=>{const r=t.getBoundingClientRect();const px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;t.style.transform=`perspective(720px) rotateX(${(py-.5)*-7}deg) rotateY(${(px-.5)*7}deg)`;t.querySelector('.glow').style.setProperty('--mx',px*100+'%');t.querySelector('.glow').style.setProperty('--my',py*100+'%');});
+    t.addEventListener('mouseleave',()=>t.style.transform='');
+    if(t.dataset.viz==='wf')t.addEventListener('click',()=>t.classList.toggle('hifi'));
+  });
+
+  /* Case studies (real projects, sticky-stacked, odometer KPIs) */
+  const cases=[
+    {n:"01",name:"SmartCart",role:"Product & Engineering · 0→1",
+     blurb:"An AI decision engine that reasons over a user's budget, spending & goals to give an objective Buy / Wait / Don't-buy verdict — analytics + LLM reasoning over real data.",
+     kpis:[[3,"","Feature phases"],[8,"","REST endpoints"],[100,"%","Reasoning shown"]],
+     tags:["Node.js","Express","Groq LLM","Product Analytics","PWA"],
+     img:RAW+"/SmartCart/main/docs/screenshots/01-landing.png",
+     read:"https://github.com/AASTHA381/SmartCart/blob/main/docs/PRD.md",live:"https://smartcart-c2ci.onrender.com",code:"https://github.com/AASTHA381/SmartCart"},
+    {n:"02",name:"TeamMatch",role:"Product Lead · Two-sided marketplace",
+     blurb:"A B2B-style matching platform ranking teammates by complementary skills, availability & goals — real-time sync with server-enforced ownership.",
+     kpis:[[146,"","Users on live batch"],[39,"","Subjects modelled"],[100,"%","Owner-enforced"]],
+     tags:["Firebase","Firestore","Auth","Matching Engine","B2B"],
+     img:RAW+"/TeamMatch/main/docs/screenshots/01-signin.png",
+     read:"https://github.com/AASTHA381/TeamMatch/blob/main/docs/PRD.md",live:"https://aastha381.github.io/TeamMatch/",code:"https://github.com/AASTHA381/TeamMatch"},
+    {n:"03",name:"YatraYatri",role:"Product for a real client · B2B tool",
+     blurb:"A live financial-planning cockpit for a trek-tourism founder: capital allocation, a 0–100 readiness score and real-time risk alerts on runway, margin & break-even.",
+     kpis:[[7,"","Capital categories"],[100,"","Readiness score"],[50,"L","Capital modelled ₹"]],
+     tags:["Financial Modelling","Data Viz","Reactive UI","Client Work"],
+     img:RAW+"/yatrayatri-planner/main/docs/screenshots/01-planner.png",
+     read:"https://github.com/AASTHA381/yatrayatri-planner/blob/main/docs/PRD.md",live:"https://aastha381.github.io/yatrayatri-planner/",code:"https://github.com/AASTHA381/yatrayatri-planner"},
+    {n:"04",name:"DayFlow",role:"Product & Engineering · 0→1",
+     blurb:"A scheduling engine computing the earliest safe bedtime from a user's real day, with photo-to-dismiss alarms verified on-device via ML — privacy-first.",
+     kpis:[[8,"h","Min sleep guaranteed"],[100,"%","On-device ML"],[3,"","Input signals"]],
+     tags:["TensorFlow.js","Firebase","Rules Engine","PWA"],
+     img:RAW+"/DayFlow-Sleep-Planner/main/docs/screenshots/02-planner.png",
+     read:"https://github.com/AASTHA381/DayFlow-Sleep-Planner/blob/main/docs/PRD.md",live:"https://aastha381.github.io/DayFlow-Sleep-Planner/",code:"https://github.com/AASTHA381/DayFlow-Sleep-Planner"},
   ];
-
-  const moreBuilds = [
-    { name:"FoodMatch", d:"Real-time group decision app", url:"https://github.com/AASTHA381/tinder-style-restaurant-matcher/blob/main/docs/PRD.md" },
-    { name:"LinkVault", d:"Chrome extension · AI summaries", url:"https://github.com/AASTHA381/link-vault-extension/blob/main/docs/PRD.md" },
-    { name:"ClassTrack", d:"Attendance analytics utility", url:"https://github.com/AASTHA381/Attendence-Tracker-App/blob/main/docs/PRD.md" },
-    { name:"PM Study Planner", d:"Habit tracking · streaks & grids", url:"https://github.com/AASTHA381/pm-study-planner/blob/main/docs/PRD.md" },
-  ];
-
-  const certs = [
-    "🤖 AI for Product Management","🎓 MBA — Product / Marketing","📊 Business Analytics",
-    "🗄️ SQL","🐍 Python for Analytics","🔁 Agile / Scrum","📈 Data Visualization","🧭 Product Strategy",
-  ];
-
-  // Render projects
-  document.getElementById('projects').innerHTML = featured.map(p => `
-    <article class="proj reveal">
-      <div class="info">
-        <div class="num">CASE STUDY / ${p.n}</div>
-        <h3>${p.name}</h3>
-        <div class="role">${p.role}</div>
-        <p class="blurb">${p.blurb}</p>
-        <div class="kpis">${p.kpis.map(k=>`<div class="kpi"><b>${k[0]}</b><span>${k[1]}</span></div>`).join("")}</div>
-        <div class="pills">${p.tags.map(t=>`<span class="pill">${t}</span>`).join("")}</div>
-        <div class="actions">
-          <a class="read" href="${p.prd}" target="_blank">Read case study →</a>
-          ${p.live?`<a class="sec" href="${p.live}" target="_blank">Live demo</a>`:""}
-          <a class="sec" href="${p.code}" target="_blank">Code</a>
-        </div>
+  document.getElementById('cases').innerHTML=cases.map((c,i)=>`
+    <article class="case" style="top:${96+i*14}px;">
+      <div class="c-info">
+        <div class="c-num">CASE STUDY / ${c.n}</div>
+        <h3>${c.name}</h3>
+        <div class="c-role">${c.role}</div>
+        <p class="c-blurb">${c.blurb}</p>
+        <div class="c-kpis">${c.kpis.map(k=>`<div class="c-kpi"><b class="grad-text odo" data-to="${k[0]}" data-suf="${k[1]}">0${k[1]}</b><span>${k[2]}</span></div>`).join("")}</div>
+        <div class="pills">${c.tags.map(t=>`<span class="pill">${t}</span>`).join("")}</div>
+        <div class="c-actions"><a class="read" href="${c.read}" target="_blank">Read case study →</a><a class="sec" href="${c.live}" target="_blank">Live</a><a class="sec" href="${c.code}" target="_blank">Code</a></div>
       </div>
-      <div class="media ${p.img?"":"grad"}">
-        ${p.img?`<img loading="lazy" src="${p.img}" alt="${p.name}"><div class="tagline">${p.tagline}</div>`:`${p.emoji}`}
-      </div>
+      <div class="c-media"><img loading="lazy" src="${c.img}" alt="${c.name}"></div>
     </article>`).join("");
 
-  document.getElementById('more').innerHTML = moreBuilds.map(m=>`
-    <a href="${m.url}" target="_blank"><div class="mt">${m.name}</div><div class="md">${m.d}</div></a>`).join("");
+  /* Certifications dual-lane */
+  const certs=["🤖 AI for Product Management","🎓 MBA — Product / Marketing","📊 Business Analytics","🗄️ SQL","🐍 Python","🔁 Agile / Scrum","📈 Data Visualization","🧭 Product Strategy"];
+  const laneHTML=arr=>[...arr,...arr].map(c=>`<div class="cert"><span class="ci">◆</span>${c}</div>`).join("");
+  document.getElementById('certL').innerHTML=laneHTML(certs);
+  document.getElementById('certR').innerHTML=laneHTML([...certs].reverse());
 
-  document.getElementById('certTrack').innerHTML = [...certs,...certs].map(c=>`<div class="cert"><span class="c-ic">◆</span>${c}</div>`).join("");
+  /* Reveal + odometer + spark trigger */
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal,.tile').forEach(n=>io.observe(n));
+  const odoIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){odometer(e.target);odoIO.unobserve(e.target);}}),{threshold:.6});
+  document.querySelectorAll('.odo').forEach(n=>odoIO.observe(n));
+  function odometer(el){const to=+el.dataset.to,suf=el.dataset.suf||"";const s=performance.now(),d=1100;(function st(t){const p=Math.min(1,(t-s)/d);const v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString('en-IN')+suf;if(p<1)requestAnimationFrame(st);})(performance.now());}
 
-  /* Nav shadow */
-  const nav = document.getElementById('nav');
-  addEventListener('scroll', ()=>nav.classList.toggle('scrolled', scrollY>20), {passive:true});
+  /* Nav + timeline fill */
+  const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+  const tl=document.getElementById('timeline'),fill=document.getElementById('tlFill'),items=[...document.querySelectorAll('.tl .item')];
+  function tlScroll(){const r=tl.getBoundingClientRect();const start=innerHeight*.82;let prog=(start-r.top)/(r.height-innerHeight*.5);prog=Math.max(0,Math.min(1,prog));fill.style.height=prog*100+'%';const lit=Math.round(prog*items.length);items.forEach((it,i)=>it.classList.toggle('lit',i<Math.max(1,lit)));}
+  addEventListener('scroll',tlScroll,{passive:true});addEventListener('resize',tlScroll);tlScroll();
 
-  /* Interactive gradient mesh (parallax to mouse) */
-  const mesh = document.getElementById('mesh');
-  let tx=0,ty=0,cx=0,cy=0,raf;
-  addEventListener('mousemove', e=>{
-    tx = (e.clientX/innerWidth - .5)*30; ty = (e.clientY/innerHeight - .5)*30;
-    if(!raf) raf = requestAnimationFrame(loop);
+  /* Copy email + confetti */
+  const copyBtn=document.getElementById('copyBtn');
+  copyBtn.addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(EMAIL);}catch(e){}
+    copyBtn.classList.add('copied');document.getElementById('copyLabel').textContent='Copied ✓';copyBtn.firstChild.textContent='✅ ';
+    confetti();
+    setTimeout(()=>{copyBtn.classList.remove('copied');document.getElementById('copyLabel').textContent='Copy email';copyBtn.firstChild.textContent='✉️ ';},2200);
   });
-  function loop(){ cx+=(tx-cx)*.08; cy+=(ty-cy)*.08; mesh.style.transform=`translate3d(${cx}px,${cy}px,0)`;
-    if(Math.abs(tx-cx)>.1||Math.abs(ty-cy)>.1){ raf=requestAnimationFrame(loop);} else raf=null; }
-
-  /* Bento 3D tilt */
-  document.querySelectorAll('.tile').forEach(t=>{
-    t.addEventListener('mousemove', e=>{
-      const r=t.getBoundingClientRect(); const px=(e.clientX-r.left)/r.width; const py=(e.clientY-r.top)/r.height;
-      t.style.transform=`perspective(700px) rotateX(${(py-.5)*-8}deg) rotateY(${(px-.5)*8}deg) translateZ(4px)`;
-      t.style.setProperty('--mx',(px*100)+'%'); t.style.setProperty('--my',(py*100)+'%');
-    });
-    t.addEventListener('mouseleave', ()=>{ t.style.transform=''; });
-  });
-
-  /* Reveal on scroll */
-  const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.12});
-  document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
-
-  /* Timeline fill + node illumination */
-  const tl=document.getElementById('timeline'), fill=document.getElementById('tlFill'), items=[...document.querySelectorAll('.tl .item')];
-  function tlScroll(){
-    const r=tl.getBoundingClientRect(); const vh=innerHeight;
-    const start=vh*0.8, end=vh*0.2;
-    let prog=(start - r.top)/(r.height - (end-start)); prog=Math.max(0,Math.min(1,prog));
-    fill.style.height=(prog*100)+'%';
-    const litCount=Math.round(prog*items.length);
-    items.forEach((it,i)=>it.classList.toggle('lit', i<Math.max(1,litCount)));
-  }
-  addEventListener('scroll', tlScroll, {passive:true}); addEventListener('resize', tlScroll); tlScroll();
+  function confetti(){const box=document.getElementById('confetti');const cols=['#3b82f6','#8b5cf6','#34d399','#14b8a6','#f472b6'];const r=copyBtn.getBoundingClientRect();for(let i=0;i<38;i++){const p=document.createElement('i');p.style.left=(r.left+r.width/2)+'px';p.style.top=(r.top)+'px';p.style.background=cols[i%cols.length];p.style.setProperty('--x',(Math.random()*2-1));p.style.animationDuration=(1.6+Math.random()*1.4)+'s';p.style.transform=`translateX(${(Math.random()*2-1)*120}px)`;box.appendChild(p);setTimeout(()=>p.remove(),3200);}}
 </script>
 </body>
 </html>
