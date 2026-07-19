@@ -135,9 +135,29 @@
   .case .c-actions a.read:hover{filter:brightness(1.18);}
   .case .c-actions a.sec{border:1px solid var(--line-2);color:var(--ink-2);}
   .case .c-actions a.sec:hover{color:var(--ink);border-color:var(--violet);}
-  .case .c-media{background:var(--panel-2);position:relative;overflow:hidden;min-height:260px;}
-  .case .c-media img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
-  .case .c-media.grad{display:grid;place-items:center;font-size:64px;background:var(--grad);}
+  .case .c-media{position:relative;overflow:hidden;min-height:280px;display:grid;place-items:center;padding:26px;}
+  .browser{width:100%;max-width:430px;border-radius:12px;overflow:hidden;box-shadow:0 24px 54px -22px rgba(15,23,42,.38);border:1px solid rgba(255,255,255,.8);background:#fff;transition:transform .5s cubic-bezier(.2,.7,.3,1);}
+  .case:hover .browser{transform:translateY(-5px) scale(1.02);}
+  .browser .bbar{height:26px;background:#f1f5f9;display:flex;align-items:center;gap:5px;padding:0 11px;border-bottom:1px solid var(--line);}
+  .browser .bbar span{width:8px;height:8px;border-radius:50%;background:#cbd5e1;}
+  .browser .bbar span:nth-child(1){background:#f87171;}.browser .bbar span:nth-child(2){background:#fbbf24;}.browser .bbar span:nth-child(3){background:#34d399;}
+  .browser .shot{aspect-ratio:16/10;overflow:hidden;background:#fff;}
+  .browser .shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+  /* More projects */
+  .more{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px;}
+  @media(max-width:720px){.more{grid-template-columns:1fr;}}
+  .mcard{display:grid;grid-template-columns:112px 1fr;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--soft);transition:transform .2s,box-shadow .3s;}
+  .mcard:hover{transform:translateY(-3px);box-shadow:var(--soft-lg);}
+  .mcard .mthumb{background:var(--panel-2);overflow:hidden;}
+  .mcard .mthumb img{width:100%;height:100%;object-fit:cover;object-position:top;}
+  .mcard .mthumb.grad{display:grid;place-items:center;font-size:34px;background:var(--grad);}
+  .mcard .mbody{padding:14px;display:flex;flex-direction:column;}
+  .mcard .mt{font-weight:700;font-size:15px;letter-spacing:-.01em;}
+  .mcard .mdom{font-size:10.5px;color:var(--violet);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin:2px 0 6px;}
+  .mcard .md{font-size:12.5px;color:var(--ink-2);flex:1;}
+  .mcard .ml{display:flex;gap:12px;margin-top:9px;}
+  .mcard .ml a{font-size:12px;font-weight:700;color:var(--violet);}
+  .mcard .ml a:hover{color:var(--blue);}
 
   /* Timeline */
   .tl{position:relative;padding-left:40px;}
@@ -211,7 +231,7 @@
       <p class="lead">A product manager with an analytics and finance foundation, now shipping data-driven products 0→1. I turn ambiguous problems into instrumented, scalable products — from AI decision engines to two-sided marketplaces.</p>
       <div class="cta-row">
         <a class="btn btn-outline" href="#work"><span>View case studies</span></a>
-        <a class="btn btn-magnet" data-magnet href="LINKEDIN_URL" target="_blank">Connect on LinkedIn →</a>
+        <a class="btn btn-magnet" data-magnet href="https://www.linkedin.com/in/aastha-saini03/" target="_blank">Connect on LinkedIn →</a>
       </div>
     </div>
   </section>
@@ -269,6 +289,8 @@
         <p class="sec-sub">Products taken from problem → PRD → design → build → live. Scroll to stack them.</p>
       </div>
       <div class="cases-stack" id="cases"></div>
+      <div class="reveal" style="margin-top:46px;"><span class="eyebrow">More projects</span><h2 class="sec" style="font-size:clamp(22px,3vw,30px);">Four more shipped builds</h2></div>
+      <div class="more" id="more"></div>
     </div>
   </section>
 
@@ -304,7 +326,7 @@
       <p class="sub">Open to product roles where I can own problems 0→1.</p>
       <div class="social">
         <button class="sbtn" id="copyBtn" data-magnet>✉️ <span id="copyLabel">Copy email</span></button>
-        <a class="sbtn" data-magnet href="LINKEDIN_URL" target="_blank">in · LinkedIn</a>
+        <a class="sbtn" data-magnet href="https://www.linkedin.com/in/aastha-saini03/" target="_blank">in · LinkedIn</a>
         <a class="sbtn" data-magnet href="https://github.com/AASTHA381" target="_blank">GitHub</a>
         <a class="sbtn" data-magnet href="resume/Aastha-Saini-Resume.pdf" target="_blank">📄 Résumé</a>
       </div>
@@ -387,8 +409,27 @@
         <div class="pills">${c.tags.map(t=>`<span class="pill">${t}</span>`).join("")}</div>
         <div class="c-actions"><a class="read" href="${c.read}" target="_blank">Read case study →</a><a class="sec" href="${c.live}" target="_blank">Live</a><a class="sec" href="${c.code}" target="_blank">Code</a></div>
       </div>
-      <div class="c-media"><img loading="lazy" src="${c.img}" alt="${c.name}"></div>
+      <div class="c-media" style="background:${['linear-gradient(140deg,#eef2ff,#ecfeff)','linear-gradient(140deg,#f0fdfa,#eef2ff)','linear-gradient(140deg,#fef2f2,#f5f3ff)','linear-gradient(140deg,#eff6ff,#f5f3ff)'][i%4]}">
+        <div class="browser"><div class="bbar"><span></span><span></span><span></span></div><div class="shot"><img loading="lazy" src="${c.img}" alt="${c.name}"></div></div>
+      </div>
     </article>`).join("");
+
+  /* More projects (remaining 4 of 8) */
+  const more=[
+    {name:"FoodMatch",dom:"Social · real-time",d:"Tinder-style group restaurant matcher — everyone swipes, first mutual match wins.",img:RAW+"/tinder-style-restaurant-matcher/main/docs/screenshots/01-home.png",prd:"https://github.com/AASTHA381/tinder-style-restaurant-matcher/blob/main/docs/PRD.md",live:"https://aastha381.github.io/tinder-style-restaurant-matcher/",code:"https://github.com/AASTHA381/tinder-style-restaurant-matcher"},
+    {name:"PM Study Planner",dom:"Habit · learning",d:"Flexible daily study planner with streaks, progress grids and a monthly heatmap.",img:RAW+"/pm-study-planner/main/docs/screenshots/01-today.png",prd:"https://github.com/AASTHA381/pm-study-planner/blob/main/docs/PRD.md",live:"https://aastha381.github.io/pm-study-planner/",code:"https://github.com/AASTHA381/pm-study-planner"},
+    {name:"ClassTrack",dom:"Analytics utility",d:"Attendance tracker that surfaces a live 'safe skips left' number per subject.",img:RAW+"/Attendence-Tracker-App/main/docs/screenshots/01-dashboard.png",prd:"https://github.com/AASTHA381/Attendence-Tracker-App/blob/main/docs/PRD.md",live:"https://aastha381.github.io/Attendence-Tracker-App/",code:"https://github.com/AASTHA381/Attendence-Tracker-App"},
+    {name:"LinkVault",dom:"Productivity · AI",d:"Chrome extension that saves links & docs with AI-generated summaries + search.",img:null,emoji:"🔗",prd:"https://github.com/AASTHA381/link-vault-extension/blob/main/docs/PRD.md",live:null,code:"https://github.com/AASTHA381/link-vault-extension"},
+  ];
+  document.getElementById('more').innerHTML=more.map(m=>`
+    <a class="mcard" href="${m.prd}" target="_blank">
+      <div class="mthumb ${m.img?"":"grad"}">${m.img?`<img loading="lazy" src="${m.img}" alt="${m.name}">`:m.emoji}</div>
+      <div class="mbody">
+        <div class="mt">${m.name}</div><div class="mdom">${m.dom}</div>
+        <div class="md">${m.d}</div>
+        <div class="ml"><span>Read case study →</span></div>
+      </div>
+    </a>`).join("");
 
   /* Certifications dual-lane */
   const certs=["🤖 AI for Product Management","🎓 MBA — Product / Marketing","📊 Business Analytics","🗄️ SQL","🐍 Python","🔁 Agile / Scrum","📈 Data Visualization","🧭 Product Strategy"];
