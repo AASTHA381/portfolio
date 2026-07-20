@@ -1,8 +1,20 @@
 # 🧭 Aastha Saini — Product Portfolio
 
-**Aspiring Product Manager who ships.** I take real problems from 0→1 — research, spec, design, build, deploy — and write the PRD to match. Below are eight products I designed and built end-to-end, each with a full **PRD / case study** (problem, personas, metrics, flowcharts, wireframes, roadmap, trade-offs).
+**Analytical Product Manager building with AI.** I take real problems from 0→1 — research, spec, design, build, deploy — and write the PRD to match. Below are eight product builds, each with a full **PRD / case study** covering the problem, personas, intended metrics, flowcharts, roadmap and trade-offs.
 
-> Every project links to a **live app**, a **detailed PRD**, and the **code**.
+> Every project links to a **detailed PRD** and **code**. Browser-based products link to live builds; LinkVault is installed from its repository in Chrome developer mode.
+
+## AI product judgement
+
+- **2 generative-AI products:** SmartCart uses LLM reasoning for contextual purchase verdicts; LinkVault uses a user-selected provider for summaries.
+- **1 on-device ML use case:** DayFlow uses TensorFlow.js / MobileNet for photo-to-dismiss verification while its sleep engine remains rule-based.
+- **5 deterministic products:** Matching, financial modelling, consensus, attendance rules and habit logic remain transparent and predictable by design.
+
+The principle is simple: use AI where it creates enough user value to justify its uncertainty, cost and failure modes—not because it is fashionable.
+
+## 🎮 Portfolio surprise
+
+The portfolio includes **Pixel's Recharge Run**, a procedural Three.js endless runner launched from the bottom-right surprise button. The robot, obstacles and pickups are built from Three.js geometry, so the game has no third-party model or texture assets. Three.js is MIT-licensed; implementation patterns were reviewed against the official Three.js game manual example (BSD) and controls example (MIT), both linked in the game's open-source notes.
 
 ---
 
@@ -13,7 +25,7 @@ An AI decision assistant that reasons over your real budget, spending & goals to
 
 <a href="https://smartcart-c2ci.onrender.com"><img src="https://raw.githubusercontent.com/AASTHA381/SmartCart/main/docs/screenshots/01-landing.png" width="640" alt="SmartCart"></a>
 
-**Domain:** Consumer fintech / AI-native · **Stack:** Node + Express, Groq LLM, PWA
+**Domain:** Consumer fintech / generative AI · **Stack:** Node + Express, Groq LLM, PWA
 [🔗 Live](https://smartcart-c2ci.onrender.com) · [📄 PRD](https://github.com/AASTHA381/SmartCart/blob/main/docs/PRD.md) · [💻 Code](https://github.com/AASTHA381/SmartCart)
 
 ---
@@ -50,7 +62,7 @@ An AI decision assistant that reasons over your real budget, spending & goals to
 - **Document like a PM** — each product has a PRD with personas, success metrics, flowcharts, roadmap and honest trade-offs.
 
 ## 🛠️ Themes across the portfolio
-`AI-native products` · `Consumer fintech` · `Two-sided matching` · `Real-time multiplayer` · `Habit & productivity` · `Privacy-first, offline PWAs` · `Objective, trustworthy design`
+`Generative-AI products` · `On-device ML` · `Consumer fintech` · `Two-sided matching` · `Real-time multiplayer` · `Habit & productivity` · `Privacy-first, offline PWAs` · `Transparent deterministic systems`
 
 ---
 

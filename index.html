@@ -1,445 +1,1480 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#ffffff" />
-<title>Aastha Saini — Product Manager · Analytics</title>
-<meta name="description" content="Product Manager specializing in analytics and data-driven products. Building data-driven marketplaces and scalable products." />
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="color-scheme" content="dark light" />
+<title>Aastha Saini — Product Manager Building with AI</title>
+<meta name="description" content="Aastha Saini is an analytical 0→1 product manager building, B2B workflows and useful tools. Eight products shipped; 136 PRDs authored." />
+<meta name="author" content="Aastha Saini" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Aastha Saini — Product Manager Building with AI" />
+<meta property="og:description" content="AI when reasoning adds value. Deterministic when rules are better. Eight shipped product builds and 136 PRDs." />
+<meta property="og:url" content="https://aastha381.github.io/portfolio" />
+<meta property="og:image" content="https://aastha381.github.io/portfolio/assets/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Aastha Saini — Product Manager Building with AI" />
+<meta name="twitter:description" content="AI when reasoning adds value. Deterministic when rules are better. Eight shipped product builds and 136 PRDs." />
+<meta name="twitter:image" content="https://aastha381.github.io/portfolio/assets/og.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
 <style>
   :root{
-    --bg:#ffffff; --panel:#f8fafc; --panel-2:#f1f5f9;
-    --ink:#0f172a; --ink-2:#475569; --ink-3:#94a3b8;
-    --line:#eef2f7; --line-2:#e2e8f0;
-    --blue:#3b82f6; --violet:#8b5cf6; --mint:#34d399; --teal:#14b8a6;
-    --grad:linear-gradient(120deg,#3b82f6,#8b5cf6);
-    --grad-2:linear-gradient(120deg,#34d399,#14b8a6);
-    --soft:0 10px 40px -14px rgba(15,23,42,.10);
-    --soft-lg:0 24px 60px -22px rgba(15,23,42,.16);
-    --radius:20px;
+    --bg:#080b0a;
+    --surface:#101512;
+    --surface-2:#151c18;
+    --ink:#f2f7f3;
+    --muted:#9ca9a0;
+    --faint:#66736a;
+    --line:rgba(215,255,226,.10);
+    --line-strong:rgba(215,255,226,.19);
+    --accent:#b8f34a;
+    --accent-soft:rgba(184,243,74,.11);
+    --accent-ink:#c9ff67;
+    --signal:#6edbe8;
+    --signal-soft:rgba(110,219,232,.11);
+    --sel:rgba(184,243,74,.22);
+    --shadow:0 24px 60px -30px rgba(0,0,0,.7);
+    --maxw:1180px;
+    --ease:cubic-bezier(.2,.7,.2,1);
   }
+  [data-theme="light"]{
+    --bg:#eef2eb;
+    --surface:#fbfdf8;
+    --surface-2:#e4eadf;
+    --ink:#101510;
+    --muted:#4f5d52;
+    --faint:#748078;
+    --line:rgba(16,21,16,.11);
+    --line-strong:rgba(16,21,16,.20);
+    --accent:#5f8d0e;
+    --accent-soft:rgba(95,141,14,.11);
+    --accent-ink:#3f6500;
+    --signal:#007f8c;
+    --signal-soft:rgba(0,127,140,.09);
+    --sel:rgba(95,141,14,.18);
+    --shadow:0 24px 50px -30px rgba(40,30,10,.28);
+  }
+
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg);color:var(--ink);
+    line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:hidden;transition:background .4s var(--ease),color .4s var(--ease);
+  }
+  ::selection{background:var(--sel);color:var(--ink);}
   a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
-  ::selection{background:#ddd6fe;color:#0f172a;}
-  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 
-  /* Page-load mask */
-  #mask{position:fixed;inset:0;z-index:200;background:#fff;display:grid;place-items:center;transition:opacity .5s ease,visibility .5s;}
-  #mask.gone{opacity:0;visibility:hidden;}
-  #mask .m-logo{font-weight:800;font-size:20px;letter-spacing:-.02em;opacity:0;animation:mfade 1s ease forwards;}
-  @keyframes mfade{0%{opacity:0;transform:translateY(6px);}100%{opacity:1;transform:none;}}
-
-  /* Backgrounds */
-  .bg-dots{position:fixed;inset:0;z-index:-2;pointer-events:none;
-    background-image:radial-gradient(#e2e8f0 1px,transparent 1px);background-size:26px 26px;
-    -webkit-mask-image:radial-gradient(circle at 50% 22%,#000,transparent 72%);mask-image:radial-gradient(circle at 50% 22%,#000,transparent 72%);opacity:.7;}
-  .bg-mesh{position:fixed;inset:-25%;z-index:-3;pointer-events:none;filter:blur(30px);opacity:.7;
+  /* Grain / vignette backdrop */
+  .backdrop{position:fixed;inset:0;z-index:-2;pointer-events:none;
     background:
-      radial-gradient(420px 380px at 22% 20%, rgba(59,130,246,.20), transparent 60%),
-      radial-gradient(420px 360px at 80% 24%, rgba(139,92,246,.18), transparent 60%),
-      radial-gradient(420px 400px at 62% 78%, rgba(52,211,153,.16), transparent 62%);
-    transition:transform .4s cubic-bezier(.2,.7,.3,1);will-change:transform;}
+      radial-gradient(120% 80% at 15% 0%, rgba(224,164,88,.06), transparent 55%),
+      radial-gradient(90% 90% at 100% 100%, rgba(224,164,88,.04), transparent 60%);}
+  .canvas-grid{position:fixed;inset:0 0 0 38%;z-index:-1;pointer-events:none;opacity:.28;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:44px 44px;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%);}
+  @media(max-width:960px){.canvas-grid{inset:0;opacity:.16;}}
+  .spot{position:fixed;width:520px;height:520px;border-radius:50%;z-index:-1;pointer-events:none;
+    background:radial-gradient(circle, var(--accent-soft), transparent 65%);
+    transform:translate(-50%,-50%);opacity:0;transition:opacity .5s ease;filter:blur(20px);}
 
-  /* Nav */
-  header.nav{position:sticky;top:0;z-index:80;transition:background .3s,border-color .3s,box-shadow .3s;border-bottom:1px solid transparent;}
-  header.nav.scrolled{background:rgba(255,255,255,.72);backdrop-filter:blur(14px);border-color:var(--line);box-shadow:0 4px 24px -18px rgba(15,23,42,.3);}
-  .nav .in{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
-  .logo{font-weight:800;font-size:17px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px;}
-  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--grad);}
-  .nav .links{display:flex;gap:28px;align-items:center;}
-  .nav .links a{font-size:14px;font-weight:500;color:var(--ink-2);transition:color .2s;}
-  .nav .links a:hover{color:var(--ink);}
-  .nav .links .cta{background:var(--ink);color:#fff;padding:9px 16px;border-radius:10px;font-weight:600;}
-  .nav .links .cta:hover{color:#fff;filter:brightness(1.15);}
-  @media(max-width:760px){.nav .links a.hide{display:none;}}
+  .mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+  .serif{font-family:'Fraunces',Georgia,serif;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  .label{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-ink);}
+  .num{font-variant-numeric:tabular-nums;}
 
-  .btn{display:inline-flex;align-items:center;gap:9px;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;padding:14px 24px;transition:transform .12s,box-shadow .25s,background .25s,color .25s,border-color .25s;font-family:inherit;border:1px solid transparent;}
-  .btn:active{transform:scale(.98);}
-  .btn-outline{background:#fff;color:var(--ink);border-color:var(--line-2);box-shadow:var(--soft);position:relative;overflow:hidden;}
-  .btn-outline span{position:relative;z-index:1;}
-  .btn-outline::before{content:"";position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .3s;}
-  .btn-outline:hover{color:#fff;border-color:transparent;}
-  .btn-outline:hover::before{opacity:1;}
-  .btn-magnet{background:transparent;color:var(--ink);font-weight:700;padding:14px 12px;will-change:transform;}
-  .btn-magnet:hover{color:var(--violet);}
+  /* ---------- Shell ---------- */
+  .shell{max-width:var(--maxw);margin:0 auto;padding:0 28px;
+    display:grid;grid-template-columns:minmax(300px,4fr) 6fr;gap:56px;}
+  @media(max-width:960px){.shell{grid-template-columns:1fr;gap:0;padding:0 22px;}}
 
-  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);}
-  .eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--grad);}
-  h2.sec{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:14px 0 12px;}
-  .sec-sub{color:var(--ink-2);font-size:16.5px;max-width:600px;margin-bottom:46px;}
-  section{padding:100px 0;position:relative;}
+  /* ---------- Left rail ---------- */
+  aside{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;
+    padding:72px 0 40px;}
+  aside::after{content:"";position:absolute;right:-28px;top:56px;bottom:40px;width:1px;background:linear-gradient(transparent,var(--line-strong) 12%,var(--line-strong) 88%,transparent);}
+  @media(max-width:960px){aside{position:static;height:auto;padding:72px 0 24px;}}
+  @media(max-width:960px){aside::after{display:none;}}
 
-  /* Hero */
-  .hero{padding:120px 0 84px;}
-  .badge{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.6);backdrop-filter:blur(8px);font-size:13px;font-weight:600;color:var(--ink-2);box-shadow:var(--soft);margin-bottom:26px;opacity:0;animation:fadeUp .7s ease forwards;}
-  .badge .pd{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2s infinite;}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.5);}70%{box-shadow:0 0 0 9px rgba(52,211,153,0);}100%{box-shadow:0 0 0 0 rgba(52,211,153,0);}}
-  h1.hero-h{font-size:clamp(38px,7vw,76px);font-weight:900;letter-spacing:-.045em;line-height:1.01;}
-  h1.hero-h .w{display:inline-block;opacity:0;transform:translateY(24px);animation:wordUp .7s cubic-bezier(.2,.7,.3,1) forwards;}
-  @keyframes wordUp{to{opacity:1;transform:none;}}
-  .hero p.lead{color:var(--ink-2);font-size:clamp(16px,2vw,19px);margin:26px 0 34px;max-width:620px;opacity:0;animation:fadeUp .7s ease .5s forwards;}
-  .hero .cta-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .7s ease .62s forwards;}
-  @keyframes fadeUp{0%{opacity:0;transform:translateY(16px);}100%{opacity:1;transform:none;}}
+  .avail{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:6px 12px;margin-bottom:28px;width:fit-content;}
+  .avail .dot{width:7px;height:7px;border-radius:50%;background:#5ec27a;box-shadow:0 0 0 0 rgba(94,194,122,.5);animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(94,194,122,.45);}70%{box-shadow:0 0 0 8px rgba(94,194,122,0);}100%{box-shadow:0 0 0 0 rgba(94,194,122,0);}}
 
-  /* Bento */
-  .bento{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  @media(max-width:860px){.bento{grid-template-columns:1fr 1fr;}}
-  @media(max-width:560px){.bento{grid-template-columns:1fr;}}
-  .tile{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--soft);transition:transform .2s ease,box-shadow .3s;transform-style:preserve-3d;will-change:transform;overflow:hidden;}
-  .tile .glow{position:absolute;inset:-40%;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.16),transparent 55%);opacity:0;transition:opacity .35s;pointer-events:none;}
-  .tile:hover{box-shadow:var(--soft-lg);} .tile:hover .glow{opacity:1;}
-  .tile .ic{width:44px;height:44px;border-radius:12px;background:var(--panel-2);display:grid;place-items:center;font-size:21px;margin-bottom:14px;}
-  .tile h3{font-size:16.5px;font-weight:700;letter-spacing:-.01em;position:relative;}
-  .tile p{color:var(--ink-2);font-size:13.5px;margin-top:6px;position:relative;}
-  .tile .viz{margin-top:14px;height:52px;position:relative;}
-  /* line graph */
-  .spark{width:100%;height:52px;}
-  .spark path.l{fill:none;stroke:url(#g1);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;}
-  .tile.in .spark path.l{animation:draw 1.6s ease forwards;}
-  @keyframes draw{to{stroke-dashoffset:0;}}
-  .spark path.a{fill:url(#g2);opacity:0;transition:opacity .8s .6s;} .tile.in .spark path.a{opacity:.14;}
-  .spark circle{fill:#8b5cf6;opacity:0;} .tile.in .spark circle{animation:pop .4s 1.4s forwards;}
-  @keyframes pop{to{opacity:1;}}
-  /* wireframe toggle */
-  .wf{display:flex;flex-direction:column;gap:5px;cursor:pointer;}
-  .wf .bar{height:8px;border-radius:4px;border:1.5px dashed var(--line-2);background:transparent;transition:all .3s;}
-  .wf .bar.b1{width:70%;} .wf .bar.b2{width:100%;height:16px;} .wf .bar.b3{width:45%;}
-  .tile.hifi .wf .bar{border-style:solid;border-color:transparent;background:var(--panel-2);}
-  .tile.hifi .wf .bar.b2{background:var(--grad);}
-  .wf-hint{font-size:11px;color:var(--ink-3);margin-top:8px;}
+  .name{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(40px,6vw,58px);line-height:.98;letter-spacing:-.02em;}
+  .role{font-size:17px;font-weight:500;margin-top:14px;}
+  .role b{color:var(--accent-ink);font-weight:600;}
+  .rail-lead{color:var(--muted);font-size:15px;margin-top:16px;max-width:340px;}
 
-  /* Case studies — sticky stacked */
-  .cases-stack{position:relative;}
-  .case{position:sticky;top:96px;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--soft-lg);overflow:hidden;margin-bottom:26px;display:grid;grid-template-columns:1.02fr .98fr;will-change:transform;}
-  @media(max-width:840px){.case{grid-template-columns:1fr;top:80px;}}
-  .case .c-info{padding:34px;}
-  .case .c-num{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--violet);}
-  .case h3{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:8px 0 3px;}
-  .case .c-role{color:var(--ink-3);font-size:13px;font-weight:600;margin-bottom:14px;}
-  .case .c-blurb{color:var(--ink-2);font-size:14.5px;margin-bottom:18px;}
-  .case .c-kpis{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:18px;}
-  .case .c-kpi b{display:block;font-size:26px;font-weight:900;letter-spacing:-.02em;}
-  .case .c-kpi b .grad-text{font-weight:900;}
-  .case .c-kpi span{font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;}
-  .pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px;}
-  .pill{font-size:11.5px;font-weight:600;color:var(--ink-2);background:var(--panel-2);border:1px solid var(--line);padding:5px 11px;border-radius:999px;transition:all .2s;cursor:default;}
-  .pill:hover{color:#fff;background:var(--grad);border-color:transparent;transform:translateY(-1px) scale(1.04);}
-  .case .c-actions{display:flex;gap:10px;flex-wrap:wrap;}
-  .case .c-actions a{font-size:13px;font-weight:600;padding:9px 15px;border-radius:10px;transition:all .2s;}
-  .case .c-actions a.read{background:var(--ink);color:#fff;}
-  .case .c-actions a.read:hover{filter:brightness(1.18);}
-  .case .c-actions a.sec{border:1px solid var(--line-2);color:var(--ink-2);}
-  .case .c-actions a.sec:hover{color:var(--ink);border-color:var(--violet);}
-  .case .c-media{position:relative;overflow:hidden;min-height:300px;background:var(--panel-2);}
-  .case .c-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .6s cubic-bezier(.2,.7,.3,1);}
-  .case:hover .c-media img{transform:scale(1.045);}
-  /* More projects */
-  .more{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px;}
-  @media(max-width:720px){.more{grid-template-columns:1fr;}}
-  .mcard{display:grid;grid-template-columns:112px 1fr;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--soft);transition:transform .2s,box-shadow .3s;}
-  .mcard:hover{transform:translateY(-3px);box-shadow:var(--soft-lg);}
-  .mcard .mthumb{background:var(--panel-2);overflow:hidden;}
-  .mcard .mthumb img{width:100%;height:100%;object-fit:cover;object-position:top;}
-  .mcard .mthumb.grad{display:grid;place-items:center;font-size:34px;background:var(--grad);}
-  .mcard .mbody{padding:14px;display:flex;flex-direction:column;}
-  .mcard .mt{font-weight:700;font-size:15px;letter-spacing:-.01em;}
-  .mcard .mdom{font-size:10.5px;color:var(--violet);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin:2px 0 6px;}
-  .mcard .md{font-size:12.5px;color:var(--ink-2);flex:1;}
-  .mcard .ml{display:flex;gap:12px;margin-top:9px;}
-  .mcard .ml a{font-size:12px;font-weight:700;color:var(--violet);}
-  .mcard .ml a:hover{color:var(--blue);}
+  /* Section nav */
+  nav.rail-nav{margin-top:40px;display:flex;flex-direction:column;gap:2px;}
+  @media(max-width:960px){nav.rail-nav{display:none;}}
+  nav.rail-nav a{display:flex;align-items:center;gap:14px;padding:8px 0;color:var(--faint);
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    transition:color .25s var(--ease);}
+  nav.rail-nav a .bar{width:26px;height:1.5px;background:var(--line-strong);transition:all .25s var(--ease);}
+  nav.rail-nav a:hover{color:var(--ink);} nav.rail-nav a:hover .bar{background:var(--muted);width:34px;}
+  nav.rail-nav a.active{color:var(--ink);} nav.rail-nav a.active .bar{background:var(--accent);width:48px;}
 
-  /* Timeline */
-  .tl{position:relative;padding-left:40px;}
-  .tl .rail{position:absolute;left:12px;top:6px;bottom:6px;width:3px;background:var(--line-2);border-radius:3px;overflow:hidden;}
-  .tl .rail .fill{position:absolute;top:0;left:0;right:0;height:0;background:var(--grad);transition:height .1s linear;}
-  .tl .item{position:relative;padding-bottom:34px;opacity:.45;transition:opacity .5s;}
-  .tl .item.lit{opacity:1;}
-  .tl .item:last-child{padding-bottom:0;}
-  .tl .node{position:absolute;left:-34px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;border:2.5px solid var(--line-2);transition:all .35s;}
-  .tl .item.lit .node{border-color:var(--violet);background:var(--violet);box-shadow:0 0 0 5px rgba(139,92,246,.14);}
-  .tl .when{font-size:12px;font-weight:700;color:var(--violet);letter-spacing:.04em;}
-  .tl h3{font-size:18px;font-weight:700;margin:3px 0 2px;}
-  .tl .org{color:var(--ink-2);font-size:14px;}
-  .tl p{color:var(--ink-3);font-size:13.5px;margin-top:6px;max-width:560px;}
+  .socials{margin-top:auto;display:flex;gap:6px;align-items:center;padding-top:28px;flex-wrap:wrap;}
+  @media(max-width:960px){.socials{margin-top:32px;}}
+  .icbtn{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);
+    padding:9px 13px;border:1px solid var(--line);border-radius:10px;transition:all .22s var(--ease);}
+  .icbtn:hover{color:var(--ink);border-color:var(--line-strong);transform:translateY(-1px);}
+  .icbtn.solid{background:var(--ink);color:var(--bg);border-color:transparent;}
+  .icbtn.solid:hover{background:var(--accent);color:#1a130a;}
 
-  /* Marquee dual lane */
-  .marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
-  .marquee + .marquee{margin-top:14px;}
-  .track{display:flex;gap:14px;width:max-content;}
-  .track.l{animation:mL 30s linear infinite;} .track.r{animation:mR 30s linear infinite;}
-  .marquee:hover .track{animation-play-state:paused;}
-  @keyframes mL{to{transform:translateX(-50%);}} @keyframes mR{from{transform:translateX(-50%);}to{transform:translateX(0);}}
-  .cert{white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 20px;font-size:14px;font-weight:600;color:var(--ink-3);display:flex;align-items:center;gap:10px;filter:grayscale(1);opacity:.8;transition:all .3s;box-shadow:var(--soft);}
-  .cert:hover{filter:grayscale(0);opacity:1;color:var(--ink);transform:translateY(-2px);}
-  .cert .ci{font-size:16px;}
+  .theme{margin-left:auto;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);
+    background:transparent;color:var(--muted);cursor:pointer;display:grid;place-items:center;transition:all .22s var(--ease);}
+  .theme:hover{color:var(--ink);border-color:var(--line-strong);}
+  @media(max-width:960px){.theme{margin-left:0;}}
+
+  /* ---------- Right content ---------- */
+  main{padding:16px 0 96px;min-width:0;position:relative;}
+  @media(max-width:960px){main{padding:8px 0 72px;}}
+  section{margin-bottom:112px;scroll-margin-top:72px;}
+  section:last-child{margin-bottom:0;}
+  .workspace-bar{position:sticky;top:14px;z-index:70;display:flex;align-items:center;justify-content:space-between;gap:14px;
+    margin-bottom:52px;padding:8px 9px 8px 12px;border:1px solid var(--line-strong);border-radius:12px;
+    background:color-mix(in srgb,var(--surface) 84%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--shadow);transition:top .3s var(--ease);}
+  [data-spec="on"] .workspace-bar{top:76px;}
+  .ws-file{min-width:0;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);}
+  .ws-mark{width:25px;height:25px;border-radius:7px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:9px;font-weight:600;flex:none;}
+  .ws-file b{color:var(--accent-ink);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .ws-lens{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid var(--line);border-radius:9px;background:var(--bg);flex:none;}
+  .ws-lens>span{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;color:var(--faint);padding:0 6px;}
+  .ws-lens button{border:0;background:transparent;color:var(--faint);font-family:inherit;font-size:11px;font-weight:500;padding:5px 9px;border-radius:6px;cursor:pointer;transition:all .2s var(--ease);}
+  .ws-lens button:hover{color:var(--ink);}
+  .ws-lens button.active{background:var(--surface-2);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line);}
+  @media(max-width:650px){.workspace-bar{top:8px;margin-bottom:38px}.ws-file .ws-root,.ws-lens>span{display:none}.ws-lens button{padding:5px 7px;font-size:10px;}}
+
+  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:34px;}
+  .sec-head .idx{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent-ink);letter-spacing:.1em;}
+  .sec-head .phase{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.13em;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:3px 8px;transition:all .25s var(--ease);}
+  section.current .sec-head .phase{color:#1a130a;background:var(--accent);border-color:transparent;}
+  .sec-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,3.4vw,32px);letter-spacing:-.01em;}
+  .sec-head .rule{flex:1;height:1px;background:var(--line);align-self:center;}
+
+  /* About */
+  .prose p{color:var(--muted);font-size:16.5px;margin-bottom:18px;max-width:640px;}
+  .prose p b{color:var(--ink);font-weight:600;}
+  .prose a.link{color:var(--ink);border-bottom:1px solid var(--accent);transition:color .2s;}
+  .prose a.link:hover{color:var(--accent-ink);}
+
+  .evidence-label{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:30px 2px 10px;
+    font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);}
+  .evidence-label span:first-child{color:var(--accent-ink);}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:0;
+    background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  @media(max-width:620px){.stats{grid-template-columns:1fr 1fr;}}
+  .stat{background:var(--bg);padding:20px 18px;}
+  .stat .n{font-family:'Fraunces',serif;font-weight:600;font-size:30px;line-height:1;letter-spacing:-.02em;}
+  .stat .n .u{color:var(--accent);}
+  .stat .t{color:var(--faint);font-size:12px;margin-top:8px;line-height:1.4;}
+
+  /* Selected work — feature cards */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);
+    border-radius:18px;overflow:hidden;background:var(--surface);margin-bottom:22px;
+    transition:border-color .3s var(--ease),transform .3s var(--ease);}
+  .feature:hover{border-color:var(--line-strong);}
+  @media(max-width:720px){.feature{grid-template-columns:1fr;}}
+  .feature .media{position:relative;overflow:hidden;min-height:260px;background:var(--surface-2);border-right:1px solid var(--line);}
+  @media(max-width:720px){.feature .media{border-right:none;border-bottom:1px solid var(--line);min-height:210px;}}
+  .feature .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;
+    transition:transform .7s var(--ease);}
+  .feature:hover .media img{transform:scale(1.04);}
+  .feature .body{padding:30px 30px 26px;display:flex;flex-direction:column;}
+  .feature .kicker{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .feature .kicker .dom{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);}
+  .feature h3{font-family:'Fraunces',serif;font-weight:600;font-size:25px;letter-spacing:-.01em;}
+  .feature .blurb{color:var(--muted);font-size:15px;margin:10px 0 16px;flex:1;}
+  .feature .metric{font-size:13.5px;color:var(--ink);margin-bottom:16px;}
+  .feature .metric b{font-family:'Fraunces',serif;color:var(--accent-ink);font-weight:600;}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:4px 10px;}
+  .acts{display:flex;gap:8px;flex-wrap:wrap;}
+  .acts a{font-size:13px;font-weight:500;padding:8px 14px;border-radius:9px;border:1px solid var(--line);
+    color:var(--muted);transition:all .2s var(--ease);}
+  .acts a:hover{color:var(--ink);border-color:var(--line-strong);}
+  .acts a.primary{background:var(--accent);color:#1a130a;border-color:transparent;font-weight:600;}
+  .acts a.primary:hover{filter:brightness(1.08);}
+
+  /* Project gallery + filters */
+  .work-intro{color:var(--muted);font-size:15.5px;margin:-14px 0 20px;}
+  .work-intro span{color:var(--faint);}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px;}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);background:transparent;
+    border:1px solid var(--line);border-radius:999px;padding:7px 13px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:7px;transition:all .2s var(--ease);font-family:inherit;}
+  .chip{font-family:'JetBrains Mono',monospace;}
+  .chip:hover{color:var(--ink);border-color:var(--line-strong);}
+  .chip.active{color:#1a130a;background:var(--accent);border-color:transparent;}
+  .chip .c-n{font-size:10px;opacity:.65;}
+
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:720px){.gallery{grid-template-columns:1fr;}}
+  .card{display:flex;flex-direction:column;position:relative;background:var(--surface);border:1px solid var(--line);
+    border-radius:16px;overflow:hidden;box-shadow:0 1px 0 rgba(255,255,255,.03);transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);}
+  .card::before{content:"";position:absolute;inset:0 0 auto;height:2px;z-index:5;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);}
+  .card::after{content:"#" attr(data-index) " · " attr(data-state);position:absolute;right:10px;top:10px;z-index:4;
+    font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.09em;color:#fff;background:rgba(13,12,11,.72);backdrop-filter:blur(8px);padding:4px 8px;border:1px solid rgba(255,255,255,.13);border-radius:6px;}
+  .card:hover{border-color:var(--line-strong);transform:translateY(-4px);box-shadow:0 18px 38px -28px rgba(0,0,0,.55);}
+  .card:hover::before{transform:scaleX(1);}
+  .card.feat{border-color:var(--line-strong);}
+  .card.hide{display:none;}
+  .card.pop{animation:cardIn .4s var(--ease) both;}
+  @keyframes cardIn{from{opacity:0;transform:translateY(10px) scale(.98);}to{opacity:1;transform:none;}}
+  .card-media{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:var(--surface-2);border-bottom:1px solid var(--line);}
+  .card-media img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .6s var(--ease);}
+  .card:hover .card-media img{transform:scale(1.04);}
+  .feat-badge{position:absolute;top:10px;left:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    background:var(--accent);color:#1a130a;padding:3px 8px;border-radius:6px;font-weight:600;}
+  .card-media.fallback{display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--surface-2),var(--surface)),repeating-linear-gradient(45deg,transparent 0 13px,rgba(224,164,88,.05) 13px 14px);}
+  .card-media.fallback .fb{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:16px;}
+  .card-media.fallback .fb-mark{font-family:'Fraunces',serif;font-size:38px;font-weight:600;color:var(--accent-ink);
+    width:80px;height:80px;border-radius:20px;border:1px solid var(--line-strong);display:grid;place-items:center;background:var(--surface);}
+  .card-media.fallback .fb-note{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);}
+  .card-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1;}
+  .card-dom{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:8px;}
+  .card-body h3{font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:-.01em;}
+  .card-body p{color:var(--muted);font-size:14px;margin:8px 0 14px;flex:1;}
+  .card-body p b{color:var(--ink);font-weight:600;}
+  .card .acts{margin-top:auto;}
+  .gallery-empty{grid-column:1/-1;padding:34px;text-align:center;color:var(--faint);font-family:'JetBrains Mono',monospace;font-size:13px;}
+  .gallery-more{margin-top:22px;display:flex;justify-content:center;}
+  .more-btn{display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.03em;
+    color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:11px 22px;cursor:pointer;transition:all .2s var(--ease);}
+  .more-btn:hover{color:var(--ink);border-color:var(--line-strong);background:var(--surface);}
+  .more-btn::after{content:"↓";font-size:12px;transition:transform .2s var(--ease);}
+  .more-btn[aria-expanded="true"]::after{transform:rotate(180deg);}
+  @media (prefers-reduced-motion:reduce){.card.pop{animation:none;} .card:hover .card-media img{transform:none;}}
+
+  /* Product view lenses */
+  .prose,.stats,.now,.card-body p,.card .tags,.acts,.xrow p,.xrow .tags{transition:opacity .3s var(--ease),filter .3s var(--ease);}
+  [data-lens="evidence"] .prose,[data-lens="evidence"] .now,[data-lens="evidence"] .card-body p,[data-lens="evidence"] .card .tags{opacity:.38;}
+  [data-lens="evidence"] .stat{background:var(--accent-soft);}
+  [data-lens="evidence"] .stat .n,[data-lens="evidence"] .card-body b,[data-lens="evidence"] .xrow p b{color:var(--accent-ink);}
+  [data-lens="artifacts"] .prose,[data-lens="artifacts"] .stats,[data-lens="artifacts"] .now,[data-lens="artifacts"] .card-body p,[data-lens="artifacts"] .card .tags,[data-lens="artifacts"] .xrow p{opacity:.3;}
+  [data-lens="artifacts"] .card .acts a,[data-lens="artifacts"] #experience .icbtn{border-color:var(--accent);color:var(--accent-ink);background:var(--accent-soft);}
+  @media(prefers-reduced-motion:reduce){.prose,.stats,.now,.card-body p,.card .tags,.acts,.xrow p,.xrow .tags{transition:none;}}
+
+  /* Archive list (more projects) */
+  .archive{border-top:1px solid var(--line);margin-top:8px;}
+  .arow{display:grid;grid-template-columns:1.1fr 1.7fr auto;gap:20px;align-items:center;
+    padding:18px 8px;border-bottom:1px solid var(--line);transition:background .25s var(--ease),padding .25s var(--ease);}
+  @media(max-width:720px){.arow{grid-template-columns:1fr;gap:6px;}}
+  .archive:hover .arow{opacity:.45;}
+  .archive .arow:hover{opacity:1;background:var(--surface);padding-left:16px;padding-right:16px;border-radius:10px;}
+  .arow .aname{font-family:'Fraunces',serif;font-size:19px;font-weight:600;display:flex;align-items:center;gap:9px;}
+  .arow .aname .adom{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);}
+  .arow .adesc{color:var(--muted);font-size:14px;}
+  .arow .alinks{display:flex;gap:14px;justify-self:end;}
+  @media(max-width:720px){.arow .alinks{justify-self:start;margin-top:6px;}}
+  .arow .alinks a{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--faint);
+    border-bottom:1px solid transparent;transition:all .2s;}
+  .arow .alinks a:hover{color:var(--accent-ink);border-color:var(--accent);}
+
+  /* Experience */
+  .xp{border-top:1px solid var(--line);}
+  .xrow{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:26px 8px;border-bottom:1px solid var(--line);
+    transition:background .25s var(--ease);border-radius:10px;}
+  @media(max-width:620px){.xrow{grid-template-columns:1fr;gap:6px;}}
+  .xp:hover .xrow{opacity:.5;} .xp .xrow:hover{opacity:1;background:var(--surface);padding-left:16px;padding-right:16px;}
+  .xrow .when{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--faint);padding-top:5px;}
+  .xrow h3{font-size:17px;font-weight:600;letter-spacing:-.01em;}
+  .xrow h3 .co{color:var(--accent-ink);}
+  .xrow p{color:var(--muted);font-size:14.5px;margin:8px 0 12px;max-width:600px;}
+  .xrow p b{color:var(--ink);font-weight:600;}
+
+  /* Approach */
+  .principles{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  @media(max-width:620px){.principles{grid-template-columns:1fr;}}
+  .principle{background:var(--bg);padding:24px 22px;}
+  .principle .pn{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent-ink);}
+  .principle h4{font-family:'Fraunces',serif;font-size:19px;font-weight:600;margin:10px 0 6px;letter-spacing:-.01em;}
+  .principle p{color:var(--muted);font-size:14px;}
+  .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;}
+  .skill{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);
+    border:1px solid var(--line);border-radius:8px;padding:6px 11px;transition:all .2s var(--ease);}
+  .skill:hover{color:var(--ink);border-color:var(--accent);}
 
   /* Contact */
-  .contact{text-align:center;}
-  .contact h2{font-size:clamp(34px,6.5vw,68px);font-weight:900;letter-spacing:-.03em;line-height:1.04;}
-  .contact .sub{color:var(--ink-2);font-size:17px;margin:16px auto 30px;max-width:520px;}
-  .social{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-  .sbtn{display:inline-flex;align-items:center;gap:9px;padding:13px 20px;border-radius:12px;border:1px solid var(--line-2);background:#fff;box-shadow:var(--soft);font-weight:600;font-size:14px;will-change:transform;transition:transform .12s,border-color .2s,color .2s;}
-  .sbtn:hover{border-color:var(--violet);color:var(--violet);}
-  .sbtn.copied{border-color:var(--mint);color:var(--teal);}
-  #confetti{position:fixed;inset:0;pointer-events:none;z-index:120;overflow:hidden;}
-  #confetti i{position:absolute;width:8px;height:13px;border-radius:2px;top:-10vh;animation:cf linear forwards;}
-  @keyframes cf{to{transform:translateY(115vh) rotate(680deg);opacity:.9;}}
+  .contact-card{border:1px solid var(--line);border-radius:20px;background:var(--surface);
+    padding:44px 40px;overflow:hidden;position:relative;}
+  .contact-card h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(30px,5vw,46px);letter-spacing:-.02em;line-height:1.05;}
+  .contact-card h2 em{font-style:italic;color:var(--accent-ink);}
+  .contact-card p{color:var(--muted);font-size:16px;margin:16px 0 28px;max-width:460px;}
+  .contact-actions{display:flex;gap:10px;flex-wrap:wrap;}
+  .cbtn{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:500;padding:13px 20px;border-radius:11px;
+    border:1px solid var(--line);color:var(--ink);transition:all .22s var(--ease);cursor:pointer;background:transparent;font-family:inherit;}
+  .cbtn:hover{border-color:var(--line-strong);transform:translateY(-1px);}
+  .cbtn.solid{background:var(--accent);color:#1a130a;border-color:transparent;font-weight:600;}
+  .cbtn.solid:hover{filter:brightness(1.08);}
+  .cbtn.copied{border-color:#5ec27a;color:#5ec27a;}
 
-  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--ink-3);font-size:13px;}
-  footer .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  footer{border-top:1px solid var(--line);margin-top:64px;padding-top:26px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--faint);font-size:12.5px;}
+  footer .mono{font-size:11.5px;}
+  footer a{color:var(--muted);border-bottom:1px solid var(--line-strong);}
+  footer a:hover{color:var(--accent-ink);}
 
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
+  /* Hero rotating verb + hand-drawn flourish */
+  .rail-verb{font-family:'Fraunces',serif;font-size:21px;font-weight:500;margin-top:16px;color:var(--ink);
+    display:inline-flex;align-items:baseline;gap:8px;}
+  .rotator{position:relative;display:inline-block;height:1.32em;overflow:hidden;vertical-align:bottom;}
+  .rotator .r-track{display:flex;flex-direction:column;transition:transform .55s var(--ease);}
+  .rotator .r-item{height:1.32em;line-height:1.32em;color:var(--accent-ink);white-space:nowrap;}
+  .flourish{display:block;height:11px;width:210px;max-width:60%;color:var(--accent);margin-top:-3px;overflow:visible;}
+  .flourish path{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:230;stroke-dashoffset:230;}
+  .flourish.draw path{animation:drawFl 1s var(--ease) forwards;}
+  @keyframes drawFl{to{stroke-dashoffset:0;}}
+
+  /* Command palette */
+  .cmdk-trigger{margin-top:26px;display:inline-flex;align-items:center;justify-content:space-between;gap:16px;width:100%;max-width:300px;
+    padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:var(--surface);color:var(--muted);
+    font-size:13px;cursor:pointer;transition:all .22s var(--ease);font-family:inherit;}
+  .cmdk-trigger:hover{border-color:var(--line-strong);color:var(--ink);}
+  @media(max-width:960px){.cmdk-trigger{max-width:none;}}
+  .kbd{display:inline-flex;gap:3px;flex:none;}
+  .kbd b{font-family:'JetBrains Mono',monospace;font-size:11px;background:var(--surface-2);border:1px solid var(--line);
+    border-bottom-width:2px;border-radius:6px;padding:2px 6px;color:var(--muted);font-weight:500;}
+
+  .cmdk{position:fixed;inset:0;z-index:200;display:none;align-items:flex-start;justify-content:center;padding:13vh 20px 20px;}
+  .cmdk.open{display:flex;}
+  .cmdk-scrim{position:absolute;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);opacity:0;transition:opacity .2s;}
+  .cmdk.open .cmdk-scrim{opacity:1;}
+  .cmdk-box{position:relative;width:100%;max-width:560px;background:var(--surface);border:1px solid var(--line-strong);
+    border-radius:16px;box-shadow:0 40px 100px -30px rgba(0,0,0,.7);overflow:hidden;
+    transform:translateY(-10px) scale(.985);opacity:0;transition:transform .2s var(--ease),opacity .2s;}
+  .cmdk.open .cmdk-box{transform:none;opacity:1;}
+  .cmdk-in{display:flex;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid var(--line);}
+  .cmdk-in svg{flex:none;color:var(--faint);}
+  .cmdk-in input{flex:1;background:transparent;border:none;outline:none;color:var(--ink);font-family:inherit;font-size:16px;}
+  .cmdk-in input::placeholder{color:var(--faint);}
+  .cmdk-esc{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--faint);border:1px solid var(--line);border-radius:6px;padding:3px 6px;}
+  .cmdk-list{max-height:min(52vh,430px);overflow:auto;padding:8px;scrollbar-width:thin;}
+  .cmdk-group{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding:12px 12px 6px;}
+  .cmdk-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;cursor:pointer;color:var(--muted);font-size:14.5px;}
+  .cmdk-item .ci-ic{width:27px;height:27px;border-radius:7px;background:var(--surface-2);display:grid;place-items:center;font-size:12px;flex:none;
+    font-family:'JetBrains Mono',monospace;color:var(--accent-ink);}
+  .cmdk-item .ci-meta{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);}
+  .cmdk-item.sel,.cmdk-item:hover{background:var(--accent-soft);color:var(--ink);}
+  .cmdk-empty{padding:28px 16px;text-align:center;color:var(--faint);font-size:14px;}
+
+  /* Top scroll progress */
+  #progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:150;transition:width .12s linear;}
+
+  /* First-visit ⌘K hint */
+  .khint{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);z-index:160;
+    display:none;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line-strong);
+    border-radius:12px;padding:10px 12px 10px 15px;box-shadow:var(--shadow);opacity:0;transition:opacity .3s var(--ease),transform .3s var(--ease);}
+  .khint.show{display:flex;opacity:1;transform:translateX(-50%) translateY(0);}
+  .khint span.t{font-size:13.5px;color:var(--muted);}
+  .khint button{background:none;border:none;color:var(--faint);cursor:pointer;font-size:17px;line-height:1;padding:0 2px;}
+  .khint button:hover{color:var(--ink);}
+
+  /* Three.js surprise game launcher */
+  .surprise-launch{position:fixed;right:24px;bottom:24px;z-index:175;width:52px;height:52px;
+    display:grid;place-items:center;padding:5px;
+    border:1px solid rgba(184,243,74,.34);border-radius:13px;background:color-mix(in srgb,var(--surface) 90%,transparent);
+    backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);box-shadow:0 18px 46px -24px rgba(0,0,0,.8);
+    transition:transform .22s var(--ease),border-color .22s var(--ease),box-shadow .22s var(--ease);}
+  .surprise-launch:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 22px 52px -24px rgba(184,243,74,.28);}
+  .surprise-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:9px;background:var(--accent);color:#10150c;
+    font-size:18px;box-shadow:0 0 0 0 rgba(184,243,74,.28);animation:surprisePulse 2.8s ease-out infinite;}
+  .surprise-copy{position:absolute;right:0;bottom:calc(100% + 10px);width:260px;padding:11px 13px;line-height:1.28;
+    border:1px solid var(--line-strong);border-radius:9px;background:var(--surface);box-shadow:var(--shadow);
+    opacity:0;visibility:hidden;transform:translateY(6px);pointer-events:none;
+    transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;}
+  .surprise-copy small{display:block;margin-bottom:3px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);}
+  .surprise-copy strong{display:block;font-size:11.5px;font-weight:600;color:var(--ink);}
+  .surprise-launch:hover .surprise-copy,.surprise-launch:focus-visible .surprise-copy{opacity:1;visibility:visible;transform:none;}
+  .surprise-arrow{display:none;}
+  @keyframes surprisePulse{0%,55%,100%{box-shadow:0 0 0 0 rgba(184,243,74,.24)}72%{box-shadow:0 0 0 9px rgba(184,243,74,0)}}
+  @media(max-width:650px){
+    .surprise-launch{right:16px;bottom:16px;width:48px;height:48px;}
+    .surprise-mark{width:36px;height:36px;}
+    .surprise-copy{display:none;}
+    body:has(.khint.show) .surprise-launch{bottom:76px;}
+  }
+  @media(prefers-reduced-motion:reduce){.surprise-mark{animation:none}.surprise-launch:hover{transform:none}.surprise-launch:hover .surprise-arrow{transform:none}}
+
+  .feature .media{cursor:pointer;}
+
+  /* Utility visibility */
+  .print-only{display:none;}
+
+  /* NOW strip */
+  .now{margin-top:22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    border:1px solid var(--line);border-radius:14px;padding:14px 18px;background:var(--surface);}
+  .now .now-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink);}
+  .now ul{display:flex;gap:9px;flex-wrap:wrap;list-style:none;}
+  .now li{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);}
+  .now li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none;}
+  .now li b{color:var(--ink);font-weight:600;}
+
+  /* SPEC VIEW */
+  .spec-tag{display:none;}
+  .spec-banner{display:none;}
+  [data-spec="on"] main section, [data-spec="on"] aside{position:relative;outline:1.5px dashed var(--accent);outline-offset:12px;border-radius:4px;}
+  [data-spec="on"] .spec-tag{display:inline-flex;position:absolute;top:-11px;right:0;z-index:5;
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    background:var(--accent);color:#1a130a;padding:4px 10px;border-radius:6px;font-weight:600;white-space:nowrap;box-shadow:var(--shadow);}
+  @media(max-width:960px){[data-spec="on"] .spec-tag{position:static;display:inline-flex;align-self:flex-start;margin:0 0 12px;box-shadow:none;}}
+  .spec-banner{position:fixed;top:18px;left:50%;transform:translateX(-50%) translateY(-16px);z-index:190;align-items:center;gap:12px;
+    background:color-mix(in srgb, var(--surface) 82%, transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border:1px solid var(--line-strong);border-radius:999px;padding:7px 8px 7px 8px;box-shadow:var(--shadow);max-width:calc(100vw - 32px);
+    opacity:0;transition:opacity .35s var(--ease),transform .35s var(--ease);}
+  [data-spec="on"] .spec-banner{display:flex;opacity:1;transform:translateX(-50%) translateY(0);}
+  .sb-badge{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;font-weight:600;
+    color:#1a130a;background:var(--accent);padding:6px 11px;border-radius:999px;flex:none;}
+  .sb-badge .sb-dot{width:6px;height:6px;border-radius:50%;background:#1a130a;opacity:.85;animation:sbpulse 1.8s ease infinite;}
+  @keyframes sbpulse{0%,100%{opacity:.3;}50%{opacity:.9;}}
+  .sb-text{font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .sb-text b{color:var(--accent-ink);font-weight:600;}
+  @media(max-width:560px){.sb-text{display:none;}}
+  .sb-exit{flex:none;background:transparent;border:1px solid var(--line);color:var(--muted);font-family:inherit;
+    font-size:12px;font-weight:500;padding:6px 14px;border-radius:999px;cursor:pointer;transition:all .2s var(--ease);}
+  .sb-exit:hover{color:var(--ink);border-color:var(--line-strong);background:var(--surface-2);}
+  @media (prefers-reduced-motion:reduce){.sb-badge .sb-dot{animation:none;} .spec-banner{transition:none;}}
+
+  /* PRINT — clean one-pager */
+  @media print{
+    @page{margin:14mm;}
+    .backdrop,.canvas-grid,.spot,#progress,.khint,.surprise-launch,.cmdk,.spec-banner,.spec-tag,.cmdk-trigger,.theme,#specBtn,aside,.workspace-bar,.evidence-label,.work-intro,.gallery-more,
+    .rotator,.flourish,.filters,.verdict,.card-media,.now,.avail .dot,.socials{display:none!important;}
+    *{background:#fff!important;color:#111!important;box-shadow:none!important;outline:none!important;text-shadow:none!important;}
+    .card.hide{display:flex!important;}
+    .print-only{display:block!important;}
+    body{font-size:11pt;line-height:1.4;}
+    .shell{display:block;max-width:none;padding:0;gap:0;}
+    aside{position:static;height:auto;padding:0 0 6px;}
+    main{padding:0;}
+    .name{font-size:26pt;}
+    .role,.rail-verb,.rail-lead,.avail{font-size:10pt;}
+    section{margin-bottom:16px;scroll-margin-top:0;page-break-inside:avoid;}
+    .sec-head h2{font-size:14pt;}
+    .reveal{opacity:1!important;transform:none!important;}
+    .stats{grid-template-columns:repeat(4,1fr);border:1px solid #ccc;}
+    .stat{border:none;} .stat .n{font-size:16pt;} .stat .n .u{color:#111!important;}
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .card{border:1px solid #ccc;break-inside:avoid;transform:none!important;}
+    .card::before,.card::after{display:none!important;}
+    .prose,.stats,.now,.card-body p,.card .tags,.acts,.xrow p,.xrow .tags{opacity:1!important;filter:none!important;}
+    .card-body{padding:8px 10px;} .card-body h3{font-size:12pt;} .card-body p{font-size:9pt;margin:4px 0 6px;}
+    .card .acts a{color:#111!important;border:none;padding:0;font-size:8pt;text-decoration:underline;}
+    .tag,.skill{border-color:#ccc!important;color:#333!important;font-size:8pt;}
+    .xrow,.principle{break-inside:avoid;} .xrow{opacity:1!important;background:none!important;}
+    .contact-card{border:1px solid #ccc;padding:14px;}
+    .contact-card h2{font-size:16pt;} .contact-card h2 em{color:#111!important;}
+    footer{border-top:1px solid #ccc;}
+    .print-head{border-bottom:2px solid #111;padding-bottom:8px;margin-bottom:14px;}
+    .print-head .ph-name{font-family:'Fraunces',serif;font-size:20pt;font-weight:700;}
+    .print-head .ph-links{font-size:9.5pt;margin-top:4px;}
+  }
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
   .reveal.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;} .reveal,.badge,.hero p.lead,.hero .cta-row,h1.hero-h .w{opacity:1!important;transform:none!important;}}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1!important;transform:none!important;}
+    .avail .dot{animation:none;}
+    .feature:hover .media img{transform:none;}
+    .rotator .r-track{transition:none;}
+    .flourish.draw path{animation:none;stroke-dashoffset:0;}
+  }
+
+  /* ==========================================================
+     PRODUCT DECISION STUDIO
+     AI is treated as a product choice, not a visual costume.
+     ========================================================== */
+  body{letter-spacing:-.005em;}
+  .backdrop{
+    background:
+      linear-gradient(90deg,transparent 0 49.9%,var(--line) 50%,transparent 50.1%),
+      radial-gradient(circle at 82% 18%,var(--signal-soft),transparent 28%),
+      radial-gradient(circle at 18% 82%,var(--accent-soft),transparent 25%);
+  }
+  .canvas-grid{inset:0;opacity:.22;background-size:56px 56px;}
+  .shell{max-width:1320px;grid-template-columns:280px minmax(0,1fr);gap:34px;padding:0 30px;}
+  aside{padding:38px 26px 30px 0;}
+  aside::after{right:-17px;top:0;bottom:0;background:var(--line-strong);}
+  .avail{border-radius:5px;margin-bottom:36px;background:var(--accent-soft);border-color:rgba(184,243,74,.25);color:var(--accent-ink);}
+  .avail .dot{background:var(--accent);}
+  .name{font-family:'Inter',sans-serif;font-size:clamp(38px,5vw,52px);font-weight:600;line-height:.92;letter-spacing:-.065em;}
+  .role{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.55;letter-spacing:.08em;text-transform:uppercase;margin-top:20px;color:var(--muted);}
+  .role b{color:var(--signal);font-weight:500;}
+  .rail-verb,.flourish{display:none;}
+  .rail-code{margin-top:28px;padding:15px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.7;color:var(--faint);}
+  .rail-code span{color:var(--accent-ink);}
+  .rail-code b{color:var(--ink);font-weight:500;}
+  .rail-lead{font-size:14px;line-height:1.65;margin-top:20px;}
+  nav.rail-nav{margin-top:30px;gap:0;border-top:1px solid var(--line);}
+  nav.rail-nav a{position:relative;padding:10px 8px;border-bottom:1px solid var(--line);font-size:10.5px;letter-spacing:.11em;}
+  nav.rail-nav a .bar{width:5px;height:5px;border-radius:50%;}
+  nav.rail-nav a:hover .bar,nav.rail-nav a.active .bar{width:5px;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);}
+  nav.rail-nav a.active::after{content:"ACTIVE";margin-left:auto;font-size:8px;color:var(--accent-ink);letter-spacing:.12em;}
+  .cmdk-trigger{margin-top:20px;border-radius:7px;background:transparent;}
+  .icbtn,.theme{border-radius:7px;}
+
+  main{padding-top:14px;}
+  .workspace-bar{top:10px;margin-bottom:26px;border-radius:8px;padding:7px 8px 7px 10px;background:color-mix(in srgb,var(--bg) 82%,transparent);box-shadow:0 16px 40px -30px #000;}
+  .ws-mark{border-radius:4px;background:var(--accent);color:#10150c;}
+  .ws-file b{color:var(--ink);}
+  .ws-status{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);}
+  .ws-status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 4px var(--signal-soft);}
+
+  section{margin-bottom:128px;}
+  .sec-head{align-items:center;margin-bottom:26px;}
+  .sec-head .idx{color:var(--accent-ink);}
+  .sec-head .phase{border-radius:4px;}
+  section.current .sec-head .phase{background:var(--accent);color:#11170b;}
+  .sec-head h2{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:-.045em;font-size:clamp(26px,3.4vw,38px);}
+
+  /* Product positioning / decision graph */
+  .studio-hero{position:relative;overflow:hidden;border:1px solid var(--line-strong);border-radius:12px;background:var(--surface);}
+  .studio-hero::before{content:"DECISION FILE / 00";position:absolute;top:14px;right:15px;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.15em;color:var(--faint);}
+  .studio-hero::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:var(--accent);opacity:.45;animation:scanStudio 7s linear infinite;pointer-events:none;}
+  @keyframes scanStudio{from{left:0}to{left:100%}}
+  .hero-copy{padding:54px 48px 42px;}
+  .hero-eyebrow{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--signal);}
+  .hero-eyebrow::before{content:"";width:20px;height:1px;background:var(--signal);}
+  .studio-hero h2{max-width:760px;margin-top:24px;font-family:'Inter',sans-serif;font-size:clamp(44px,7vw,82px);font-weight:600;letter-spacing:-.07em;line-height:.92;}
+  .studio-hero h2 em{font-family:'Fraunces',serif;font-weight:500;color:var(--accent-ink);}
+  .hero-lead{max-width:700px;margin-top:28px;color:var(--muted);font-size:17px;line-height:1.7;}
+  .hero-lead b{color:var(--ink);font-weight:500;}
+  .hero-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:30px;}
+  .hero-action{display:inline-flex;align-items:center;gap:9px;padding:11px 15px;border:1px solid var(--line-strong);border-radius:7px;font-size:13px;font-weight:500;transition:all .2s var(--ease);}
+  .hero-action.primary{background:var(--accent);color:#10150c;border-color:var(--accent);}
+  .hero-action:hover{transform:translateY(-2px);border-color:var(--accent);}
+  .decision-pipeline{display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr;border-top:1px solid var(--line);background:var(--bg);}
+  .pipe-node{padding:19px 20px;min-height:112px;}
+  .pipe-node .pnum{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent-ink);letter-spacing:.13em;}
+  .pipe-node b{display:block;margin:8px 0 4px;font-size:13px;font-weight:600;}
+  .pipe-node p{font-size:11.5px;line-height:1.5;color:var(--faint);}
+  .pipe-arrow{display:grid;place-items:center;color:var(--accent-ink);border-left:1px solid var(--line);border-right:1px solid var(--line);font-family:'JetBrains Mono',monospace;}
+
+  .studio-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:16px;border-radius:10px;overflow:hidden;}
+  .studio-stat{background:var(--surface);padding:18px;}
+  .studio-stat b{display:block;font-family:'Inter',sans-serif;font-size:28px;line-height:1;color:var(--ink);letter-spacing:-.05em;}
+  .studio-stat:nth-child(2) b,.studio-stat:nth-child(3) b{color:var(--accent-ink);}
+  .studio-stat span{display:block;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);line-height:1.45;}
+
+  /* AI product judgement */
+  .ai-thesis{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:end;margin-bottom:28px;}
+  .ai-thesis h3{font-family:'Inter',sans-serif;font-size:clamp(30px,5vw,54px);line-height:1;letter-spacing:-.055em;font-weight:600;}
+  .ai-thesis h3 em{font-family:'Fraunces',serif;color:var(--signal);font-weight:500;}
+  .ai-thesis p{color:var(--muted);font-size:15px;}
+  .ai-map{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;}
+  .ai-card{position:relative;min-height:220px;padding:22px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;transition:transform .25s var(--ease),border-color .25s var(--ease);}
+  .ai-card:hover{transform:translateY(-3px);border-color:var(--line-strong);}
+  .ai-card.core{grid-column:span 6;border-color:rgba(110,219,232,.27);}
+  .ai-card.ml{grid-column:span 5;}
+  .ai-card.rules{grid-column:span 7;}
+  .ai-mode{display:flex;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);}
+  .ai-mode b{color:var(--signal);font-weight:500;}
+  .ai-card.rules .ai-mode b{color:var(--accent-ink);}
+  .ai-card h4{font-size:20px;letter-spacing:-.025em;margin:34px 0 9px;}
+  .ai-card p{font-size:13.5px;color:var(--muted);line-height:1.6;}
+  .ai-card .ai-products{position:absolute;left:22px;right:22px;bottom:18px;display:flex;gap:6px;flex-wrap:wrap;}
+  .ai-products span{font-family:'JetBrains Mono',monospace;font-size:9px;border:1px solid var(--line);padding:4px 7px;border-radius:4px;color:var(--faint);}
+  .ai-principle{display:flex;align-items:flex-start;gap:13px;margin-top:14px;padding:16px 18px;border-left:2px solid var(--accent);background:var(--accent-soft);font-size:13.5px;color:var(--muted);}
+  .ai-principle b{color:var(--ink);}
+
+  /* Interactive decision case file */
+  .decision-intro{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:-8px 0 24px;}
+  .decision-intro p{max-width:620px;color:var(--muted);font-size:15px;}
+  .decision-intro span{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-ink);white-space:nowrap;}
+  .board-toolbar{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px;}
+  .board-toolbar .filters{margin:0;flex:1;}
+  .board-toolbar .chip,.board-more{scroll-margin-top:74px;}
+  .board-more{flex:none;padding:8px 13px;border:1px solid var(--line-strong);border-radius:6px;background:var(--surface);color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;cursor:pointer;transition:all .2s var(--ease);}
+  .board-more:hover{border-color:var(--accent);color:var(--accent-ink);transform:translateY(-1px);}
+  .board-more[hidden]{display:none;}
+  .decision-explorer{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:650px;border:1px solid var(--line-strong);border-radius:12px;overflow:hidden;background:var(--surface);}
+  .case-index{border-right:1px solid var(--line);background:var(--bg);}
+  .case-index-head{display:flex;justify-content:space-between;gap:8px;padding:15px 16px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);}
+  .case-index-head b{color:var(--accent-ink);font-weight:500;}
+  .case-tab{width:100%;display:grid;grid-template-columns:25px 1fr;gap:9px;text-align:left;padding:13px 12px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;font-family:inherit;transition:all .2s var(--ease);}
+  .case-tab{scroll-margin-top:90px;}
+  .case-tab:hover{background:var(--surface);color:var(--ink);}
+  .case-tab.active{background:var(--accent-soft);color:var(--ink);box-shadow:inset 2px 0 var(--accent);}
+  .case-tab .ct-num{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--faint);padding-top:2px;}
+  .case-tab b{display:block;font-size:12.5px;font-weight:600;}
+  .case-tab small{display:block;margin-top:3px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);}
+  .case-tab small.ai{color:var(--signal);}
+  .case-file{min-width:0;display:flex;flex-direction:column;}
+  .case-visual{position:relative;aspect-ratio:16/7;overflow:hidden;background:var(--surface-2);border-bottom:1px solid var(--line);}
+  .case-visual img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:opacity .25s var(--ease),transform .6s var(--ease);}
+  .case-visual.team-preview img{object-position:center 12%;}
+  .case-visual.extension-preview{background:#070b14;}
+  .case-visual.extension-preview img{object-fit:contain;padding:16px 22px;object-position:center;}
+  .case-visual:hover img{transform:scale(1.025);}
+  .case-fallback{height:100%;display:grid;place-items:center;font-family:'Inter',sans-serif;font-size:72px;font-weight:600;letter-spacing:-.08em;color:var(--accent-ink);background:repeating-linear-gradient(90deg,transparent 0 55px,var(--line) 56px);}
+  .case-state{position:absolute;top:13px;right:13px;padding:5px 8px;border:1px solid rgba(255,255,255,.16);border-radius:4px;background:rgba(8,11,10,.8);backdrop-filter:blur(8px);font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#f2f7f3;}
+  .case-content{padding:25px 28px 28px;}
+  .case-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:22px;}
+  .case-kicker{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);}
+  .case-title-row h3{margin-top:7px;font-size:31px;line-height:1;letter-spacing:-.045em;}
+  .case-links{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;}
+  .case-links a{padding:7px 10px;border:1px solid var(--line);border-radius:5px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.05em;color:var(--muted);transition:all .2s;}
+  .case-links a:hover,.case-links a.primary{background:var(--accent);color:#11170b;border-color:var(--accent);}
+  .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  .case-cell{background:var(--surface);padding:16px;min-height:122px;}
+  .case-cell.wide{grid-column:1/-1;min-height:auto;}
+  .case-cell .cc-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);}
+  .case-cell.ai-cell .cc-label{color:var(--signal);}
+  .case-cell p{margin-top:8px;color:var(--muted);font-size:12.5px;line-height:1.55;}
+  .case-cell p strong{color:var(--ink);font-weight:500;}
+  .case-proof{margin-top:12px;display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--muted);font-size:12px;}
+  .case-proof::before{content:"PROOF";font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.1em;color:var(--accent-ink);padding-top:2px;}
+  .archive-label{display:flex;align-items:center;gap:14px;margin:40px 0 20px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);}
+  .archive-label::after{content:"";height:1px;flex:1;background:var(--line);}
+
+  /* Existing evidence, experience and principles now share the studio language */
+  .stats,.principles{border-radius:9px;}
+  .stat,.principle{background:var(--surface);}
+  .stat .n,.principle h4,.card-body h3,.contact-card h2{font-family:'Inter',sans-serif;letter-spacing:-.035em;}
+  .card,.contact-card{border-radius:10px;}
+  .card::after{border-radius:4px;}
+  .feature,.card,.contact-card,.now{background:var(--surface);}
+  .xrow{border-radius:6px;}
+  .xrow h3 .co{color:var(--signal);}
+  .principle{position:relative;min-height:190px;}
+  .principle .pn{color:var(--signal);}
+  .skill{border-radius:5px;}
+  .contact-card{padding:48px;background:var(--surface);}
+  .contact-card::after{content:"NEXT DECISION →";position:absolute;right:-12px;bottom:8px;font-family:'Inter',sans-serif;font-size:58px;font-weight:600;letter-spacing:-.06em;color:var(--line);white-space:nowrap;pointer-events:none;}
+  .contact-card>*{position:relative;z-index:1;}
+
+  @media(max-width:960px){
+    .shell{grid-template-columns:1fr;padding:0 22px;}
+    aside{height:auto;padding:48px 0 20px;}
+    .rail-code{max-width:470px;}
+    .workspace-bar{margin-top:10px;}
+  }
+  @media(max-width:760px){
+    section{margin-bottom:92px;}
+    .hero-copy{padding:46px 25px 30px;}
+    .studio-hero h2{font-size:clamp(42px,13vw,66px);}
+    .decision-pipeline{grid-template-columns:1fr;}
+    .pipe-arrow{height:28px;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);transform:none;}
+    .pipe-arrow span{transform:rotate(90deg);}
+    .pipe-node{min-height:auto;}
+    .studio-stats{grid-template-columns:1fr 1fr;}
+    .ai-thesis{grid-template-columns:1fr;align-items:start;}
+    .ai-card.core,.ai-card.ml,.ai-card.rules{grid-column:1/-1;}
+    .decision-explorer{grid-template-columns:1fr;min-height:0;}
+    .case-index{display:flex;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);scrollbar-width:thin;}
+    .case-index-head{display:none;}
+    .case-tab{min-width:145px;border-right:1px solid var(--line);border-bottom:0;}
+    .case-tab.active{box-shadow:inset 0 -2px var(--accent);}
+    .case-visual{aspect-ratio:16/9;}
+    .case-content{padding:22px 18px;}
+    .case-title-row{display:block;}
+    .case-links{justify-content:flex-start;margin-top:16px;}
+    .case-grid{grid-template-columns:1fr;}
+    .case-cell.wide{grid-column:auto;}
+  }
+  @media(max-width:520px){
+    .workspace-bar .ws-root,.workspace-bar .ws-status{display:none;}
+    .studio-stat{padding:15px 12px;}
+    .studio-stat b{font-size:24px;}
+    .studio-hero::after{display:none;}
+    .ai-card{min-height:0;}
+    .ai-card .ai-products{position:static;margin-top:18px;}
+    .ai-principle{display:block;}
+    .ai-principle b{display:block;margin-bottom:5px;}
+    .decision-intro{display:block;}
+    .decision-intro span{display:block;margin-top:10px;}
+    .board-toolbar{display:block;}
+    .board-more{width:100%;margin-top:10px;}
+    .case-visual.extension-preview{aspect-ratio:4/3;}
+    .case-visual.extension-preview img{padding:10px;}
+    .contact-card{padding:34px 22px;}
+  }
+  @media(prefers-reduced-motion:reduce){.studio-hero::after{animation:none;display:none;}}
+
+  @media print{
+    #ai,.decision-explorer,.decision-pipeline,.hero-actions,.archive-label,.board-toolbar{display:none!important;}
+    .studio-hero{border:0!important;}
+    .studio-hero::before,.studio-hero::after{display:none!important;}
+    .hero-copy{padding:0!important;}
+    .studio-hero h2{font-size:24pt!important;line-height:1!important;}
+    .hero-lead{font-size:10pt!important;margin-top:8px!important;}
+    .studio-stats{grid-template-columns:repeat(4,1fr)!important;margin-top:10px!important;}
+    .studio-stat{padding:8px!important;}
+    .studio-stat b{font-size:15pt!important;}
+  }
 </style>
 </head>
 <body>
-  <div id="mask"><div class="m-logo grad-text">Aastha Saini</div></div>
-  <div class="bg-mesh" id="mesh"></div>
-  <div class="bg-dots"></div>
-  <div id="confetti"></div>
+  <div class="backdrop"></div>
+  <div class="canvas-grid"></div>
+  <div class="spot" id="spot"></div>
+  <div id="progress"></div>
+  <div class="khint" id="khint">
+    <span class="t">Tip — press <span class="kbd"><b>⌘</b><b>K</b></span> to jump anywhere</span>
+    <button id="khintClose" aria-label="Dismiss tip">×</button>
+  </div>
+  <div class="spec-banner" id="specBanner" role="status" aria-live="polite">
+    <span class="sb-badge"><span class="sb-dot"></span>SPEC</span>
+    <span class="sb-text">You're reading this page like one of my <b>PRDs</b> — every section, annotated.</span>
+    <button class="sb-exit" id="specExit" aria-label="Exit spec view">Exit</button>
+  </div>
 
-  <header class="nav" id="nav">
-    <div class="wrap in">
-      <a class="logo" href="#top"><span class="dot"></span>Aastha Saini</a>
-      <nav class="links">
-        <a class="hide" href="#capabilities">Capabilities</a>
-        <a class="hide" href="#work">Case Studies</a>
-        <a class="hide" href="#experience">Experience</a>
-        <a class="cta" href="resume/Aastha-Saini-Resume.pdf" target="_blank">Résumé</a>
+  <div class="shell">
+    <!-- LEFT RAIL -->
+    <aside>
+      <span class="avail"><span class="dot"></span>Open to product roles · 2026</span>
+      <h1 class="name">Aastha<br>Saini</h1>
+      <p class="role">Product Manager · </p>
+      <div class="rail-code" aria-label="Product positioning">
+        <div>role: <span>product_manager</span></div>
+        <div>strength: <b>decision systems</b></div>
+        <div>method: <b>evidence → shipped artifact</b></div>
+        <div>ai_policy: <span>use with intent</span></div>
+      </div>
+      <p class="rail-lead">I turn ambiguous user and operational problems into documented, testable and shipped products.</p>
+
+      <nav class="rail-nav" id="railnav">
+        <a href="#about"><span class="bar"></span>Positioning</a>
+        <a href="#ai"><span class="bar"></span>AI judgement</a>
+        <a href="#work"><span class="bar"></span>Product board</a>
+        <a href="#experience"><span class="bar"></span>Evidence</a>
+        <a href="#approach"><span class="bar"></span>Operating model</a>
+        <a href="#contact"><span class="bar"></span>Next problem</a>
       </nav>
-    </div>
-  </header>
 
-  <!-- HERO -->
-  <a id="top"></a>
-  <section class="hero">
-    <div class="wrap">
-      <div class="badge"><span class="pd"></span>Product Manager · Analytics · Data-Driven Products</div>
-      <h1 class="hero-h" id="heroH"></h1>
-      <p class="lead">A product manager with a data & finance analytics background, now driving B2B marketplace products. At <b style="color:var(--ink)">TradeIndia</b> I authored 136 PRDs and led competitor benchmarking & app audits — and I ship data-driven products 0→1 on the side.</p>
-      <div class="cta-row">
-        <a class="btn btn-outline" href="#work"><span>View case studies</span></a>
-        <a class="btn btn-magnet" data-magnet href="https://www.linkedin.com/in/aastha-saini03/" target="_blank">Connect on LinkedIn →</a>
-      </div>
-    </div>
-  </section>
+      <button class="cmdk-trigger" id="cmdkTrigger" aria-label="Open command palette">
+        <span>Jump anywhere…</span>
+        <span class="kbd"><b>⌘</b><b>K</b></span>
+      </button>
 
-  <!-- CAPABILITIES -->
-  <section id="capabilities">
-    <div class="wrap">
-      <div class="reveal"><span class="eyebrow">Core capabilities</span>
-        <h2 class="sec">Where product meets <span class="grad-text">data</span></h2>
-        <p class="sec-sub">Analytical rigour and technical fluency — hover the cards.</p>
+      <div class="socials">
+        <a class="icbtn solid" href="resume/Aastha-Saini-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a class="icbtn" href="https://www.linkedin.com/in/aastha-saini03/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="icbtn" href="https://github.com/AASTHA381" target="_blank" rel="noopener">GitHub</a>
+        <button class="theme" id="specBtn" aria-label="Toggle spec view" title="Spec view (press S)">▥</button>
+        <button class="theme" id="themeBtn" aria-label="Toggle colour theme" title="Toggle theme">☾</button>
       </div>
-      <div class="bento" id="bento">
-        <div class="tile" data-viz="graph"><div class="glow"></div>
-          <div class="ic">📊</div><h3>Data Analytics & Visualization</h3><p>Turning raw data into dashboards & decisions.</p>
-          <div class="viz">
-            <svg class="spark" viewBox="0 0 240 52" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
-                <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#fff"/></linearGradient>
-              </defs>
-              <path class="a" d="M0,44 L18,36 L48,40 L78,22 L108,30 L140,14 L172,22 L204,8 L240,16 L240,52 L0,52 Z"/>
-              <path class="l" d="M0,44 L18,36 L48,40 L78,22 L108,30 L140,14 L172,22 L204,8 L240,16"/>
-              <circle cx="204" cy="8" r="4"/>
-            </svg>
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <main>
+      <div class="print-head print-only">
+        <div class="ph-name">Aastha Saini</div>
+        <div>Product Manager · Analytics &amp; B2B Platforms</div>
+        <div class="ph-links">381aastha@gmail.com · linkedin.com/in/aastha-saini03 · github.com/AASTHA381 · aastha381.github.io/portfolio</div>
+      </div>
+      <div class="workspace-bar" aria-label="Product portfolio controls">
+        <div class="ws-file"><span class="ws-mark">AS</span><span class="ws-root">decision-studio /</span><b id="wsActive">00 · positioning</b></div>
+        <div class="ws-status">AI used with intent</div>
+      </div>
+      <!-- ABOUT -->
+      <section id="about" class="reveal">
+        <div class="studio-hero">
+          <div class="hero-copy">
+            <div class="hero-eyebrow">Product Manager building with AI · Analytical 0→1</div>
+            <h2>I build products that make the <em>next decision</em> easier.</h2>
+            <p class="hero-lead">From an AI purchase verdict to capital planning and team matching, I turn messy choices into <b>clear product systems</b>. I use AI when reasoning or summarisation improves the outcome—and deterministic logic when rules are more reliable.</p>
+            <div class="hero-actions">
+              <a class="hero-action primary" href="#work">Inspect decision files ↓</a>
+              <a class="hero-action" href="resume/Aastha-Saini-Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+            </div>
+          </div>
+          <div class="decision-pipeline" aria-label="Product decision pipeline">
+            <div class="pipe-node"><span class="pnum">01 / SIGNAL</span><b>Find the real friction</b><p>User pain, operational gap or repeated decision—not a feature looking for a problem.</p></div>
+            <div class="pipe-arrow" aria-hidden="true"><span>→</span></div>
+            <div class="pipe-node"><span class="pnum">02 / JUDGEMENT</span><b>Choose the mechanism</b><p>LLM, on-device ML or deterministic rules based on value, risk and constraints.</p></div>
+            <div class="pipe-arrow" aria-hidden="true"><span>→</span></div>
+            <div class="pipe-node"><span class="pnum">03 / PROOF</span><b>Ship the artifact</b><p>A scoped MVP, live interface and PRD with the trade-offs left visible.</p></div>
           </div>
         </div>
 
-        <div class="tile" data-viz="wf"><div class="glow"></div>
-          <div class="ic">✏️</div><h3>UX Audits & Wireframing</h3><p>De-risking designs before a line of code.</p>
-          <div class="viz"><div class="wf"><div class="bar b1"></div><div class="bar b2"></div><div class="bar b3"></div></div><div class="wf-hint">Tap to preview hi-fi ✦</div></div>
+        <div class="studio-stats" aria-label="Verified portfolio facts">
+          <div class="studio-stat"><b class="num">136</b><span>PRDs authored at TradeIndia</span></div>
+          <div class="studio-stat"><b class="num">2</b><span>Generative-AI products</span></div>
+          <div class="studio-stat"><b class="num">1</b><span>On-device ML use case</span></div>
+          <div class="studio-stat"><b class="num">8</b><span>0→1 product builds</span></div>
+        </div>
+      </section>
+
+      <!-- AI JUDGEMENT -->
+      <section id="ai" class="reveal">
+        <div class="sec-head"><span class="idx">01</span><span class="phase">MODEL CHOICE</span><h2>AI judgement</h2><span class="rule"></span></div>
+        <div class="ai-thesis">
+          <h3>AI is a product choice,<br><em>not the product.</em></h3>
+          <p>The portfolio uses three different intelligence patterns. The mechanism changes with the user problem: generative reasoning where explanation matters, private on-device ML for verification, and deterministic systems where predictability wins.</p>
+        </div>
+        <div class="ai-map">
+          <article class="ai-card core">
+            <div class="ai-mode"><span>GENERATIVE AI</span><b>2 PRODUCTS</b></div>
+            <h4>Reason &amp; summarise</h4>
+            <p>SmartCart uses an LLM for a contextual Buy / Wait / Don't buy verdict. LinkVault uses user-selected AI providers to summarise saved resources.</p>
+            <div class="ai-products"><span>SmartCart · Groq LLM</span><span>LinkVault · Groq / OpenAI / Gemini</span></div>
+          </article>
+          <article class="ai-card ml">
+            <div class="ai-mode"><span>ON-DEVICE ML</span><b>1 USE CASE</b></div>
+            <h4>Verify privately</h4>
+            <p>DayFlow uses TensorFlow.js and MobileNet to verify a photo-to-dismiss alarm on device. Its sleep-planning engine remains rule-based.</p>
+            <div class="ai-products"><span>DayFlow · TensorFlow.js</span></div>
+          </article>
+          <article class="ai-card rules">
+            <div class="ai-mode"><span>DETERMINISTIC</span><b>5 PRODUCTS</b></div>
+            <h4>Use rules when rules are better</h4>
+            <p>Matching scores, financial models, attendance limits, group consensus and study streaks need transparency and predictable outputs—not an LLM.</p>
+            <div class="ai-products"><span>TeamMatch</span><span>YatraYatri</span><span>FoodMatch</span><span>ClassTrack</span><span>PM Study Planner</span></div>
+          </article>
+        </div>
+        <p class="ai-principle"><b>PM principle:</b> the question is not “Can AI do this?” It is “Does AI create enough user value to justify its uncertainty, cost and failure modes?”</p>
+      </section>
+
+      <!-- SELECTED WORK -->
+      <section id="work" class="reveal">
+        <div class="sec-head"><span class="idx">02</span><span class="phase">INSPECT</span><h2>Product decision board</h2><span class="rule"></span></div>
+
+        <div class="decision-intro">
+          <p>One view for the product and the thinking behind it. Select a build to inspect its real interface, problem, mechanism, trade-off, AI role, proof and source artifacts.</p>
+          <span>Preview + decision + proof</span>
         </div>
 
-        <div class="tile"><div class="glow"></div>
-          <div class="ic">🧭</div><h3>Product Strategy & Roadmap</h3><p>Outcome-driven roadmaps tied to metrics.</p>
-          <div class="viz" style="display:flex;align-items:flex-end;gap:6px;">
-            <div style="flex:1;height:40%;background:var(--panel-2);border-radius:5px;"></div>
-            <div style="flex:1;height:65%;background:var(--panel-2);border-radius:5px;"></div>
-            <div style="flex:1;height:100%;background:var(--grad);border-radius:5px;"></div>
-            <div style="flex:1;height:55%;background:var(--panel-2);border-radius:5px;"></div>
+        <div class="board-toolbar">
+          <div class="filters" id="caseFilters" aria-label="Filter product decisions by domain">
+            <button class="chip active" data-case-filter="all">All<span class="c-n">8</span></button>
+            <button class="chip" data-case-filter="ai">Generative AI<span class="c-n">2</span></button>
+            <button class="chip" data-case-filter="fintech">Fintech<span class="c-n">2</span></button>
+            <button class="chip" data-case-filter="marketplace">Marketplace<span class="c-n">1</span></button>
+            <button class="chip" data-case-filter="productivity">Productivity<span class="c-n">4</span></button>
+            <button class="chip" data-case-filter="social">Social<span class="c-n">1</span></button>
+          </div>
+          <button class="board-more" id="caseMore" type="button" aria-expanded="false">Show all 8</button>
+        </div>
+
+        <div class="decision-explorer" id="decisionExplorer">
+          <div class="case-index" id="caseIndex" role="tablist" aria-label="Select a product decision file"></div>
+          <article class="case-file" id="casePanel" role="tabpanel" aria-label="SmartCart decision file" aria-live="polite">
+            <div class="case-visual" id="caseVisual">
+              <img id="caseImage" src="assets/shots/smartcart.png" alt="SmartCart product interface" />
+              <span class="case-state" id="caseState">Live PWA + backend</span>
+            </div>
+            <div class="case-content">
+              <div class="case-title-row">
+                <div><div class="case-kicker" id="caseKicker">Consumer fintech · Generative AI</div><h3 id="caseTitle">SmartCart</h3></div>
+                <div class="case-links" id="caseLinks"></div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><span class="cc-label">Problem</span><p id="caseProblem">Shoppers have price information but lack neutral, contextual judgement at the moment of purchase.</p></div>
+                <div class="case-cell"><span class="cc-label">User</span><p id="caseUser">Budget-conscious and impulse-prone shoppers deciding whether a purchase fits their budget and goals.</p></div>
+                <div class="case-cell"><span class="cc-label">Key decision</span><p id="caseDecision">Return an explained <strong>Buy / Wait / Don't buy</strong> verdict—not another score or affiliate recommendation.</p></div>
+                <div class="case-cell"><span class="cc-label">Trade-off</span><p id="caseTradeoff">Anonymous per-device use lowers activation friction but gives up cross-device sync. Price scraping degrades to manual entry when retailers block it.</p></div>
+                <div class="case-cell wide ai-cell"><span class="cc-label">AI role</span><p id="caseAI">A Groq-hosted LLM generates structured verdict reasoning from the user's budget and goals. AI is central because explanation—not calculation alone—is the product value.</p></div>
+              </div>
+              <p class="case-proof" id="caseProof">Live PWA with wallet model, savings goals, watchlist, reminders and price tracking. Adoption metrics are not documented.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="reveal">
+        <div class="sec-head"><span class="idx">03</span><span class="phase">SOURCE CHECK</span><h2>Evidence</h2><span class="rule"></span></div>
+        <div class="decision-intro">
+          <p>Professional outcomes are attributed to the roles where they were produced. Project adoption is only claimed where the underlying PRD documents it.</p>
+          <span>Claims stay attached to context</span>
+        </div>
+        <div class="stats" aria-label="Professional evidence">
+          <div class="stat"><div class="n num" data-count="55">0</div><div class="t">Bugs &amp; feature gaps surfaced in one TradeIndia audit</div></div>
+          <div class="stat"><div class="n num" data-count="60" data-prefix="−" data-suffix="%">0</div><div class="t">Manual reporting cost through HCLTech automation</div></div>
+          <div class="stat"><div class="n num" data-count="25" data-prefix="+" data-suffix="%">0</div><div class="t">Response-time improvement from BI dashboards</div></div>
+          <div class="stat"><div class="n num" data-count="10" data-prefix="+" data-suffix="%">0</div><div class="t">ETL efficiency improvement at HCLTech</div></div>
+        </div>
+        <div class="xp" id="xp">
+          <div class="xrow">
+            <div class="when">APR 2026 — JUN 2026</div>
+            <div>
+              <h3>Product Manager Intern · <span class="co">TradeIndia.com</span></h3>
+              <p>Authored <b>136 PRDs</b> across buyer &amp; seller journeys (onboarding, profile, inquiry, requirement). Ran end-to-end competitor benchmarking vs IndiaMART; surfaced <b>55 bugs &amp; feature gaps</b> in one structured audit with Jira handoff. Contributed to a 1-year roadmap and CTA optimisation across prod / pre-prod.</p>
+              <div class="tags"><span class="tag">PRDs</span><span class="tag">Benchmarking</span><span class="tag">App audits</span><span class="tag">Jira / Agile</span></div>
+            </div>
+          </div>
+          <div class="xrow">
+            <div class="when">AUG 2022 — MAY 2025</div>
+            <div>
+              <h3>Analyst · <span class="co">HCLTech</span></h3>
+              <p>Automated financial reporting with <b>Python &amp; SQL (−60% manual cost)</b>; built <b>Power BI &amp; Tableau</b> dashboards for ROI &amp; cost KPIs (<b>+25% response time</b>); improved ETL efficiency by <b>+10%</b> and built CI/CD pipelines.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">ETL</span></div>
+            </div>
+          </div>
+          <div class="xrow">
+            <div class="when">JAN 2026 — FEB 2026</div>
+            <div>
+              <h3>CSR Intern · <span class="co">Prudent Corporate Advisory</span></h3>
+              <p>Built an <b>MIS Excel dashboard from scratch</b> (FY 2026–27) with head-wise, payment-mode &amp; monthly-trend views; compiled a 5-year CSR impact report; drove outreach &amp; 9+ exhibition partnerships for Project Samarth.</p>
+              <div class="tags"><span class="tag">MIS</span><span class="tag">Reporting</span><span class="tag">Stakeholders</span></div>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:26px;"><a class="icbtn" href="resume/Aastha-Saini-Resume.pdf" target="_blank" rel="noopener">View full résumé ↗</a></p>
+      </section>
+
+      <!-- APPROACH -->
+      <section id="approach" class="reveal">
+        <div class="sec-head"><span class="idx">04</span><span class="phase">HOW I OPERATE</span><h2>Operating model</h2><span class="rule"></span></div>
+        <div class="principles">
+          <div class="principle"><div class="pn">01 · OBSERVE</div><h4>Find repeated friction</h4><p>Start with a real behaviour or operational gap: purchase regret, team imbalance, unsafe capital allocation or a rule students keep calculating by hand.</p></div>
+          <div class="principle"><div class="pn">02 · FRAME</div><h4>Write the decision</h4><p>Define the user, problem hypothesis, intended behaviour change, success criteria and smallest useful scope before polishing an interface.</p></div>
+          <div class="principle"><div class="pn">03 · CHOOSE</div><h4>Select the mechanism</h4><p>Use an LLM for contextual reasoning or summarisation, on-device ML for private verification, and deterministic logic where predictability matters more.</p></div>
+          <div class="principle"><div class="pn">04 · SHIP</div><h4>Build the proof</h4><p>Turn the decision into a testable artifact: working flow, live deployment and full PRD. Scope around constraints instead of hiding them.</p></div>
+          <div class="principle"><div class="pn">05 · LEARN</div><h4>Keep unknowns visible</h4><p>Separate shipped functionality from measured impact. If adoption or outcome data is not documented yet, say so rather than manufacturing proof.</p></div>
+          <div class="principle"><div class="pn">OUTPUT</div><h4>Decision quality</h4><p>The result is not “more AI.” It is a clearer user decision, a defensible trade-off and an artifact that lets the next conversation become more specific.</p></div>
+        </div>
+        <div class="skills" aria-label="Skills">
+          <span class="skill">Product strategy</span><span class="skill">PRDs</span><span class="skill">Competitor benchmarking</span><span class="skill">App audits</span><span class="skill">Roadmapping</span><span class="skill">Jira / Agile</span><span class="skill">SQL</span><span class="skill">Python</span><span class="skill">Power BI</span><span class="skill">Tableau</span><span class="skill">ETL</span><span class="skill">Wireframing</span><span class="skill">A/B &amp; CTA testing</span>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="reveal">
+        <div class="sec-head"><span class="idx">05</span><span class="phase">OPEN</span><h2>Next problem</h2><span class="rule"></span></div>
+        <div class="contact-card">
+          <span class="label">Bring the ambiguity</span>
+          <h2 style="margin-top:14px;">Looking for product roles where I can <em>own the decision 0→1.</em></h2>
+          <p>Especially problems involving AI-assisted decisions, B2B workflows, analytics or an operational process that deserves a better product.</p>
+          <div class="contact-actions">
+            <button class="cbtn solid" id="copyBtn"><span id="copyLabel">Copy email</span></button>
+            <a class="cbtn" href="mailto:381aastha@gmail.com">381aastha@gmail.com</a>
+            <a class="cbtn" href="https://www.linkedin.com/in/aastha-saini03/" target="_blank" rel="noopener">LinkedIn ↗</a>
           </div>
         </div>
 
-        <div class="tile"><div class="glow"></div><div class="ic">🐍</div><h3>Product Analytics (SQL / Python)</h3><p>Funnels, cohorts & instrumentation.</p></div>
-        <div class="tile"><div class="glow"></div><div class="ic">🔁</div><h3>Agile / Scrum</h3><p>Shipping in tight, iterative loops.</p></div>
-        <div class="tile"><div class="glow"></div><div class="ic">🏢</div><h3>B2B Marketplaces</h3><p>Two-sided matching, trust & safety.</p></div>
+        <footer>
+          <span>© <span id="yr"></span> Aastha Saini — Product Manager building with AI</span>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <a class="surprise-launch" href="surprise-game.html" aria-label="You've been working so hard—here's a surprise. Play a 3D game.">
+    <span class="surprise-mark" aria-hidden="true">✦</span>
+    <span class="surprise-copy"><small>A tiny reward</small><strong>You’ve been working so hard—<br>here’s a surprise.</strong></span>
+    <span class="surprise-arrow" aria-hidden="true">→</span>
+  </a>
+
+  <!-- Command palette -->
+  <div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="cmdk-scrim" data-close></div>
+    <div class="cmdk-box">
+      <div class="cmdk-in">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.4-3.4"/></svg>
+        <input id="cmdkInput" type="text" placeholder="Jump to a section, open a project…" autocomplete="off" spellcheck="false" aria-label="Search commands" />
+        <span class="cmdk-esc">ESC</span>
       </div>
+      <div class="cmdk-list" id="cmdkList"></div>
     </div>
-  </section>
-
-  <!-- WORK -->
-  <section id="work">
-    <div class="wrap">
-      <div class="reveal"><span class="eyebrow">Featured work</span>
-        <h2 class="sec">Case studies</h2>
-        <p class="sec-sub">Products taken from problem → PRD → design → build → live. Scroll to stack them.</p>
-      </div>
-      <div class="cases-stack" id="cases"></div>
-      <div class="reveal" style="margin-top:46px;"><span class="eyebrow">More projects</span><h2 class="sec" style="font-size:clamp(22px,3vw,30px);">Four more shipped builds</h2></div>
-      <div class="more" id="more"></div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="wrap">
-      <div class="reveal"><span class="eyebrow">Trajectory</span>
-        <h2 class="sec">From analytics to product</h2>
-        <p class="sec-sub">A data & finance foundation, deliberately moving into product.</p>
-      </div>
-      <div class="tl reveal" id="timeline">
-        <div class="rail"><div class="fill" id="tlFill"></div></div>
-        <div class="item"><div class="node"></div><div class="when">Apr 2026 — Jun 2026</div><h3>Product Manager Intern</h3><div class="org">TradeIndia.com · Infocom Network Pvt Ltd</div><p>Authored <b style="color:var(--ink)">136 PRDs</b> across buyer & seller journeys; ran end-to-end competitor benchmarking vs IndiaMART; surfaced <b style="color:var(--ink)">55 bugs & feature gaps</b> in a structured app audit (Jira handoff); shaped a 1-year product roadmap and CTA optimisation across prod/pre-prod.</p></div>
-        <div class="item"><div class="node"></div><div class="when">Jan 2026 — Feb 2026</div><h3>CSR Intern</h3><div class="org">Prudent Corporate Advisory Services Ltd.</div><p>Built an MIS Excel dashboard from scratch (FY 2026–27) with head-wise, payment-mode & monthly-trend views; compiled a 5-year CSR impact report; drove college outreach & exhibition partnerships for Project Samarth.</p></div>
-        <div class="item"><div class="node"></div><div class="when">Aug 2022 — May 2025</div><h3>Analyst</h3><div class="org">HCLTech · Noida, India</div><p>Built automated financial reporting with <b style="color:var(--ink)">Python & SQL (−60% manual cost)</b>; Power BI & Tableau dashboards tracking ROI & cost KPIs (<b style="color:var(--ink)">+25% response time</b>); improved ETL efficiency and built CI/CD pipelines.</p></div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- CONTACT -->
-  <section class="contact">
-    <div class="wrap reveal">
-      <span class="eyebrow" style="justify-content:center;">Get in touch</span>
-      <h2>Let's <span class="grad-text">build something</span><br>together.</h2>
-      <p class="sub">Open to product roles where I can own problems 0→1.</p>
-      <div class="social">
-        <button class="sbtn" id="copyBtn" data-magnet>✉️ <span id="copyLabel">Copy email</span></button>
-        <a class="sbtn" data-magnet href="https://www.linkedin.com/in/aastha-saini03/" target="_blank">in · LinkedIn</a>
-        <a class="sbtn" data-magnet href="https://github.com/AASTHA381" target="_blank">GitHub</a>
-        <a class="sbtn" data-magnet href="resume/Aastha-Saini-Resume.pdf" target="_blank">📄 Résumé</a>
-      </div>
-    </div>
-  </section>
-
-  <footer><div class="wrap in">
-    <span>© <span id="yr"></span> Aastha Saini · Product Manager</span>
-    <span>Designed & built from scratch · <a href="https://github.com/AASTHA381/portfolio" style="color:var(--violet);font-weight:600;">Source</a></span>
-  </div></footer>
+  </div>
 
 <script>
-  const RAW="https://raw.githubusercontent.com/AASTHA381";
-  const EMAIL="381aastha@gmail.com";
-  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    "use strict";
+    var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    document.getElementById('yr').textContent = new Date().getFullYear();
 
-  /* Page mask */
-  addEventListener('load',()=>setTimeout(()=>document.getElementById('mask').classList.add('gone'),450));
+    /* Theme toggle (persisted) */
+    var root = document.documentElement, tBtn = document.getElementById('themeBtn');
+    function applyTheme(t){ root.setAttribute('data-theme', t); tBtn.textContent = t === 'dark' ? '☾' : '☀'; }
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved) applyTheme(saved);
+    } catch(e){}
+    tBtn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+    });
 
-  /* Hero word-by-word */
-  const words="Building data-driven marketplaces & scalable products".split(" ");
-  document.getElementById('heroH').innerHTML=words.map((w,i)=>{
-    const grad=/data-driven|scalable/.test(w)?' grad-text':'';
-    return `<span class="w${grad}" style="animation-delay:${.15+i*.08}s">${w}</span>`;
-  }).join(" ");
+    /* Product decision explorer — facts sourced from each project's PRD/README */
+    (function(){
+      var cases = [
+        {
+          name:'SmartCart', tags:['ai','fintech'], mode:'Generative AI', kicker:'Consumer fintech · Generative AI', state:'Live PWA + backend', image:'assets/shots/smartcart.png',
+          problem:'Shoppers have price information but lack neutral, contextual judgement at the moment of purchase.',
+          user:'Budget-conscious and impulse-prone shoppers deciding whether a purchase fits their budget and goals.',
+          decision:'Return an explained Buy / Wait / Don\'t buy verdict—not another score or affiliate recommendation.',
+          tradeoff:'Anonymous per-device use lowers activation friction but gives up cross-device sync. Price scraping degrades to manual entry when retailers block it.',
+          ai:'A Groq-hosted LLM generates structured verdict reasoning from the user\'s budget and goals. AI is central because explanation—not calculation alone—is the product value.',
+          proof:'Live PWA with wallet model, savings goals, watchlist, reminders and price tracking. Adoption metrics are not documented.',
+          links:[['Live','https://smartcart-c2ci.onrender.com',1],['PRD','https://github.com/AASTHA381/SmartCart/blob/main/docs/PRD.md'],['Code','https://github.com/AASTHA381/SmartCart']]
+        },
+        {
+          name:'TeamMatch', tags:['marketplace'], mode:'Deterministic', kicker:'Two-sided marketplace · Rule-based matching', state:'Live PWA + Firebase', image:'assets/shots/teammatch.png', fit:'team-preview',
+          problem:'MBA project teams form by proximity and friendship rather than complementary skills, creating imbalance and stress.',
+          user:'MBA students seeking available teammates with complementary skills, compatible schedules and aligned goals.',
+          decision:'Rank fit per subject using complementary-skill scoring instead of similarity, then sync team formation in real time.',
+          tradeoff:'Seed only minimal profile data and ask students to self-report the rest. This protects privacy but reduces the data available for matching.',
+          ai:'No AI. The matching logic is deterministic: complementary skills, availability, academic diversity and goal/style weights remain inspectable.',
+          proof:'Live Firebase PWA. The PRD documents a ~146-student batch and says the product was used by a live MBA batch; retention is not documented.',
+          links:[['Live','https://aastha381.github.io/TeamMatch/',1],['PRD','https://github.com/AASTHA381/TeamMatch/blob/main/docs/PRD.md'],['Code','https://github.com/AASTHA381/TeamMatch']]
+        },
+        {
+          name:'YatraYatri', tags:['fintech'], mode:'Deterministic', kicker:'B2B planning tool · Real client', state:'Live planning tool', image:'assets/shots/yatrayatri.png',
+          problem:'A trek-tourism founder has capital but no domain-specific framework to allocate it, stress-test seasonality or estimate readiness.',
+          user:'A first-time trek-tourism founder making interdependent decisions across operations, marketing, people and emergency reserves.',
+          decision:'Use seven live allocation controls, a 0–100 readiness score and off-season survival modelling in one reactive view.',
+          tradeoff:'A fully client-side model keeps the tool fast and simple, but saved scenarios remain browser-only with no cross-device sync or accounting integration.',
+          ai:'No AI. The value comes from a transparent financial model, domain-specific cost rules, seasonality multipliers and a visible scoring rubric.',
+          proof:'Built for a real YatraYatri founder and deployed live. Post-ship usage and business-impact metrics are not documented.',
+          links:[['Live','https://aastha381.github.io/yatrayatri-planner/',1],['PRD','https://github.com/AASTHA381/yatrayatri-planner/blob/main/docs/PRD.md'],['Code','https://github.com/AASTHA381/yatrayatri-planner']]
+        },
+        {
+          name:'DayFlow', tags:['productivity'], mode:'On-device ML', kicker:'Health / productivity · On-device ML', state:'Live PWA', image:'assets/shots/dayflow.png',
+          problem:'Generic sleep advice ignores that bedtime moves with classes, workouts, meals and tasks, leaving students to guess.',
+          user:'Students with irregular schedules who need tonight\'s safe bedtime and a stronger mechanism for waking up.',
+          decision:'Compute bedtime from the actual schedule and add a photo-to-dismiss alarm verified on device.',
+          tradeoff:'A PWA shipped faster, but iOS cannot reliably ring background alarms when Safari is closed. On-device classification improves privacy but constrains accuracy.',
+          ai:'TensorFlow.js and MobileNet verify the wake-up photo locally. The core sleep-planning engine is deliberately rule-based, not generative.',
+          proof:'Live PWA with timetable, context inputs, alarms, optional sync and history. Adoption metrics are not documented.',
+          links:[['Live','https://aastha381.github.io/DayFlow-Sleep-Planner/',1],['PRD','https://github.com/AASTHA381/DayFlow-Sleep-Planner/blob/main/docs/PRD.md'],['Code','https://github.com/AASTHA381/DayFlow-Sleep-Planner']]
+        },
+        {
+          name:'FoodMatch', tags:['social'], mode:'Deterministic', kicker:'Social utility · Real-time consensus', state:'Live web app', image:'assets/shots/foodmatch.png',
+          problem:'Choosing a restaurant as a group becomes an unfair, repetitive negotiation with no shared decision mechanism.',
+          user:'Groups of friends and the organiser trying to reach a fair restaurant decision quickly.',
+          decision:'Keep swipes private and reveal only the first match under a user-selected Majority or Everyone agreement rule.',
+          tradeoff:'A zero-login, serverless experience removes setup friction but gives up persistent accounts and session history.',
+          ai:'No AI. Private votes are tallied against a transparent agreement threshold; real-time transport uses MQTT/WebRTC rather than model inference.',
+          proof:'Live single-file app with real-time group matching and OpenStreetMap restaurant data. Adoption metrics are not documented.',
+          links:[['Live','https://aastha381.github.io/tinder-style-restaurant-matcher/',1],['PRD','https://github.com/AASTHA381/tinder-style-restaurant-matcher/blob/main/docs/PRD.md'],['Code','https://github.com/AASTHA381/tinder-style-restaurant-matcher']]
+        },
+        {
+          name:'ClassTrack', tags:['productivity'], mode:'Deterministic', kicker:'Consumer utility · Rules engine', state:'Live offline PWA', image:'assets/shots/classtrack.png',
+          problem:'Students track strict per-subject attendance rules mentally, creating anxiety and accidental policy breaches.',
+          user:'MBA students who need to know exactly how many classes they can still miss safely.',
+          decision:'Lead with a colour-coded “safe skips left” budget instead of making users interpret attendance percentages.',
+          tradeoff:'Device-only storage protects privacy and removes backend cost, but provides no cross-device sync or backup.',
+          ai:'No AI. A deterministic rule engine encodes the attendance policy and calculates the skip budget consistently.',
+          proof:'Live installable, offline PWA with per-subject session history. Adoption metrics are not documented.',
+          links:[['Live','https://aastha381.github.io/Attendence-Tracker-App/',1],['PRD','https://github.com/AASTHA381/Attendence-Tracker-App/blob/main/docs/PRD.md'],['Code','https://github.com/AASTHA381/Attendence-Tracker-App']]
+        },
+        {
+          name:'LinkVault', tags:['ai','productivity'], mode:'Generative AI', kicker:'Knowledge management · Generative AI', state:'Chrome extension · dev mode', image:'assets/shots/linkvault.png', fit:'extension-preview',
+          problem:'Saved links and documents lose future value because people cannot remember why they saved them or find them again.',
+          user:'Students, knowledge workers and PM aspirants building a personal research library.',
+          decision:'Generate a summary at save time, use six fixed categories and search across titles, URLs, summaries and notes.',
+          tradeoff:'Local storage and bring-your-own API key protect privacy, but remove cloud sync and require the user to manage provider access and cost.',
+          ai:'AI is central to summarisation. The user chooses Groq, OpenAI or Gemini and stores the key locally; the product does not train a proprietary model.',
+          proof:'Shipped Manifest V3 extension with summaries, search and JSON portability. It is loaded in developer mode, not distributed through the Chrome Web Store; adoption is not documented.',
+          links:[['PRD','https://github.com/AASTHA381/link-vault-extension/blob/main/docs/PRD.md',1],['Code / install','https://github.com/AASTHA381/link-vault-extension']]
+        },
+        {
+          name:'PM Study Planner', tags:['productivity'], mode:'Deterministic', kicker:'Learning utility · Behaviour design', state:'Live offline PWA', image:'assets/shots/pmstudy.png',
+          problem:'Self-directed learning becomes inconsistent when resources are scattered and progress is invisible.',
+          user:'An aspiring PM studying across multiple resources without a single view of daily progress.',
+          decision:'Let the learner choose only what fits today, then reinforce consistency with progress grids, streaks and carry-over reminders.',
+          tradeoff:'No-login local storage keeps it private and frictionless but removes sync and backup. Content remains a task library, not hosted coursework.',
+          ai:'No AI. Streaks, progress grids, history and carry-over logic are deterministic behaviour-design mechanisms.',
+          proof:'Live PWA built for the author\'s own PM study. Broader adoption metrics are not documented.',
+          links:[['Live','https://aastha381.github.io/pm-study-planner/pm-tracker.html',1],['PRD','https://github.com/AASTHA381/pm-study-planner/blob/main/docs/PRD.md'],['Code','https://github.com/AASTHA381/pm-study-planner']]
+        }
+      ];
 
-  /* Mesh parallax + hue drift */
-  const mesh=document.getElementById('mesh');let tx=0,ty=0,cx=0,cy=0,hue=0,raf;
-  addEventListener('mousemove',e=>{tx=(e.clientX/innerWidth-.5)*40;ty=(e.clientY/innerHeight-.5)*40;hue=(e.clientX/innerWidth)*40-20;if(!raf)raf=requestAnimationFrame(loop);});
-  function loop(){cx+=(tx-cx)*.06;cy+=(ty-cy)*.06;mesh.style.transform=`translate3d(${cx}px,${cy}px,0)`;mesh.style.filter=`blur(30px) hue-rotate(${hue}deg)`;if(Math.abs(tx-cx)>.1||Math.abs(ty-cy)>.1)raf=requestAnimationFrame(loop);else raf=null;}
+      var index = document.getElementById('caseIndex');
+      if (!index) return;
+      var activeCase = 0, activeFilter = 'all', expanded = false, visibleCases = [];
+      var filterButtons = Array.prototype.slice.call(document.querySelectorAll('#caseFilters [data-case-filter]'));
+      var moreButton = document.getElementById('caseMore');
 
-  /* Magnetic elements */
-  document.querySelectorAll('[data-magnet]').forEach(el=>{
-    el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;el.style.transform=`translate(${x*.3}px,${y*.4}px)`;});
-    el.addEventListener('mouseleave',()=>el.style.transform='');
-  });
+      function matchingCases(){
+        return cases.map(function(item, i){ return { item:item, index:i }; }).filter(function(entry){
+          return activeFilter === 'all' || entry.item.tags.indexOf(activeFilter) !== -1;
+        });
+      }
 
-  /* Bento tilt + glow + wireframe toggle */
-  document.querySelectorAll('.tile').forEach(t=>{
-    t.addEventListener('mousemove',e=>{const r=t.getBoundingClientRect();const px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;t.style.transform=`perspective(720px) rotateX(${(py-.5)*-7}deg) rotateY(${(px-.5)*7}deg)`;t.querySelector('.glow').style.setProperty('--mx',px*100+'%');t.querySelector('.glow').style.setProperty('--my',py*100+'%');});
-    t.addEventListener('mouseleave',()=>t.style.transform='');
-    if(t.dataset.viz==='wf')t.addEventListener('click',()=>t.classList.toggle('hifi'));
-  });
+      function renderIndex(){
+        var matches = matchingCases();
+        visibleCases = expanded ? matches : matches.slice(0, 4);
+        if (!visibleCases.some(function(entry){ return entry.index === activeCase; })) activeCase = visibleCases[0].index;
+        index.textContent = '';
+        var head = document.createElement('div');
+        head.className = 'case-index-head';
+        head.innerHTML = '<span>Product index</span><b>' + visibleCases.length + ' / ' + matches.length + '</b>';
+        index.appendChild(head);
+        visibleCases.forEach(function(entry){
+          var item = entry.item, i = entry.index;
+          var button = document.createElement('button');
+          button.type = 'button';
+          button.setAttribute('role', 'tab');
+          button.setAttribute('aria-controls', 'casePanel');
+          button.setAttribute('data-case-index', String(i));
+          button.className = 'case-tab' + (i === activeCase ? ' active' : '');
+          button.setAttribute('aria-selected', i === activeCase ? 'true' : 'false');
+          button.tabIndex = i === activeCase ? 0 : -1;
+          button.innerHTML = '<span class="ct-num">' + String(i + 1).padStart(2,'0') + '</span><span><b>' + item.name + '</b><small class="' + (item.mode !== 'Deterministic' ? 'ai' : '') + '">' + item.mode + '</small></span>';
+          button.addEventListener('click', function(){ renderCase(i); });
+          index.appendChild(button);
+        });
+        if (moreButton){
+          moreButton.hidden = matches.length <= 4;
+          moreButton.textContent = expanded ? 'Show first 4' : ('Show all ' + matches.length);
+          moreButton.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        }
+      }
 
-  /* Case studies (real projects, sticky-stacked, odometer KPIs) */
-  const cases=[
-    {n:"01",name:"SmartCart",role:"Product & Engineering · 0→1",
-     blurb:"An AI decision engine that reasons over a user's budget, spending & goals to give an objective Buy / Wait / Don't-buy verdict — analytics + LLM reasoning over real data.",
-     kpis:[[3,"","Feature phases"],[8,"","REST endpoints"],[100,"%","Reasoning shown"]],
-     tags:["Node.js","Express","Groq LLM","Product Analytics","PWA"],
-     img:RAW+"/SmartCart/main/docs/screenshots/01-landing.png?v=2",
-     read:"https://github.com/AASTHA381/SmartCart/blob/main/docs/PRD.md",live:"https://smartcart-c2ci.onrender.com",code:"https://github.com/AASTHA381/SmartCart"},
-    {n:"02",name:"TeamMatch",role:"Product Lead · Two-sided marketplace",
-     blurb:"A B2B-style matching platform ranking teammates by complementary skills, availability & goals — real-time sync with server-enforced ownership.",
-     kpis:[[146,"","Users on live batch"],[39,"","Subjects modelled"],[100,"%","Owner-enforced"]],
-     tags:["Firebase","Firestore","Auth","Matching Engine","B2B"],
-     img:RAW+"/TeamMatch/main/docs/screenshots/01-signin.png?v=2",
-     read:"https://github.com/AASTHA381/TeamMatch/blob/main/docs/PRD.md",live:"https://aastha381.github.io/TeamMatch/",code:"https://github.com/AASTHA381/TeamMatch"},
-    {n:"03",name:"YatraYatri",role:"Product for a real client · B2B tool",
-     blurb:"A live financial-planning cockpit for a trek-tourism founder: capital allocation, a 0–100 readiness score and real-time risk alerts on runway, margin & break-even.",
-     kpis:[[7,"","Capital categories"],[100,"","Readiness score"],[50,"L","Capital modelled ₹"]],
-     tags:["Financial Modelling","Data Viz","Reactive UI","Client Work"],
-     img:RAW+"/yatrayatri-planner/main/docs/screenshots/01-planner.png?v=2",
-     read:"https://github.com/AASTHA381/yatrayatri-planner/blob/main/docs/PRD.md",live:"https://aastha381.github.io/yatrayatri-planner/",code:"https://github.com/AASTHA381/yatrayatri-planner"},
-    {n:"04",name:"DayFlow",role:"Product & Engineering · 0→1",
-     blurb:"A scheduling engine computing the earliest safe bedtime from a user's real day, with photo-to-dismiss alarms verified on-device via ML — privacy-first.",
-     kpis:[[8,"h","Min sleep guaranteed"],[100,"%","On-device ML"],[3,"","Input signals"]],
-     tags:["TensorFlow.js","Firebase","Rules Engine","PWA"],
-     img:RAW+"/DayFlow-Sleep-Planner/main/docs/screenshots/02-planner.png?v=2",
-     read:"https://github.com/AASTHA381/DayFlow-Sleep-Planner/blob/main/docs/PRD.md",live:"https://aastha381.github.io/DayFlow-Sleep-Planner/",code:"https://github.com/AASTHA381/DayFlow-Sleep-Planner"},
-  ];
-  document.getElementById('cases').innerHTML=cases.map((c,i)=>`
-    <article class="case" style="top:${96+i*14}px;">
-      <div class="c-info">
-        <div class="c-num">CASE STUDY / ${c.n}</div>
-        <h3>${c.name}</h3>
-        <div class="c-role">${c.role}</div>
-        <p class="c-blurb">${c.blurb}</p>
-        <div class="c-kpis">${c.kpis.map(k=>`<div class="c-kpi"><b class="grad-text odo" data-to="${k[0]}" data-suf="${k[1]}">0${k[1]}</b><span>${k[2]}</span></div>`).join("")}</div>
-        <div class="pills">${c.tags.map(t=>`<span class="pill">${t}</span>`).join("")}</div>
-        <div class="c-actions"><a class="read" href="${c.read}" target="_blank">Read case study →</a><a class="sec" href="${c.live}" target="_blank">Live</a><a class="sec" href="${c.code}" target="_blank">Code</a></div>
-      </div>
-      <div class="c-media"><img loading="lazy" src="${c.img}" alt="${c.name}"></div>
-    </article>`).join("");
+      function renderCase(i){
+        activeCase = i;
+        var item = cases[i];
+        var visual = document.getElementById('caseVisual');
+        visual.className = 'case-visual' + (item.fit ? ' ' + item.fit : '');
+        visual.textContent = '';
+        if (item.image) {
+          var image = document.createElement('img');
+          image.src = item.image;
+          image.alt = item.name + ' product interface';
+          visual.appendChild(image);
+        } else {
+          var fallback = document.createElement('div');
+          fallback.className = 'case-fallback';
+          fallback.textContent = item.fallback;
+          visual.appendChild(fallback);
+        }
+        var state = document.createElement('span');
+        state.className = 'case-state';
+        state.textContent = item.state;
+        visual.appendChild(state);
+        document.getElementById('caseKicker').textContent = item.kicker;
+        document.getElementById('caseTitle').textContent = item.name;
+        document.getElementById('casePanel').setAttribute('aria-label', item.name + ' decision file');
+        document.getElementById('caseProblem').textContent = item.problem;
+        document.getElementById('caseUser').textContent = item.user;
+        document.getElementById('caseDecision').textContent = item.decision;
+        document.getElementById('caseTradeoff').textContent = item.tradeoff;
+        document.getElementById('caseAI').textContent = item.ai;
+        document.getElementById('caseProof').textContent = item.proof;
+        var linkBox = document.getElementById('caseLinks');
+        linkBox.textContent = '';
+        item.links.forEach(function(link){
+          var a = document.createElement('a');
+          a.href = link[1]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = link[0] + ' ↗';
+          if (link[2]) a.className = 'primary';
+          linkBox.appendChild(a);
+        });
+        Array.prototype.forEach.call(index.querySelectorAll('.case-tab'), function(tab){
+          var selected = +tab.getAttribute('data-case-index') === i;
+          tab.classList.toggle('active', selected);
+          tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+          tab.tabIndex = selected ? 0 : -1;
+        });
+      }
 
-  /* More projects (remaining 4 of 8) */
-  const more=[
-    {name:"FoodMatch",dom:"Social · real-time",d:"Tinder-style group restaurant matcher — everyone swipes, first mutual match wins.",img:RAW+"/tinder-style-restaurant-matcher/main/docs/screenshots/01-home.png?v=2",prd:"https://github.com/AASTHA381/tinder-style-restaurant-matcher/blob/main/docs/PRD.md",live:"https://aastha381.github.io/tinder-style-restaurant-matcher/",code:"https://github.com/AASTHA381/tinder-style-restaurant-matcher"},
-    {name:"PM Study Planner",dom:"Habit · learning",d:"Flexible daily study planner with streaks, progress grids and a monthly heatmap.",img:RAW+"/pm-study-planner/main/docs/screenshots/01-today.png?v=2",prd:"https://github.com/AASTHA381/pm-study-planner/blob/main/docs/PRD.md",live:"https://aastha381.github.io/pm-study-planner/",code:"https://github.com/AASTHA381/pm-study-planner"},
-    {name:"ClassTrack",dom:"Analytics utility",d:"Attendance tracker that surfaces a live 'safe skips left' number per subject.",img:RAW+"/Attendence-Tracker-App/main/docs/screenshots/01-dashboard.png?v=2",prd:"https://github.com/AASTHA381/Attendence-Tracker-App/blob/main/docs/PRD.md",live:"https://aastha381.github.io/Attendence-Tracker-App/",code:"https://github.com/AASTHA381/Attendence-Tracker-App"},
-    {name:"LinkVault",dom:"Productivity · AI",d:"Chrome extension that saves links & docs with AI-generated summaries + search.",img:null,emoji:"🔗",prd:"https://github.com/AASTHA381/link-vault-extension/blob/main/docs/PRD.md",live:null,code:"https://github.com/AASTHA381/link-vault-extension"},
-  ];
-  document.getElementById('more').innerHTML=more.map(m=>`
-    <a class="mcard" href="${m.prd}" target="_blank">
-      <div class="mthumb ${m.img?"":"grad"}">${m.img?`<img loading="lazy" src="${m.img}" alt="${m.name}">`:m.emoji}</div>
-      <div class="mbody">
-        <div class="mt">${m.name}</div><div class="mdom">${m.dom}</div>
-        <div class="md">${m.d}</div>
-        <div class="ml"><span>Read case study →</span></div>
-      </div>
-    </a>`).join("");
+      index.addEventListener('keydown', function(e){
+        if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        var forward = e.key === 'ArrowDown' || e.key === 'ArrowRight';
+        var current = visibleCases.findIndex(function(entry){ return entry.index === activeCase; });
+        var nextPosition = (current + (forward ? 1 : -1) + visibleCases.length) % visibleCases.length;
+        var next = visibleCases[nextPosition].index;
+        renderCase(next);
+        index.querySelector('[data-case-index="' + next + '"]').focus();
+      });
 
+      filterButtons.forEach(function(button){
+        button.addEventListener('click', function(){
+          filterButtons.forEach(function(other){ other.classList.remove('active'); });
+          button.classList.add('active');
+          activeFilter = button.getAttribute('data-case-filter');
+          expanded = false;
+          var matches = matchingCases();
+          activeCase = matches[0].index;
+          renderIndex();
+          renderCase(activeCase);
+        });
+      });
+      if (moreButton){
+        moreButton.addEventListener('click', function(){
+          expanded = !expanded;
+          renderIndex();
+          renderCase(activeCase);
+        });
+      }
+      renderIndex();
+      renderCase(0);
+    })();
 
-  /* Reveal + odometer + spark trigger */
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
-  document.querySelectorAll('.reveal,.tile').forEach(n=>io.observe(n));
-  const odoIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){odometer(e.target);odoIO.unobserve(e.target);}}),{threshold:.6});
-  document.querySelectorAll('.odo').forEach(n=>odoIO.observe(n));
-  function odometer(el){const to=+el.dataset.to,suf=el.dataset.suf||"";const s=performance.now(),d=1100;(function st(t){const p=Math.min(1,(t-s)/d);const v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString('en-IN')+suf;if(p<1)requestAnimationFrame(st);})(performance.now());}
+    /* Copy email */
+    var copyBtn = document.getElementById('copyBtn'), copyLabel = document.getElementById('copyLabel');
+    copyBtn.addEventListener('click', function(){
+      var email = '381aastha@gmail.com';
+      var done = function(){
+        copyBtn.classList.add('copied'); copyLabel.textContent = 'Copied ✓';
+        setTimeout(function(){ copyBtn.classList.remove('copied'); copyLabel.textContent = 'Copy email'; }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(done).catch(function(){ window.location.href = 'mailto:' + email; });
+      } else { window.location.href = 'mailto:' + email; }
+    });
 
-  /* Nav + timeline fill */
-  const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
-  const tl=document.getElementById('timeline'),fill=document.getElementById('tlFill'),items=[...document.querySelectorAll('.tl .item')];
-  function tlScroll(){const r=tl.getBoundingClientRect();const start=innerHeight*.82;let prog=(start-r.top)/(r.height-innerHeight*.5);prog=Math.max(0,Math.min(1,prog));fill.style.height=prog*100+'%';const lit=Math.round(prog*items.length);items.forEach((it,i)=>it.classList.toggle('lit',i<Math.max(1,lit)));}
-  addEventListener('scroll',tlScroll,{passive:true});addEventListener('resize',tlScroll);tlScroll();
+    /* Active nav via IntersectionObserver */
+    var links = Array.prototype.slice.call(document.querySelectorAll('#railnav a'));
+    var map = {};
+    var workbenchNames = {
+      about:'00 · positioning', ai:'01 · AI judgement', work:'02 · product board',
+      experience:'03 · evidence', approach:'04 · operating model', contact:'05 · next problem'
+    };
+    var wsActive = document.getElementById('wsActive');
+    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    var secObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) {
+          links.forEach(function(l){ l.classList.remove('active'); });
+          document.querySelectorAll('main section').forEach(function(s){ s.classList.remove('current'); });
+          if (map[en.target.id]) map[en.target.id].classList.add('active');
+          en.target.classList.add('current');
+          if (workbenchNames[en.target.id]) wsActive.textContent = workbenchNames[en.target.id];
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    document.querySelectorAll('main section').forEach(function(s){ secObserver.observe(s); });
 
-  /* Copy email + confetti */
-  const copyBtn=document.getElementById('copyBtn');
-  copyBtn.addEventListener('click',async()=>{
-    try{await navigator.clipboard.writeText(EMAIL);}catch(e){}
-    copyBtn.classList.add('copied');document.getElementById('copyLabel').textContent='Copied ✓';copyBtn.firstChild.textContent='✅ ';
-    confetti();
-    setTimeout(()=>{copyBtn.classList.remove('copied');document.getElementById('copyLabel').textContent='Copy email';copyBtn.firstChild.textContent='✉️ ';},2200);
-  });
-  function confetti(){const box=document.getElementById('confetti');const cols=['#3b82f6','#8b5cf6','#34d399','#14b8a6','#f472b6'];const r=copyBtn.getBoundingClientRect();for(let i=0;i<38;i++){const p=document.createElement('i');p.style.left=(r.left+r.width/2)+'px';p.style.top=(r.top)+'px';p.style.background=cols[i%cols.length];p.style.setProperty('--x',(Math.random()*2-1));p.style.animationDuration=(1.6+Math.random()*1.4)+'s';p.style.transform=`translateX(${(Math.random()*2-1)*120}px)`;box.appendChild(p);setTimeout(()=>p.remove(),3200);}}
+    /* Reveal on scroll */
+    if (!reduce) {
+      var revObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); revObserver.unobserve(en.target); } });
+      }, { threshold: .12 });
+      document.querySelectorAll('.reveal').forEach(function(el){ revObserver.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    }
+
+    /* Cursor spotlight (fine pointers only, motion allowed) */
+    if (!reduce && matchMedia('(pointer:fine)').matches) {
+      var spot = document.getElementById('spot');
+      addEventListener('mousemove', function(e){
+        spot.style.opacity = '1';
+        spot.style.left = e.clientX + 'px';
+        spot.style.top = e.clientY + 'px';
+      }, { passive:true });
+      addEventListener('mouseleave', function(){ spot.style.opacity = '0'; });
+    }
+
+    /* Rotating hero verb + drawn flourish */
+    (function(){
+      var track = document.querySelector('#rotator .r-track');
+      var fl = document.getElementById('flourish');
+      if (!track) return;
+      var verbs = ['write the spec.', 'design the flow.', 'read the data.', 'ship the product.'];
+      verbs.concat(verbs[0]).forEach(function(v){
+        var s = document.createElement('span'); s.className = 'r-item'; s.textContent = v; track.appendChild(s);
+      });
+      if (fl) setTimeout(function(){ fl.classList.add('draw'); }, 350);
+      if (reduce) { track.style.transform = 'translateY(0)'; return; }
+      var i = 0;
+      setInterval(function(){
+        i++;
+        track.style.transition = 'transform .55s cubic-bezier(.2,.7,.2,1)';
+        track.style.transform = 'translateY(-' + (i * 1.32) + 'em)';
+        if (i === verbs.length) {
+          setTimeout(function(){
+            track.style.transition = 'none';
+            track.style.transform = 'translateY(0)';
+            i = 0;
+          }, 560);
+        }
+      }, 2400);
+    })();
+
+    /* Count-up stats */
+    (function(){
+      var nums = Array.prototype.slice.call(document.querySelectorAll('.stat .n[data-count]'));
+      function render(el, val){
+        var pre = el.getAttribute('data-prefix') || '', suf = el.getAttribute('data-suffix') || '';
+        el.innerHTML = pre + Math.round(val) + (suf === '%' ? '<span class="u">%</span>' : suf);
+      }
+      function run(el){
+        var target = +el.getAttribute('data-count'), start = null, dur = 1100;
+        if (reduce) { render(el, target); return; }
+        function step(ts){
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          render(el, target * eased);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if (en.isIntersecting){ run(en.target); io.unobserve(en.target); } });
+      }, { threshold: .6 });
+      nums.forEach(function(n){ io.observe(n); });
+      addEventListener('beforeprint', function(){ nums.forEach(function(n){ render(n, +n.getAttribute('data-count')); }); });
+    })();
+
+    /* Top scroll progress */
+    var prog = document.getElementById('progress');
+    addEventListener('scroll', function(){
+      var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+      prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    }, { passive:true });
+
+    /* Magnetic buttons */
+    if (!reduce && matchMedia('(pointer:fine)').matches) {
+      document.querySelectorAll('.icbtn.solid, .cbtn.solid, .cmdk-trigger').forEach(function(el){
+        el.addEventListener('mousemove', function(e){
+          var r = el.getBoundingClientRect();
+          el.style.transform = 'translate(' + ((e.clientX - r.left - r.width/2) * .18) + 'px,' + ((e.clientY - r.top - r.height/2) * .3) + 'px)';
+        });
+        el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+      });
+    }
+
+    /* Clickable feature media */
+    document.querySelectorAll('.feature .media[data-href]').forEach(function(m){
+      m.addEventListener('click', function(){ window.open(m.getAttribute('data-href'), '_blank', 'noopener'); });
+    });
+
+    /* First-visit ⌘K hint */
+    (function(){
+      var hint = document.getElementById('khint');
+      if (!hint) return;
+      var seen; try { seen = localStorage.getItem('khintSeen'); } catch(e){}
+      if (seen) return;
+      function hide(){ hint.classList.remove('show'); try { localStorage.setItem('khintSeen', '1'); } catch(e){} }
+      var t;
+      setTimeout(function(){ hint.classList.add('show'); t = setTimeout(hide, 9000); }, 2400);
+      document.getElementById('khintClose').addEventListener('click', function(){ clearTimeout(t); hide(); });
+      var trig = document.getElementById('cmdkTrigger');
+      if (trig) trig.addEventListener('click', function(){ clearTimeout(t); hide(); });
+      addEventListener('keydown', function(e){ if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')){ clearTimeout(t); hide(); } });
+    })();
+
+    /* Spec view */
+    (function(){
+      var specBtn = document.getElementById('specBtn'),
+          exit = document.getElementById('specExit');
+      var tags = [
+        ['aside', 'POSITIONING · analytical PM building with AI'],
+        ['#about', 'VALUE · make decisions easier'],
+        ['#ai', 'JUDGEMENT · AI vs deterministic'],
+        ['#work', 'PRODUCT BOARD · preview + decision + proof'],
+        ['#experience', 'EVIDENCE · claims with context'],
+        ['#approach', 'SYSTEM · how decisions get shipped'],
+        ['#contact', 'CTA · bring the next problem']
+      ];
+      tags.forEach(function(t){
+        var host = document.querySelector(t[0]);
+        if (host){ var s = document.createElement('span'); s.className = 'spec-tag'; s.textContent = t[1]; host.appendChild(s); }
+      });
+      function setSpec(on){ root.setAttribute('data-spec', on ? 'on' : 'off'); if (specBtn) specBtn.style.color = on ? 'var(--accent-ink)' : ''; }
+      window.__toggleSpec = function(){ setSpec(root.getAttribute('data-spec') !== 'on'); };
+      if (specBtn) specBtn.addEventListener('click', window.__toggleSpec);
+      if (exit) exit.addEventListener('click', function(){ setSpec(false); });
+      addEventListener('keydown', function(e){
+        if ((e.key === 's' || e.key === 'S') && !(e.metaKey || e.ctrlKey || e.altKey)){
+          var el = document.activeElement, tag = (el && el.tagName) || '';
+          if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+          if (document.getElementById('cmdk').classList.contains('open')) return;
+          window.__toggleSpec();
+        }
+      });
+    })();
+
+    /* ---------- Command palette ---------- */
+    (function(){
+      var cmdk = document.getElementById('cmdk'),
+          input = document.getElementById('cmdkInput'),
+          list = document.getElementById('cmdkList'),
+          trigger = document.getElementById('cmdkTrigger');
+
+      var commands = [
+        { g:'Navigate', ic:'§', label:'Positioning',            meta:'00', run:function(){ go('#about'); } },
+        { g:'Navigate', ic:'AI',label:'AI judgement',           meta:'01', run:function(){ go('#ai'); } },
+        { g:'Navigate', ic:'§', label:'Product decision board', meta:'02', run:function(){ go('#work'); } },
+        { g:'Navigate', ic:'§', label:'Evidence',               meta:'03', run:function(){ go('#experience'); } },
+        { g:'Navigate', ic:'§', label:'Operating model',        meta:'04', run:function(){ go('#approach'); } },
+        { g:'Navigate', ic:'§', label:'Next problem',           meta:'05', run:function(){ go('#contact'); } },
+
+        { g:'Open a project', ic:'↗', label:'SmartCart — AI buy/wait/don\u2019t-buy verdict', meta:'Live', run:function(){ open('https://smartcart-c2ci.onrender.com'); } },
+        { g:'Open a project', ic:'↗', label:'TeamMatch — fit-ranked teammate matching',      meta:'Live', run:function(){ open('https://aastha381.github.io/TeamMatch/'); } },
+        { g:'Open a project', ic:'↗', label:'YatraYatri — investment planner (client)',       meta:'Live', run:function(){ open('https://aastha381.github.io/yatrayatri-planner/'); } },
+        { g:'Open a project', ic:'↗', label:'DayFlow — sleep planner',                         meta:'Live', run:function(){ open('https://aastha381.github.io/DayFlow-Sleep-Planner/'); } },
+        { g:'Open a project', ic:'↗', label:'FoodMatch — group restaurant matcher',           meta:'Live', run:function(){ open('https://aastha381.github.io/tinder-style-restaurant-matcher/'); } },
+        { g:'Open a project', ic:'↗', label:'ClassTrack — attendance tracker',                meta:'Live', run:function(){ open('https://aastha381.github.io/Attendence-Tracker-App/'); } },
+        { g:'Open a project', ic:'↗', label:'PM Study Planner — daily study planner',          meta:'Live', run:function(){ open('https://aastha381.github.io/pm-study-planner/pm-tracker.html'); } },
+        { g:'Open a project', ic:'↗', label:'LinkVault — Chrome extension (PRD)',              meta:'PRD',  run:function(){ open('https://github.com/AASTHA381/link-vault-extension/blob/main/docs/PRD.md'); } },
+
+        { g:'Actions', ic:'✦', label:'Play the surprise 3D game', meta:'Fun', run:function(){ open('surprise-game.html'); } },
+        { g:'Actions', ic:'✎', label:'Copy email address',  meta:'\u21B5', run:function(){ copyEmail(); } },
+        { g:'Actions', ic:'▤', label:'Open résumé (PDF)',   meta:'\u21B5', run:function(){ open('resume/Aastha-Saini-Resume.pdf'); } },
+        { g:'Actions', ic:'⎙', label:'Print this as a one-pager', meta:'\u2318P', run:function(){ close(); setTimeout(function(){ window.print(); }, 120); } },
+        { g:'Actions', ic:'◐', label:'Toggle colour theme', meta:'\u21B5', run:function(){ tBtn.click(); } },
+        { g:'Actions', ic:'▥', label:'Toggle spec view', meta:'S', run:function(){ close(); if (window.__toggleSpec) window.__toggleSpec(); } },
+        { g:'Actions', ic:'in',label:'LinkedIn',            meta:'↗', run:function(){ open('https://www.linkedin.com/in/aastha-saini03/'); } },
+        { g:'Actions', ic:'gh',label:'GitHub',              meta:'↗', run:function(){ open('https://github.com/AASTHA381'); } }
+      ];
+
+      var filtered = commands.slice(), sel = 0;
+
+      function go(hash){ close(); var t = document.querySelector(hash); if (t) t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
+      function open(url){ close(); window.open(url, '_blank', 'noopener'); }
+      function copyEmail(){ close(); document.getElementById('copyBtn').click(); }
+
+      function render(){
+        list.innerHTML = '';
+        if (!filtered.length){ list.innerHTML = '<div class="cmdk-empty">No matches. Try “work”, “SmartCart”, “theme”…</div>'; return; }
+        var lastG = '';
+        filtered.forEach(function(c, idx){
+          if (c.g !== lastG){ lastG = c.g; var g = document.createElement('div'); g.className = 'cmdk-group'; g.textContent = c.g; list.appendChild(g); }
+          var it = document.createElement('div');
+          it.className = 'cmdk-item' + (idx === sel ? ' sel' : '');
+          it.innerHTML = '<span class="ci-ic">' + c.ic + '</span><span>' + c.label + '</span><span class="ci-meta">' + c.meta + '</span>';
+          it.addEventListener('click', function(){ c.run(); });
+          it.addEventListener('mousemove', function(){ if (sel !== idx){ sel = idx; paint(); } });
+          list.appendChild(it);
+        });
+      }
+      function paint(){
+        var items = list.querySelectorAll('.cmdk-item');
+        items.forEach(function(el, i){ el.classList.toggle('sel', i === sel); });
+        if (items[sel]) items[sel].scrollIntoView({ block:'nearest' });
+      }
+      function doFilter(){
+        var q = input.value.trim().toLowerCase();
+        filtered = !q ? commands.slice() : commands.filter(function(c){ return (c.label + ' ' + c.g).toLowerCase().indexOf(q) !== -1; });
+        sel = 0; render();
+      }
+      function openPal(){ cmdk.classList.add('open'); input.value=''; doFilter(); setTimeout(function(){ input.focus(); }, 30); document.body.style.overflow='hidden'; }
+      function close(){ cmdk.classList.remove('open'); document.body.style.overflow=''; }
+
+      trigger.addEventListener('click', openPal);
+      cmdk.querySelector('[data-close]').addEventListener('click', close);
+      input.addEventListener('input', doFilter);
+      input.addEventListener('keydown', function(e){
+        if (e.key === 'ArrowDown'){ e.preventDefault(); sel = Math.min(sel + 1, filtered.length - 1); paint(); }
+        else if (e.key === 'ArrowUp'){ e.preventDefault(); sel = Math.max(sel - 1, 0); paint(); }
+        else if (e.key === 'Enter'){ e.preventDefault(); if (filtered[sel]) filtered[sel].run(); }
+      });
+      addEventListener('keydown', function(e){
+        if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); cmdk.classList.contains('open') ? close() : openPal(); }
+        else if (e.key === 'Escape' && cmdk.classList.contains('open')){ close(); }
+      });
+    })();
+  })();
 </script>
 </body>
 </html>

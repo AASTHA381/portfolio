@@ -1,0 +1,12 @@
+# Local browser-validation screenshots and generated previews
+/assets/_*.png
+/assets/og.html
+/fix-cases.png
+/light-*.png
+/preview-*.png
+
+# Local backup retained outside the published site
+/index-legacy.html
+
+# macOS metadata
+.DS_Store
