@@ -583,7 +583,7 @@
   .ai-thesis h3 em{font-family:'Fraunces',serif;color:var(--signal);font-weight:500;}
   .ai-thesis p{color:var(--muted);font-size:15px;}
   .ai-map{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;}
-  .ai-card{position:relative;min-height:220px;padding:22px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;transition:transform .25s var(--ease),border-color .25s var(--ease);}
+  .ai-card{position:relative;display:flex;flex-direction:column;min-height:220px;padding:22px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;transition:transform .25s var(--ease),border-color .25s var(--ease);}
   .ai-card:hover{transform:translateY(-3px);border-color:var(--line-strong);}
   .ai-card.core{grid-column:span 6;border-color:rgba(110,219,232,.27);}
   .ai-card.ml{grid-column:span 5;}
@@ -593,7 +593,7 @@
   .ai-card.rules .ai-mode b{color:var(--accent-ink);}
   .ai-card h4{font-size:20px;letter-spacing:-.025em;margin:34px 0 9px;}
   .ai-card p{font-size:13.5px;color:var(--muted);line-height:1.6;}
-  .ai-card .ai-products{position:absolute;left:22px;right:22px;bottom:18px;display:flex;gap:6px;flex-wrap:wrap;}
+  .ai-card .ai-products{margin-top:auto;padding-top:16px;display:flex;gap:6px;flex-wrap:wrap;}
   .ai-products span{font-family:'JetBrains Mono',monospace;font-size:9px;border:1px solid var(--line);padding:4px 7px;border-radius:4px;color:var(--faint);}
   .ai-principle{display:flex;align-items:flex-start;gap:13px;margin-top:14px;padding:16px 18px;border-left:2px solid var(--accent);background:var(--accent-soft);font-size:13.5px;color:var(--muted);}
   .ai-principle b{color:var(--ink);}
@@ -1094,7 +1094,7 @@
           links:[['Live','https://aastha381.github.io/pm-study-planner/pm-tracker.html',1],['PRD','https://github.com/AASTHA381/pm-study-planner/blob/main/docs/PRD.md'],['Code','https://github.com/AASTHA381/pm-study-planner']]
         },
         {
-          name:'AskDocs', tags:['ai','productivity'], mode:'Generative AI (RAG)', kicker:'Knowledge tool · Retrieval-Augmented Generation', state:'RAG web app · source + PRD', fallback:'AD',
+          name:'AskDocs', tags:['ai','productivity'], mode:'Generative AI (RAG)', kicker:'Knowledge tool · Retrieval-Augmented Generation', state:'RAG web app · source + PRD', image:'assets/shots/askdocs.png',
           problem:'People have documents\u2014lecture notes, reports, manuals\u2014and want grounded answers without reading end to end, but general chatbots hallucinate and don\u2019t know private files.',
           user:'Students, knowledge workers and anyone who wants a private \u201Cask my PDF\u201D assistant they can share with a link.',
           decision:'Answer only from the user\u2019s uploaded content and cite the source passages, instead of letting the model answer from memory.',
