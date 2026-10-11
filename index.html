@@ -777,6 +777,81 @@
   .mb-chips button{flex:none;height:32px;padding:0 12px;border:0;border-radius:8px;background:#272727;color:#f1f1f1;font:inherit;font-size:13px;cursor:pointer;}
   .mb-chips button.on{background:#f1f1f1;color:#0f0f0f;}
 
+  /* YouTube conversion: player hero, Up next rail, thumbnail shelf */
+  .yt-player,.yt-meta,.ct-thumb{display:none;}
+  html[data-mode="youtube"] .yt-player{display:block;border-radius:12px;overflow:hidden;background:#000;}
+  html[data-mode="youtube"] .yt-meta{display:block;margin:18px 0 30px;}
+  html[data-mode="youtube"] .shell{grid-template-columns:minmax(0,1fr) 320px;gap:40px;max-width:1240px;}
+  html[data-mode="youtube"] main{order:1;padding-top:14px;}
+  html[data-mode="youtube"] aside{order:2;padding:20px 0 32px;}
+  html[data-mode="youtube"] aside::after{display:none;}
+  html[data-mode="youtube"] :is(.avail,.name,.role,.rail-code,.rail-lead,.cmdk-trigger,#themeBtn){display:none;}
+  @media(max-width:960px){
+    html[data-mode="youtube"] .shell{grid-template-columns:1fr;gap:0;}
+    html[data-mode="youtube"] main{order:0;}
+    html[data-mode="youtube"] aside{order:1;}
+  }
+  html[data-mode="youtube"] .workspace-bar{top:calc(var(--top-h) + 10px);border-radius:999px;margin-bottom:28px;}
+  html[data-mode="youtube"] section{margin-bottom:56px;}
+
+  html[data-mode="youtube"] .mode-picker{margin:0 0 18px;gap:6px;}
+  html[data-mode="youtube"] .mode-picker a{border-color:transparent;background:#272727;color:var(--ink);padding:5px 11px;font-family:'Inter',sans-serif;font-size:12.5px;}
+  html[data-mode="youtube"] .mode-picker a.on{background:var(--ink);color:var(--bg);}
+
+  html[data-mode="youtube"] nav.rail-nav{margin-top:0;gap:12px;}
+  html[data-mode="youtube"] nav.rail-nav a{display:grid;grid-template-columns:132px minmax(0,1fr);gap:12px;align-items:center;padding:0;color:var(--muted);font-family:'Inter',sans-serif;font-size:13.5px;letter-spacing:0;text-transform:none;}
+  html[data-mode="youtube"] nav.rail-nav a .bar{display:none;}
+  html[data-mode="youtube"] nav.rail-nav a::before{content:attr(data-th);aspect-ratio:16/9;border-radius:8px;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:#fff;background:linear-gradient(135deg,#2a2a2a,#141414 55%,#3a0a14);}
+  html[data-mode="youtube"] nav.rail-nav a:hover,html[data-mode="youtube"] nav.rail-nav a.active{color:var(--ink);}
+  html[data-mode="youtube"] nav.rail-nav a.active::before{box-shadow:0 0 0 2px var(--accent);}
+  html[data-mode="youtube"] nav.rail-nav a::after{display:none;}
+
+  html[data-mode="youtube"] .yt-screen{position:relative;aspect-ratio:16/9;overflow:hidden;background:radial-gradient(circle at 28% 35%,#3b0d18 0,#161016 42%,#0b0b0b 100%);}
+  html[data-mode="youtube"] .yt-play{position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;border-radius:14px;background:var(--accent);}
+  html[data-mode="youtube"] .yt-play::after{content:"";position:absolute;left:27px;top:15px;border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;}
+  html[data-mode="youtube"] .yt-screen-text{position:absolute;left:22px;right:22px;bottom:18px;display:grid;gap:4px;}
+  html[data-mode="youtube"] .yt-screen-text b{font-size:clamp(22px,3vw,34px);font-weight:700;letter-spacing:-.01em;color:#fff;}
+  html[data-mode="youtube"] .yt-screen-text span{font-size:14px;color:#cfcfcf;}
+  html[data-mode="youtube"] .yt-progress{position:relative;height:4px;background:#303030;}
+  html[data-mode="youtube"] .yt-progress i{position:absolute;left:0;top:0;bottom:0;width:38%;background:var(--accent);}
+  html[data-mode="youtube"] .yt-title{font-family:'Inter',sans-serif;font-size:20px;font-weight:600;line-height:1.35;letter-spacing:0;color:var(--ink);}
+  html[data-mode="youtube"] .yt-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:14px;}
+  html[data-mode="youtube"] .yt-channel{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+  html[data-mode="youtube"] .yt-channel b{display:block;font-size:15px;font-weight:600;}
+  html[data-mode="youtube"] .yt-channel small{display:block;margin-top:2px;font-size:12.5px;color:var(--muted);}
+  html[data-mode="youtube"] .yt-av{width:40px;height:40px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-size:13px;font-weight:700;}
+  html[data-mode="youtube"] .yt-sub{margin-left:8px;padding:10px 16px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:500;text-decoration:none;}
+  html[data-mode="youtube"] .yt-actions{display:flex;flex-wrap:wrap;gap:8px;}
+
+  html[data-mode="youtube"] :is(.tag,.skill,.icbtn,.hero-action){border-radius:999px;border-color:transparent;background:#272727;color:var(--ink);}
+  html[data-mode="youtube"] .icbtn.solid,html[data-mode="youtube"] .hero-action.primary{background:var(--ink);color:var(--bg);}
+  html[data-mode="youtube"] .icbtn:hover{transform:none;background:#3a3a3a;}
+
+  html[data-mode="youtube"] .sec-head{margin-bottom:16px;gap:10px;}
+  html[data-mode="youtube"] .sec-head :is(.idx,.rule){display:none;}
+  html[data-mode="youtube"] .sec-head .phase,html[data-mode="youtube"] section.current .sec-head .phase{border:0;padding:0;background:none;color:var(--muted);letter-spacing:.06em;font-size:11px;}
+  html[data-mode="youtube"] .sec-head h2{font-family:'Inter',sans-serif;font-size:20px;font-weight:600;letter-spacing:0;line-height:1.3;}
+
+  html[data-mode="youtube"] .studio-hero{border-color:transparent;border-radius:12px;background:var(--surface);}
+  html[data-mode="youtube"] .studio-hero::before,html[data-mode="youtube"] .studio-hero::after{display:none;}
+  html[data-mode="youtube"] :is(.card,.feature,.principle,.xrow,.pipe-node,.case-cell,.ai-card,.stat,.studio-stat){border-color:transparent;border-radius:12px;}
+  html[data-mode="youtube"] :is(.card,.principle,.ai-card,.stat,.studio-stat,.pipe-node,.case-cell):hover{background:var(--surface-2);}
+  html[data-mode="youtube"] :is(.stats,.studio-stats,.case-grid){background:transparent;border:0;gap:10px;}
+  html[data-mode="youtube"] :is(.stat,.studio-stat){background:var(--surface);}
+
+  html[data-mode="youtube"] .decision-explorer{display:flex;flex-direction:column;background:transparent;border:0;border-radius:0;min-height:0;overflow:visible;}
+  html[data-mode="youtube"] .case-visual{aspect-ratio:16/9;border:0;border-radius:12px;background:#000;}
+  html[data-mode="youtube"] .case-index{order:2;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px 14px;border:0;background:transparent;margin-top:22px;}
+  html[data-mode="youtube"] .case-index-head{grid-column:1/-1;padding:0 0 2px;border:0;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:0;text-transform:none;color:var(--ink);}
+  html[data-mode="youtube"] .case-tab{display:block;padding:0;border:0;background:transparent;color:var(--muted);box-shadow:none;}
+  html[data-mode="youtube"] .case-tab:hover,html[data-mode="youtube"] .case-tab.active{background:transparent;box-shadow:none;color:var(--ink);}
+  html[data-mode="youtube"] .case-tab .ct-thumb{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top center;border-radius:12px;background:var(--surface-2);margin-bottom:10px;transition:box-shadow .2s var(--ease);}
+  html[data-mode="youtube"] .case-tab:hover .ct-thumb{box-shadow:0 0 0 1px var(--line-strong);}
+  html[data-mode="youtube"] .case-tab.active .ct-thumb{box-shadow:0 0 0 2px var(--accent);}
+  html[data-mode="youtube"] .case-tab .ct-num{display:none;}
+  html[data-mode="youtube"] .case-tab b{font-size:14px;font-weight:600;color:var(--ink);}
+  html[data-mode="youtube"] .case-tab small{margin-top:4px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted);}
+
   /* Terminal bars */
   .mb-tbar{height:100%;display:flex;align-items:flex-end;gap:2px;padding:0 8px;background:#11111b;overflow:hidden;}
   .mb-tbar button{height:30px;flex:none;padding:0 14px;border:0;border-radius:6px 6px 0 0;background:#181825;color:#a6adc8;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap;}
@@ -874,12 +949,12 @@
       </div>
 
       <nav class="rail-nav" id="railnav">
-        <a href="#about"><span class="bar"></span>Positioning</a>
-        <a href="#ai"><span class="bar"></span>AI judgement</a>
-        <a href="#work"><span class="bar"></span>Product board</a>
-        <a href="#experience"><span class="bar"></span>Evidence</a>
-        <a href="#approach"><span class="bar"></span>Operating model</a>
-        <a href="#contact"><span class="bar"></span>Next problem</a>
+        <a href="#about" data-th="01"><span class="bar"></span>Positioning</a>
+        <a href="#ai" data-th="02"><span class="bar"></span>AI judgement</a>
+        <a href="#work" data-th="03"><span class="bar"></span>Product board</a>
+        <a href="#experience" data-th="04"><span class="bar"></span>Evidence</a>
+        <a href="#approach" data-th="05"><span class="bar"></span>Operating model</a>
+        <a href="#contact" data-th="06"><span class="bar"></span>Next problem</a>
       </nav>
 
       <button class="cmdk-trigger" id="cmdkTrigger" aria-label="Open command palette">
@@ -910,6 +985,24 @@
       </div>
       <!-- ABOUT -->
       <section id="about" class="reveal">
+        <div class="yt-player" aria-hidden="true">
+          <div class="yt-screen">
+            <span class="yt-play"></span>
+            <div class="yt-screen-text"><b>Aastha Saini</b><span>Product Manager · Analytics &amp; B2B Platforms</span></div>
+          </div>
+          <div class="yt-progress"><i></i></div>
+        </div>
+        <div class="yt-meta">
+          <p class="yt-title">Aastha Saini, Product Manager: 136 PRDs, 55 bugs &amp; feature gaps surfaced, 10% DAU lift</p>
+          <div class="yt-row">
+            <div class="yt-channel"><span class="yt-av" aria-hidden="true">AS</span><span><b>Aastha Saini</b><small>Product Manager · AI used with intent</small></span><a class="yt-sub" href="#contact">Hire me</a></div>
+            <div class="yt-actions">
+              <a class="icbtn solid" href="resume/Aastha-Saini-Product-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+              <a class="icbtn" href="mailto:aastha2000s@gmail.com">Email</a>
+              <a class="icbtn" href="https://www.linkedin.com/in/aastha-saini03/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </div>
         <div class="studio-hero">
           <div class="hero-copy">
             <div class="hero-eyebrow">Product Manager building with AI · Analytical 0→1</div>
@@ -1256,7 +1349,7 @@
           button.className = 'case-tab' + (i === activeCase ? ' active' : '');
           button.setAttribute('aria-selected', i === activeCase ? 'true' : 'false');
           button.tabIndex = i === activeCase ? 0 : -1;
-          button.innerHTML = '<span class="ct-num">' + String(i + 1).padStart(2,'0') + '</span><span><b>' + item.name + '</b><small class="' + (item.mode !== 'Deterministic' ? 'ai' : '') + '">' + item.mode + '</small></span>';
+          button.innerHTML = '<img class="ct-thumb" src="' + item.image + '" alt="" loading="lazy" decoding="async" /><span class="ct-num">' + String(i + 1).padStart(2,'0') + '</span><span><b>' + item.name + '</b><small class="' + (item.mode !== 'Deterministic' ? 'ai' : '') + '">' + item.mode + '</small></span>';
           button.addEventListener('click', function(){ renderCase(i); });
           index.appendChild(button);
         });
