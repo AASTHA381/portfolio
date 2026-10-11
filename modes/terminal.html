@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Aastha Saini · Terminal mode</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:100%;min-height:100vh;overflow-x:hidden;background:#1e1e2e;font-family:Menlo,'Courier New',monospace;color:#cdd6f4;font-size:14px;line-height:1.55;display:flex;flex-direction:column}
+  .tabs{height:36px;background:#181825;display:flex;align-items:flex-end;padding-left:12px;gap:4px;font-family:-apple-system,Arial,sans-serif;font-size:12.5px}
+  .tabs .t{padding:8px 14px;border-radius:8px 8px 0 0;color:#a6adc8;background:#11111b}
+  .tabs .t.on{background:#1e1e2e;color:#cdd6f4}
+  .tabs .plus{padding:6px 10px;color:#6c7086}
+  .body{flex:1;display:flex}
+  .side{width:260px;background:#181825;border-right:1px solid #313244;padding:18px 16px;font-size:13px}
+  .side h4{color:#6c7086;font-size:11px;letter-spacing:1.5px;margin:6px 0 10px}
+  .side div{padding:4px 8px;border-radius:6px;color:#bac2de;white-space:nowrap}
+  .side .sel{background:#313244;color:#cdd6f4}
+  .side .dir{color:#89b4fa}
+  .main{flex:1;padding:20px 26px;overflow:hidden}
+  .pr{color:#a6e3a1}.pd{color:#89b4fa}.ct{color:#f9e2af}.mut{color:#6c7086}
+  h2{color:#f5c2e7;font-size:20px;margin:12px 0 6px}
+  .box{border:1px solid #45475a;border-radius:10px;padding:14px 18px;margin:10px 0;background:#181825}
+  .kv{display:grid;grid-template-columns:200px 1fr;gap:4px 12px}
+  .kv span:nth-child(odd){color:#89b4fa}
+  .status{height:28px;background:#89b4fa;color:#11111b;display:flex;align-items:center;gap:18px;padding:0 14px;font-size:12.5px;font-weight:700}
+  .status .r{margin-left:auto}
+</style></head>
+<body>
+  <div class="tabs"><div class="t on">aastha — zsh</div><div class="t">resume.pdf</div><div class="t">metrics</div><div class="plus">+</div></div>
+  <div class="body">
+    <div class="side">
+      <h4>FILES</h4>
+      <div class="dir">▾ aastha/</div>
+      <div style="padding-left:18px" class="dir">▸ experience/</div>
+      <div style="padding-left:18px" class="dir">▸ projects/</div>
+      <div style="padding-left:18px" class="dir">▸ prds/</div>
+      <div style="padding-left:18px" class="sel">about.md</div>
+      <div style="padding-left:18px">resume.pdf</div>
+      <div style="padding-left:18px">contact.txt</div>
+      <h4 style="margin-top:22px">SESSIONS</h4>
+      <div>● tradeindia</div><div>● agritech-cv</div><div>● cta-tests</div>
+    </div>
+    <div class="main">
+      <div><span class="pr">aastha@mac</span> <span class="pd">~/aastha</span> <span class="mut">$</span> cat about.md</div>
+      <h2># Aastha Saini</h2>
+      <div>Product Manager. Builder of AI-powered tools. Product Intern at TradeIndia.</div>
+      <div class="box">
+        <div class="kv">
+          <span>experience</span><span>TradeIndia · Product Intern · Apr–Jun 2026</span>
+          <span>scope</span><span>3 product lines, RICE and MoSCoW prioritisation</span>
+          <span>output</span><span>136 PRDs · 55 bugs and feature gaps closed</span>
+          <span>project</span><span>Agritech CV pipeline · FPO verification −40%</span>
+          <span>growth</span><span>CTA experiments · +10% DAU</span>
+          <span>contact</span><a class="ct" href="mailto:aastha2000s@gmail.com" style="color:inherit;text-decoration:none">aastha2000s@gmail.com</a>
+        </div>
+      </div>
+      <div><span class="pr">aastha@mac</span> <span class="pd">~/aastha</span> <span class="mut">$</span> <span class="ct">open resume.pdf</span> <span class="mut"># opens the attached résumé</span></div>
+      <div><span class="pr">aastha@mac</span> <span class="pd">~/aastha</span> <span class="mut">$</span> <span style="display:inline-block;width:9px;height:18px;background:#cdd6f4;vertical-align:-3px"></span></div>
+    </div>
+  </div>
+  <div class="status"><span>aastha</span><span>zsh</span><span>master</span><span class="r">1 session · 120×40</span></div>
+<nav class="mode-switch" aria-label="Portfolio layout modes">
+<a href="../">Default</a><a href="../?mode=chrome">Chrome</a><a href="../?mode=youtube">YouTube</a><a href="../?mode=mario">Mario</a><a href="../?mode=terminal">Terminal</a>
+</nav>
+<style>.mode-switch{position:fixed;right:12px;bottom:12px;z-index:50;display:flex;gap:2px;background:rgba(0,0,0,.75);padding:4px;border-radius:999px;font:500 12px/1 -apple-system,"Helvetica Neue",Arial,sans-serif}.mode-switch a{color:#fff;text-decoration:none;padding:7px 11px;border-radius:999px}.mode-switch a:hover{background:rgba(255,255,255,.2)}.mode-switch{top:6px;bottom:auto}</style>
+</body></html>

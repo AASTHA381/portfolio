@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aastha Saini · Mario mode</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:100%;min-height:100vh;overflow-x:hidden;background:linear-gradient(#5c94fc 0 70%,#c84c0c 70%);font-family:'Courier New',monospace;color:#fff;position:relative}
+  .hud{position:absolute;top:18px;left:0;right:0;display:flex;justify-content:space-around;font-size:18px;text-shadow:3px 3px 0 #000;font-weight:700}
+  .cloud{position:absolute;width:120px;height:40px;background:#fff;border-radius:40px;box-shadow:40px -10px 0 -4px #fff,80px 4px 0 -8px #fff}
+  .hero{position:absolute;left:90px;top:150px;width:700px}
+  h1{font-size:54px;line-height:1.1;text-shadow:5px 5px 0 #000;letter-spacing:1px}
+  .sub{margin-top:18px;font-size:20px;text-shadow:2px 2px 0 #000;line-height:1.5;max-width:640px}
+  .btns{display:flex;gap:16px;margin-top:28px}
+  .btn{padding:14px 22px;background:#e45c10;border:4px solid #000;box-shadow:inset -4px -4px 0 #a03c00,4px 4px 0 #000;font-size:18px;font-weight:700;text-shadow:2px 2px 0 #000}
+  .btn.g{background:#00a800;box-shadow:inset -4px -4px 0 #005800,4px 4px 0 #000}
+  .qblock{position:absolute;width:64px;height:64px;background:#f8b800;border:4px solid #000;display:grid;place-items:center;font-size:36px;font-weight:700;color:#000}
+  .brick{position:absolute;bottom:0;left:0;right:0;height:120px;background:repeating-linear-gradient(90deg,#c84c0c 0 62px,#000 62px 64px),repeating-linear-gradient(0deg,#c84c0c 0 30px,#000 30px 32px);border-top:6px solid #000}
+  .coin{position:absolute;width:30px;height:40px;border-radius:50%;background:#f8d800;border:4px solid #000}
+  .pipe{position:absolute;bottom:120px;width:90px;height:150px;background:#00a800;border:4px solid #000;box-shadow:inset -8px 0 0 #005800}
+  .pipe::before{content:"";position:absolute;left:-12px;top:-18px;width:114px;height:34px;background:#00a800;border:4px solid #000}
+  .card{position:absolute;right:90px;top:170px;width:330px;background:#fff;color:#000;border:6px solid #000;padding:20px;font-size:16px;line-height:1.5;box-shadow:8px 8px 0 #000}
+  .card h3{font-size:18px;margin-bottom:10px}
+  .card .world{display:inline-block;background:#000;color:#f8d800;padding:2px 8px;margin-bottom:10px}
+</style>
+</head>
+<body>
+  <div class="hud"><span>AASTHA</span><span>PRDs ×136</span><span>WORLD 1-1</span><span>TIME 400</span></div>
+  <div class="cloud" style="left:700px;top:90px"></div>
+  <div class="cloud" style="left:1040px;top:120px;transform:scale(.7)"></div>
+  <div class="hero">
+    <h1>Aastha Saini<br>Product Manager</h1>
+    <div class="sub">Level 1 cleared: TradeIndia product intern, 55 bugs squashed, +10% DAU. Press START to read the resume.</div>
+    <div class="btns"><a class="btn" href="../resume/Aastha-Saini-Product-Resume.pdf" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">START ▶</a><a class="btn g" href="mailto:aastha2000s@gmail.com" style="color:inherit;text-decoration:none">CONTACT</a></div>
+  </div>
+  <div class="coin" style="left:620px;top:440px"></div>
+  <div class="coin" style="left:680px;top:400px"></div>
+  <div class="qblock" style="left:520px;top:520px">?</div>
+  <div class="qblock" style="left:600px;top:520px">?</div>
+  <div class="pipe" style="left:1100px"></div>
+  <div class="card">
+    <span class="world">WORLD 1-1</span>
+    <h3>Experience</h3>
+    <div><b>TradeIndia</b> · Product Intern<br>Apr–Jun 2026<br>RICE, MoSCoW, PRDs, CTA tests</div>
+  </div>
+  <div class="brick"></div>
+<nav class="mode-switch" aria-label="Portfolio layout modes">
+<a href="../">Default</a><a href="../?mode=chrome">Chrome</a><a href="../?mode=youtube">YouTube</a><a href="../?mode=mario">Mario</a><a href="../?mode=terminal">Terminal</a>
+</nav>
+<style>.mode-switch{position:fixed;right:12px;bottom:12px;z-index:50;display:flex;gap:2px;background:rgba(0,0,0,.75);padding:4px;border-radius:999px;font:500 12px/1 -apple-system,"Helvetica Neue",Arial,sans-serif}.mode-switch a{color:#fff;text-decoration:none;padding:7px 11px;border-radius:999px}.mode-switch a:hover{background:rgba(255,255,255,.2)}</style>
+</body>
+</html>

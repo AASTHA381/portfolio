@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aastha Saini · Chrome mode</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:100%;min-height:100vh;overflow-x:hidden;background:#fff;font-family:-apple-system,"Helvetica Neue",Roboto,Arial,sans-serif;color:#1f1f1f;font-size:13px}
+  .win{width:100%;min-height:100vh;display:flex;flex-direction:column}
+  svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+  /* tab strip */
+  .strip{height:40px;background:#dee1e6;display:flex;align-items:flex-end;position:relative;padding-left:12px}
+  .lights{position:absolute;left:14px;top:14px;display:flex;gap:8px}
+  .lights i{width:12px;height:12px;border-radius:50%;display:block}
+  .tabs{display:flex;align-items:flex-end;margin-left:84px;height:40px;gap:0}
+  .tab{position:relative;width:232px;height:34px;display:flex;align-items:center;gap:8px;padding:0 10px 0 14px;font-size:12.5px;color:#444;background:#d3d6db;border-radius:9px 9px 0 0;margin-right:2px;margin-top:6px}
+  .tab.on{background:#fff;color:#1f1f1f;height:36px;margin-top:4px;padding-right:12px}
+  .tab .fav{width:16px;height:16px;border-radius:4px;flex:none;color:#fff;font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .tab .t{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tab .x{width:16px;height:16px;flex:none;opacity:.6}
+  .tab.on .x{opacity:1}
+  .flare{position:absolute;bottom:0;width:12px;height:12px}
+  .flare.l{left:-12px}
+  .flare.r{right:-12px}
+  .plus{width:28px;height:28px;margin:0 0 6px 8px;display:flex;align-items:center;justify-content:center;color:#444}
+  .tsearch{position:absolute;right:12px;bottom:8px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:#444}
+  .winctl{display:none}
+
+  /* toolbar */
+  .toolbar{height:44px;background:#fff;display:flex;align-items:center;gap:6px;padding:0 10px;border-bottom:1px solid #e3e3e3}
+  .navbtn{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#444}
+  .navbtn.dis{color:#b8b8b8}
+  .omni{flex:1;height:34px;margin:0 6px;background:#f1f3f4;border-radius:17px;display:flex;align-items:center;padding:0 14px;gap:10px;font-size:13.5px;color:#5f6368;position:relative}
+  .omni .url{color:#202124}
+  .omni .url b{font-weight:400;color:#5f6368}
+  .omni .star{position:absolute;right:12px;top:7px;color:#444}
+  .ext{width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:#444}
+  .avatar{width:28px;height:28px;border-radius:50%;background:#1e8e3e;color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-left:4px}
+
+  /* bookmarks */
+  .bm{height:32px;background:#fff;display:flex;align-items:center;gap:4px;padding:0 10px;border-bottom:1px solid #e3e3e3;font-size:12px;color:#202124}
+  .bm span{display:flex;align-items:center;gap:6px;padding:4px 8px;border-radius:6px}
+  .bm .dot{width:12px;height:12px;border-radius:3px;background:#aab0b8}
+  .bm .all{margin-left:auto;color:#202124}
+
+  /* page */
+  .page{flex:1;display:flex;flex-direction:column;background:#fafafa;min-height:0}
+  .site-nav{height:56px;background:#fff;border-bottom:1px solid #ececec;display:flex;align-items:center;padding:0 48px;gap:28px;font-size:14px;color:#333}
+  .site-nav .brand{font-weight:700;font-size:16px;color:#1f1f1f;display:flex;align-items:center;gap:8px;margin-right:auto}
+  .site-nav .brand i{width:26px;height:26px;border-radius:7px;background:#1e8e3e;color:#fff;font-style:normal;font-size:12px;display:flex;align-items:center;justify-content:center}
+  .site-nav .cta{background:#1f1f1f;color:#fff;padding:8px 16px;border-radius:999px;font-size:13px}
+  .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;padding:26px 48px 0;flex:none}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1e8e3e;font-weight:600}
+  h1{font-size:44px;line-height:1.05;letter-spacing:-.02em;margin:8px 0 10px;font-weight:700}
+  .lead{font-size:15px;line-height:1.5;color:#4a4a4a;max-width:560px}
+  .btns{display:flex;gap:10px;margin-top:16px}
+  .btn{padding:11px 18px;border-radius:999px;font-size:14px;font-weight:600;border:1px solid #d6d6d6;background:#fff;color:#1f1f1f}
+  .btn.p{background:#1f1f1f;color:#fff;border-color:#1f1f1f}
+  .stats{display:flex;gap:36px;margin-top:18px}
+  .stats b{display:block;font-size:30px;letter-spacing:-.01em}
+  .stats small{font-size:12px;color:#666}
+  .recent{background:#fff;border:1px solid #e4e4e4;border-radius:16px;padding:22px 22px 18px;align-self:start}
+  .recent h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#777;font-weight:600;margin-bottom:12px}
+  .row{padding:12px 0;border-top:1px solid #efefef}
+  .row:first-of-type{border-top:0}
+  .row b{display:block;font-size:14.5px}
+  .row small{color:#666;font-size:12.5px}
+  .tip{margin-top:12px;background:#e8f0fe;color:#1a4fa0;border-radius:10px;padding:10px 12px;font-size:12.5px}
+
+  .cards{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 48px 24px}
+  .card{background:#fff;border:1px solid #e4e4e4;border-radius:14px;overflow:hidden}
+  .card .cover{height:140px;display:flex;align-items:flex-end;padding:16px;color:#fff;font-size:22px;font-weight:700;letter-spacing:-.01em}
+  .card .body{padding:14px 16px 16px}
+  .card .body b{font-size:15px;display:block}
+  .card .body small{color:#666;font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="win">
+
+  <!-- tab strip -->
+  <div class="strip">
+    <div class="lights"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+    <div class="tabs">
+      <div class="tab on">
+        <span class="fav" style="background:#1e8e3e">AS</span>
+        <span class="t">Aastha Saini — Product Manager</span>
+        <svg class="i x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <svg class="flare l" viewBox="0 0 12 12"><path d="M0 12 A12 12 0 0 1 12 0 V12 Z" fill="#fff"/></svg>
+        <svg class="flare r" viewBox="0 0 12 12"><path d="M0 0 A12 12 0 0 1 12 12 H0 Z" fill="#fff"/></svg>
+      </div>
+      <div class="tab">
+        <span class="fav" style="background:#d93025">P</span>
+        <span class="t">Resume · Product Resume.pdf</span>
+        <svg class="i x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </div>
+      <div class="tab">
+        <span class="fav" style="background:#188038">P</span>
+        <span class="t">Projects</span>
+        <svg class="i x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </div>
+      <div class="tab" style="width:150px">
+        <span class="fav" style="background:#5f6368">+</span>
+        <span class="t">New Tab</span>
+      </div>
+      <div class="plus"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+    </div>
+    <div class="tsearch"><svg class="i" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+  </div>
+
+  <!-- toolbar -->
+  <div class="toolbar">
+    <div class="navbtn"><svg class="i" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
+    <div class="navbtn dis"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="navbtn"><svg class="i" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg></div>
+    <div class="navbtn"><svg class="i" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v8a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2z"/></svg></div>
+    <div class="omni">
+      <svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      <span class="url">aastha381.github.io<b>/portfolio</b></span>
+      <svg class="i star" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></svg>
+    </div>
+    <div class="ext"><svg class="i" viewBox="0 0 24 24"><path d="M9 4h4v3a2 2 0 1 0 4 0V4h3v4h-1a2 2 0 1 0 0 4h1v4h-4v-1a2 2 0 1 0-4 0v1H5v-4h1a2 2 0 1 0 0-4H5V4z"/></svg></div>
+    <div class="ext"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M4 10h16"/></svg></div>
+    <div class="avatar">AS</div>
+    <div class="ext"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="19" r="1.2"/></svg></div>
+  </div>
+
+  <!-- bookmarks bar -->
+  <div class="bm">
+    <span><i class="dot" style="background:#1e8e3e"></i>TradeIndia</span>
+    <span><i class="dot" style="background:#d93025"></i>Agritech CV</span>
+    <span><i class="dot" style="background:#188038"></i>CTA experiments</span>
+    <span><i class="dot" style="background:#1a73e8"></i>LinkedIn</span>
+    <span><i class="dot" style="background:#a142f4"></i>Email me</span>
+    <span class="all">Other bookmarks</span>
+  </div>
+
+  <!-- page content -->
+  <div class="page">
+    <div class="site-nav">
+      <div class="brand"><i>AS</i>Aastha Saini</div>
+      <span>Work</span><a href="../resume/Aastha-Saini-Product-Resume.pdf" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Resume</a><a href="../#work" style="color:inherit;text-decoration:none">Projects</a><span>Approach</span><span>Contact</span>
+      <a class="cta" href="mailto:aastha2000s@gmail.com" style="text-decoration:none">aastha2000s@gmail.com</a>
+    </div>
+
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Product Manager · AI-builder</div>
+        <h1>Hi, I'm Aastha. I build products people actually use.</h1>
+        <p class="lead">Product Intern at TradeIndia. 136 PRDs, 55 bugs and feature gaps closed, and a computer-vision agritech pipeline that cut FPO onboarding verification time by 40%.</p>
+        <div class="btns"><a class="btn p" href="../resume/Aastha-Saini-Product-Resume.pdf" target="_blank" rel="noopener" style="text-decoration:none">Open resume</a><a class="btn" href="../#work" style="text-decoration:none">View projects</a></div>
+        <div class="stats">
+          <div><b>136</b><small>PRDs authored</small></div>
+          <div><b>−40%</b><small>verification time</small></div>
+          <div><b>+10%</b><small>DAU lift</small></div>
+        </div>
+      </div>
+      <div class="recent">
+        <h3>Recently visited</h3>
+        <div class="row"><b>TradeIndia · Product Intern</b><small>Apr–Jun 2026 · RICE, MoSCoW, PRDs</small></div>
+        <div class="row"><b>Agritech CV pipeline</b><small>FPO onboarding automation</small></div>
+        <div class="row"><b>CTA optimisation</b><small>Experiments and DAU lift</small></div>
+        <div class="tip">Tip: each section opens in its own tab, like bookmarks.</div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card"><div class="cover" style="background:linear-gradient(135deg,#c8e6c9,#7cb342)">TradeIndia</div><div class="body"><b>Product Intern at TradeIndia</b><small>3 product lines · RICE, MoSCoW, PRDs</small></div></div>
+      <div class="card"><div class="cover" style="background:linear-gradient(135deg,#b2ebf2,#26a69a)">−40%</div><div class="body"><b>Computer-vision pipeline for FPO onboarding</b><small>Agritech · case study</small></div></div>
+      <div class="card"><div class="cover" style="background:linear-gradient(135deg,#ffe0b2,#fb8c00)">+10% DAU</div><div class="body"><b>CTA optimisation experiments</b><small>Growth · experiments and results</small></div></div>
+    </div>
+  </div>
+</div>
+<nav class="mode-switch" aria-label="Portfolio layout modes">
+<a href="../">Default</a><a href="../?mode=chrome">Chrome</a><a href="../?mode=youtube">YouTube</a><a href="../?mode=mario">Mario</a><a href="../?mode=terminal">Terminal</a>
+</nav>
+<style>.mode-switch{position:fixed;right:12px;bottom:12px;z-index:50;display:flex;gap:2px;background:rgba(0,0,0,.75);padding:4px;border-radius:999px;font:500 12px/1 -apple-system,"Helvetica Neue",Arial,sans-serif}.mode-switch a{color:#fff;text-decoration:none;padding:7px 11px;border-radius:999px}.mode-switch a:hover{background:rgba(255,255,255,.2)}</style>
+</body>
+</html>

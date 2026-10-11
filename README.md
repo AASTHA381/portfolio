@@ -12,6 +12,12 @@
 
 The principle is simple: use AI where it creates enough user value to justify its uncertainty, cost and failure modes—not because it is fashionable.
 
+## 🎛️ Layout modes
+
+The default portfolio can be opened in four themed layouts from the sidebar picker or with a link: `?mode=chrome`, `?mode=youtube`, `?mode=mario` or `?mode=terminal`. Each redirects to a standalone page in [modes/](modes/). The mode pages are built for desktop screens.
+
+---
+
 ## 🎮 Portfolio surprise
 
 The portfolio includes **Pixel's Recharge Run**, a procedural Three.js endless runner launched from the bottom-right surprise button. The robot, obstacles and pickups are built from Three.js geometry, so the game has no third-party model or texture assets. Three.js is MIT-licensed; implementation patterns were reviewed against the official Three.js game manual example (BSD) and controls example (MIT), both linked in the game's open-source notes.

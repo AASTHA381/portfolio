@@ -102,7 +102,7 @@
   @media(max-width:960px){.shell{grid-template-columns:1fr;gap:0;padding:0 22px;}}
 
   /* ---------- Left rail ---------- */
-  aside{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;
+  aside{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;overflow-y:auto;
     padding:72px 0 40px;}
   aside::after{content:"";position:absolute;right:-28px;top:56px;bottom:40px;width:1px;background:linear-gradient(transparent,var(--line-strong) 12%,var(--line-strong) 88%,transparent);}
   @media(max-width:960px){aside{position:static;height:auto;padding:72px 0 24px;}}
@@ -352,6 +352,9 @@
     font-size:13px;cursor:pointer;transition:all .22s var(--ease);font-family:inherit;}
   .cmdk-trigger:hover{border-color:var(--line-strong);color:var(--ink);}
   @media(max-width:960px){.cmdk-trigger{max-width:none;}}
+  .mode-picker{margin:14px 0 16px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:11px;}
+  .mode-picker a{color:var(--ink);text-decoration:none;border:1px solid var(--line-strong);border-radius:999px;padding:3px 8px;white-space:nowrap;}
+  .mode-picker a:hover{border-color:var(--ink);}
   .kbd{display:inline-flex;gap:3px;flex:none;}
   .kbd b{font-family:'JetBrains Mono',monospace;font-size:11px;background:var(--surface-2);border:1px solid var(--line);
     border-bottom-width:2px;border-radius:6px;padding:2px 6px;color:var(--muted);font-weight:500;}
@@ -724,6 +727,9 @@
     .studio-stat b{font-size:15pt!important;}
   }
 </style>
+<script>
+(function(){var m=new URLSearchParams(location.search).get('mode');if(['chrome','youtube','mario','terminal'].indexOf(m)>-1){location.replace('modes/'+m+'.html');}})();
+</script>
 </head>
 <body>
   <div class="backdrop"></div>
@@ -753,6 +759,12 @@
         <div>ai_policy: <span>use with intent</span></div>
       </div>
       <p class="rail-lead">I turn ambiguous user and operational problems into documented, testable and shipped products.</p>
+      <div class="mode-picker" aria-label="Choose a layout mode">
+        <a href="?mode=chrome">Chrome</a>
+        <a href="?mode=youtube">YouTube</a>
+        <a href="?mode=mario">Mario</a>
+        <a href="?mode=terminal">Terminal</a>
+      </div>
 
       <nav class="rail-nav" id="railnav">
         <a href="#about"><span class="bar"></span>Positioning</a>
@@ -767,6 +779,7 @@
         <span>Jump anywhere…</span>
         <span class="kbd"><b>⌘</b><b>K</b></span>
       </button>
+
 
       <div class="socials">
         <a class="icbtn solid" href="resume/Aastha-Saini-Product-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
