@@ -14,7 +14,7 @@ The principle is simple: use AI where it creates enough user value to justify it
 
 ## 🎛️ Layout modes
 
-The default portfolio can be opened in four themed layouts from the sidebar picker or with a link: `?mode=chrome`, `?mode=youtube`, `?mode=mario` or `?mode=terminal`. Each redirects to a standalone page in [modes/](modes/). The mode pages are built for desktop screens.
+The whole portfolio can be re-skinned into four themed layouts from the sidebar picker or with a link: `?mode=chrome`, `?mode=youtube`, `?mode=mario` or `?mode=terminal`. The mode is applied in place by `index.html` (CSS variables and a `data-mode` attribute on `<html>`), so all sections stay live. The Terminal mode accepts commands such as `ls`, `cd about`, `open resume` and `help`. The layouts are tuned for desktop screens.
 
 ---
 
