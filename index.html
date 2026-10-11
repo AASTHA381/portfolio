@@ -23,7 +23,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet" />
 
 <style>
   :root{
@@ -741,7 +741,7 @@
   html[data-mode="chrome"]{--top-h:84px;--bot-h:0px;--bg:#ffffff;--surface:#ffffff;--surface-2:#f1f3f4;--ink:#202124;--muted:#5f6368;--faint:#80868b;--line:rgba(60,64,67,.16);--line-strong:rgba(60,64,67,.32);--accent:#1a73e8;--accent-soft:rgba(26,115,232,.10);--accent-ink:#1a66d1;--signal:#188038;--signal-soft:rgba(24,128,56,.10);--sel:rgba(26,115,232,.2);--shadow:0 2px 8px rgba(60,64,67,.18);}
   html[data-mode="youtube"]{--top-h:104px;--bot-h:0px;--bg:#0f0f0f;--surface:#181818;--surface-2:#272727;--ink:#f1f1f1;--muted:#aaaaaa;--faint:#777777;--line:rgba(255,255,255,.10);--line-strong:rgba(255,255,255,.22);--accent:#ff0033;--accent-soft:rgba(255,0,51,.14);--accent-ink:#ff4e6b;--signal:#3ea6ff;--signal-soft:rgba(62,166,255,.12);--sel:rgba(255,0,51,.3);--shadow:none;}
   html[data-mode="terminal"]{--top-h:36px;--bot-h:40px;--bg:#1e1e2e;--surface:#181825;--surface-2:#24273a;--ink:#cdd6f4;--muted:#a6adc8;--faint:#6c7086;--line:rgba(205,214,244,.10);--line-strong:rgba(205,214,244,.22);--accent:#a6e3a1;--accent-soft:rgba(166,227,161,.12);--accent-ink:#a6e3a1;--signal:#89b4fa;--signal-soft:rgba(137,180,250,.12);--sel:rgba(166,227,161,.25);--shadow:none;}
-  html[data-mode="mario"]{--top-h:64px;--bot-h:28px;--bg:#5c94fc;--surface:#ffffff;--surface-2:#fbd39b;--ink:#000000;--muted:#222222;--faint:#333333;--line:#000000;--line-strong:#000000;--accent:#e45c10;--accent-soft:#fbd39b;--accent-ink:#8a2c00;--signal:#00a800;--signal-soft:#c8f0c8;--sel:#fbd39b;--shadow:none;}
+  html[data-mode="mario"]{--top-h:72px;--bot-h:84px;--bg:#5c94fc;--surface:#ffffff;--surface-2:#fbd39b;--ink:#000000;--muted:#222222;--faint:#333333;--line:#000000;--line-strong:#000000;--accent:#e45c10;--accent-soft:#fbd39b;--accent-ink:#8a2c00;--signal:#00a800;--signal-soft:#c8f0c8;--sel:#fbd39b;--shadow:none;}
 
   html[data-mode="terminal"] body, html[data-mode="terminal"] body *{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace !important;}
   html[data-mode="mario"] body, html[data-mode="mario"] body *{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace !important;}
@@ -788,17 +788,52 @@
   .mb-stat{flex:none;padding:4px 10px;background:#89b4fa;color:#1e1e2e;white-space:nowrap;}
 
   /* Mario bars */
-  .mb-hud{height:100%;display:flex;justify-content:space-around;align-items:center;color:#ffffff;font-size:14px;text-shadow:2px 2px 0 #000;}
-  .mb-hud b{font-weight:700;letter-spacing:.04em;white-space:nowrap;}
-  .mb-ground{height:100%;border-top:4px solid #000;background:repeating-linear-gradient(90deg,#000 0 2px,transparent 2px 56px),#c84c0c;}
   @media (max-width:960px){
     .mb-tabs,.mb-tbar{overflow-x:auto;}
     .mb-cmd{flex-basis:140px;}
     .mb-stat{display:none;}
   }
+  /* Mario world: sky, clouds and hills behind the page, brick ground and a walking hero */
+  html[data-mode="mario"] .mb-hud,html[data-mode="mario"] .mb-hud *{font-family:'Press Start 2P',monospace !important;}
+  html[data-mode="mario"] body{background:#5c94fc;}
+  html[data-mode="mario"] .shell{position:relative;z-index:1;}
+  html[data-mode="mario"] #modeBottom{pointer-events:none;}
+  html[data-mode="mario"] h1.name{font-family:'Press Start 2P',monospace !important;font-size:22px !important;line-height:1.5 !important;letter-spacing:0 !important;}
+  html[data-mode="mario"] .sec-head h2{font-family:'Press Start 2P',monospace !important;font-size:15px !important;line-height:1.6 !important;letter-spacing:0 !important;font-weight:400 !important;}
+  html[data-mode="mario"] .sec-head .idx{flex:none;display:grid;place-items:center;width:34px;height:34px;background:#f8b800;border:3px solid #000;box-shadow:3px 3px 0 #000;color:transparent;font-size:0;}
+  html[data-mode="mario"] .sec-head .idx::after{content:"?";color:#000;font-family:'Press Start 2P',monospace;font-size:14px;}
+  #modeScene{display:none;}
+  html[data-mode="mario"] #modeScene{display:block;position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .px{display:block;width:100%;height:auto;}
+  .mb-cloud{position:absolute;width:var(--w);animation:drift 40s ease-in-out infinite alternate;}
+  .mb-hill{position:absolute;bottom:var(--bot-h);width:var(--w);}
+  @keyframes drift{from{transform:translateX(-24px)}to{transform:translateX(24px)}}
+
+  .mb-hud{height:100%;display:flex;justify-content:space-around;align-items:center;gap:12px;padding:0 16px;color:#fff;font-family:'Press Start 2P',monospace;font-size:12px;letter-spacing:0;text-shadow:3px 3px 0 #000;}
+  .mb-hud .hv{display:flex;flex-direction:column;align-items:center;gap:8px;white-space:nowrap;}
+  .mb-hud i{font-style:normal;font-size:9px;color:#fbd39b;}
+  .mb-hud b{font-weight:400;}
+  .mb-coin{display:inline-block;width:10px;height:14px;margin-right:6px;border-radius:50%;background:#f8d800;border:2px solid #000;animation:coinspin 1.2s steps(4) infinite;}
+  @keyframes coinspin{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.2)}}
+
+  .mb-ground{position:relative;height:100%;background:repeating-linear-gradient(90deg,#000 0 2px,transparent 2px 48px),repeating-linear-gradient(0deg,#000 0 2px,transparent 2px 24px),#c84c0c;}
+  .mb-ground::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;background:#00a800;border-bottom:3px solid #000;}
+  .mb-hero{position:absolute;bottom:100%;left:0;width:42px;z-index:3;transition:left .3s linear;}
+  .mb-hero.walk .px{animation:bob .3s steps(2) infinite;}
+  .mb-hero.jump .px{animation:jump .6s ease-out;}
+  @keyframes bob{50%{transform:translateY(-3px)}}
+  @keyframes jump{0%{transform:translateY(0)}40%{transform:translateY(-70px)}100%{transform:translateY(0)}}
+  .mb-bug{position:absolute;bottom:100%;left:0;width:36px;z-index:2;pointer-events:auto;cursor:pointer;animation:patrol 10s linear infinite alternate;}
+  .mb-bug .px{transform-origin:50% 100%;transition:transform .15s;}
+  .mb-bug.squash .px{transform:scaleY(.3);}
+  @keyframes patrol{from{transform:translateX(0)}to{transform:translateX(calc(100vw - 40px))}}
+  .mb-flag{position:absolute;bottom:100%;right:56px;width:6px;height:200px;background:#fff;border:2px solid #000;}
+  .mb-flag::before{content:"";position:absolute;left:6px;top:150px;width:40px;height:26px;background:#00a800;border:3px solid #000;transition:top 1.4s steps(8);}
+  .mb-ground.clear .mb-flag::before{top:6px;}
 </style>
 </head>
 <body>
+  <div id="modeScene" aria-hidden="true"></div>
   <div id="modeTop"></div>
   <div id="modeBottom"></div>
   <div class="backdrop"></div>
@@ -1576,6 +1611,7 @@
     var root = document.documentElement;
     var topEl = document.getElementById('modeTop');
     var botEl = document.getElementById('modeBottom');
+    var sceneEl = document.getElementById('modeScene');
     var RESUME = 'resume/Aastha-Saini-Product-Resume.pdf';
     var MAIL = 'mailto:aastha2000s@gmail.com';
     var MODES = ['chrome', 'youtube', 'mario', 'terminal'];
@@ -1588,15 +1624,79 @@
       { id:'contact',    label:'Next problem',    term:'contact.txt', world:'2-2' }
     ];
     var current = null, activeId = 'about', seen = {};
+    var marioTimer = null, marioScore = 0, walkTimer = null, jumpTimer = null;
 
-    function find(id){
-      for (var i = 0; i < SECTIONS.length; i++){ if (SECTIONS[i].id === id) return SECTIONS[i]; }
-      return null;
+    // Original pixel art in a platformer style. It does not reproduce any Nintendo character.
+    var HERO = [
+      "....KKKKKK....",
+      "...KHHHHHHK...",
+      "..KHHHHHHHHK..",
+      "..KHHSSSSHHK..",
+      "..KSSKSSKSSK..",
+      "..KSSSSSSSSK..",
+      "..KSSSSKKSSK..",
+      "...KKKKKKKK...",
+      "..KOOOOOOOOK..",
+      ".KOOOOOOOOOOK.",
+      ".KOOOOOOOOOOK.",
+      "..KOOOOOOOOK..",
+      "..KBBBKKBBBK..",
+      "..KBBBK.KBBBK.",
+      "..KBBK..KBBK..",
+      "..KKKK..KKKK.."
+    ];
+    var HERO_PAL = { K:'#000000', H:'#3b2314', S:'#f2b38a', O:'#e8702a', B:'#2d4fa0' };
+    var BUG = [
+      "...KKKKKK...",
+      "..KPPPPPPK..",
+      ".KPWWPPWWPK.",
+      ".KPWKPPKWPK.",
+      "KPPPPPPPPPPK",
+      "KPKPPPPPPKPK",
+      ".KKKKKKKKKK.",
+      "..K.K..K.K.."
+    ];
+    var BUG_PAL = { K:'#000000', P:'#7b2fbf', W:'#ffffff' };
+    var CLOUD = [
+      "......WWWW......",
+      "....WWWWWWWW....",
+      "..WWWWWWWWWWWW..",
+      ".WWWWWWWWWWWWWW.",
+      "WWWWWWWWWWWWWWWW"
+    ];
+    var CLOUD_PAL = { W:'#ffffff' };
+
+    function px(rows, pal){
+      var w = 0, out = '';
+      rows.forEach(function(r){ if (r.length > w) w = r.length; });
+      rows.forEach(function(row, y){
+        for (var x = 0; x < row.length; x++){
+          var c = pal[row.charAt(x)];
+          if (c) out += '<rect x="' + x + '" y="' + y + '" width="1" height="1" fill="' + c + '"/>';
+        }
+      });
+      return '<svg class="px" viewBox="0 0 ' + w + ' ' + rows.length + '" shape-rendering="crispEdges" aria-hidden="true" focusable="false">' + out + '</svg>';
     }
-    function go(id){
-      if (!id){ window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-      var el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    function hillRows(w, h){
+      var rows = [];
+      for (var y = 0; y < h; y++){
+        var row = '';
+        for (var x = 0; x < w; x++){
+          var nx = (x + 0.5 - w / 2) / (w / 2), ny = (y + 0.5 - h) / h;
+          row += nx * nx + ny * ny <= 1 ? 'G' : '.';
+        }
+        rows.push(row);
+      }
+      return rows;
+    }
+    function scene(){
+      var cloud = px(CLOUD, CLOUD_PAL), hill = px(hillRows(60, 24), { G:'#00a800' });
+      return '' +
+        '<div class="mb-cloud" style="left:6%;top:14%;--w:120px;animation-delay:-4s">' + cloud + '</div>' +
+        '<div class="mb-cloud" style="left:46%;top:8%;--w:90px;animation-delay:-14s">' + cloud + '</div>' +
+        '<div class="mb-cloud" style="left:76%;top:20%;--w:140px;animation-delay:-9s">' + cloud + '</div>' +
+        '<div class="mb-hill" style="left:-30px;--w:340px">' + hill + '</div>' +
+        '<div class="mb-hill" style="right:4%;--w:240px">' + hill + '</div>';
     }
 
     var BUILD = {
@@ -1627,9 +1727,22 @@
         };
       },
       mario: function(){
+        var stat = function(label, value){ return '<span class="hv"><i>' + label + '</i>' + value + '</span>'; };
         return {
-          top: '<div class="mb-hud"><b>AASTHA</b><b>PRDs ×136</b><b id="mbWorld">WORLD 1-1</b><b id="mbCoins">COINS ×0</b></div>',
-          bottom: '<div class="mb-ground" aria-hidden="true"></div>'
+          scene: scene(),
+          top: '<div class="mb-hud">' +
+            stat('PLAYER', 'AASTHA') +
+            stat('PRDS', '×136') +
+            stat('WORLD', '<b id="mbWorld">1-1</b>') +
+            stat('COINS', '<span class="mb-coin" aria-hidden="true"></span><b id="mbCoins">×0</b>') +
+            stat('SCORE', '<b id="mbScore">000000</b>') +
+            stat('TIME', '<b id="mbTime">400</b>') +
+            '</div>',
+          bottom: '<div class="mb-ground" id="mbGround">' +
+            '<div class="mb-hero" id="mbHero">' + px(HERO, HERO_PAL) + '</div>' +
+            '<div class="mb-bug" id="mbBug">' + px(BUG, BUG_PAL) + '</div>' +
+            '<div class="mb-flag" aria-hidden="true"></div>' +
+            '</div>'
         };
       },
       terminal: function(){
@@ -1644,6 +1757,16 @@
         };
       }
     };
+
+    function find(id){
+      for (var i = 0; i < SECTIONS.length; i++){ if (SECTIONS[i].id === id) return SECTIONS[i]; }
+      return null;
+    }
+    function go(id){
+      if (!id){ window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+      var el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
     function runCmd(raw){
       var parts = (raw || '').trim().split(/\s+/);
@@ -1676,6 +1799,47 @@
       else input.placeholder = 'No section matches. Try work or contact';
     }
 
+    function paintScore(){
+      var el = document.getElementById('mbScore');
+      if (el) el.textContent = String(marioScore).padStart(6, '0');
+    }
+    function jumpHero(){
+      var hero = document.getElementById('mbHero');
+      if (!hero) return;
+      hero.classList.remove('jump');
+      void hero.offsetWidth;
+      hero.classList.add('jump');
+      clearTimeout(jumpTimer);
+      jumpTimer = setTimeout(function(){ hero.classList.remove('jump'); }, 600);
+    }
+    function marioPos(){
+      var hero = document.getElementById('mbHero'), ground = document.getElementById('mbGround');
+      if (!hero || !ground) return;
+      var max = root.scrollHeight - root.clientHeight;
+      var p = max > 0 ? Math.min(1, root.scrollTop / max) : 0;
+      hero.style.left = Math.round(p * (innerWidth - 60)) + 'px';
+      hero.classList.add('walk');
+      clearTimeout(walkTimer);
+      walkTimer = setTimeout(function(){ hero.classList.remove('walk'); }, 300);
+      var done = p >= 0.98;
+      ground.classList.toggle('clear', done);
+      if (done && marioTimer){
+        clearInterval(marioTimer);
+        marioTimer = null;
+        var t = document.getElementById('mbTime');
+        if (t) t.textContent = 'CLEAR';
+      }
+    }
+    function startMarioTimer(){
+      var t = 400;
+      marioTimer = setInterval(function(){
+        t = Math.max(0, t - 1);
+        var el = document.getElementById('mbTime');
+        if (el) el.textContent = String(t);
+        if (t === 0){ clearInterval(marioTimer); marioTimer = null; }
+      }, 1000);
+    }
+
     function updateActive(id){
       activeId = id;
       if (!current) return;
@@ -1691,21 +1855,36 @@
         var st = document.getElementById('mbStatus');
         if (st && s) st.textContent = '~/portfolio/' + s.term;
       } else if (current === 'mario'){
-        var w = document.getElementById('mbWorld'); if (w && s) w.textContent = 'WORLD ' + s.world;
-        var c = document.getElementById('mbCoins'); if (c) c.textContent = 'COINS ×' + Object.keys(seen).length;
+        var w = document.getElementById('mbWorld'); if (w && s) w.textContent = s.world;
+        var c = document.getElementById('mbCoins'); if (c) c.textContent = '×' + Object.keys(seen).length;
       }
+    }
+
+    function markSeen(id){
+      if (seen[id]) return;
+      seen[id] = true;
+      if (current === 'mario'){ marioScore += 100; paintScore(); }
     }
 
     function setMode(m){
       if (MODES.indexOf(m) === -1) m = null;
       current = m;
+      clearInterval(marioTimer);
+      marioTimer = null;
       if (m){
         var built = BUILD[m]();
         root.setAttribute('data-mode', m);
+        sceneEl.innerHTML = built.scene || '';
         topEl.innerHTML = built.top;
         botEl.innerHTML = built.bottom;
+        if (m === 'mario'){
+          marioScore = 0;
+          startMarioTimer();
+          marioPos();
+        }
       } else {
         root.removeAttribute('data-mode');
+        sceneEl.innerHTML = '';
         topEl.innerHTML = '';
         botEl.innerHTML = '';
       }
@@ -1721,19 +1900,41 @@
 
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if (en.isIntersecting){ seen[en.target.id] = true; updateActive(en.target.id); }
+        if (!en.isIntersecting) return;
+        var id = en.target.id;
+        var changed = id !== activeId;
+        markSeen(id);
+        updateActive(id);
+        if (changed && current === 'mario') jumpHero();
       });
     }, { rootMargin: '-35% 0px -55% 0px' });
     SECTIONS.forEach(function(s){ var el = document.getElementById(s.id); if (el) io.observe(el); });
+
     addEventListener('scroll', function(){
+      if (current === 'mario') marioPos();
       var max = root.scrollHeight - root.clientHeight;
-      if (max > 0 && root.scrollTop >= max - 4 && activeId !== 'contact'){ seen.contact = true; updateActive('contact'); }
+      if (max > 0 && root.scrollTop >= max - 4 && activeId !== 'contact'){
+        markSeen('contact');
+        updateActive('contact');
+        if (current === 'mario') jumpHero();
+      }
     }, { passive: true });
 
     document.addEventListener('click', function(e){
-      var t = e.target.closest ? e.target.closest('[data-go]') : null;
+      var el = e.target.closest ? e.target : null;
+      var bug = el && el.closest('#mbBug');
+      if (bug && current === 'mario'){
+        if (!bug.classList.contains('squash')){
+          bug.classList.add('squash');
+          marioScore += 100;
+          paintScore();
+          setTimeout(function(){ bug.classList.remove('squash'); }, 1500);
+        }
+        return;
+      }
+      var t = el && el.closest('[data-go]');
       if (t && current){ e.preventDefault(); go(t.getAttribute('data-go')); return; }
-      var link = e.target.closest ? e.target.closest('[data-mode-link]') : null;
+      var link = el && el.closest('[data-mode-link]');
       if (link){ e.preventDefault(); setMode(link.getAttribute('data-mode-link') || null); }
     });
     document.addEventListener('submit', function(e){

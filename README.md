@@ -14,7 +14,7 @@ The principle is simple: use AI where it creates enough user value to justify it
 
 ## 🎛️ Layout modes
 
-The whole portfolio can be re-skinned into four themed layouts from the sidebar picker or with a link: `?mode=chrome`, `?mode=youtube`, `?mode=mario` or `?mode=terminal`. The mode is applied in place by `index.html` (CSS variables and a `data-mode` attribute on `<html>`), so all sections stay live. The Terminal mode accepts commands such as `ls`, `cd about`, `open resume` and `help`. The layouts are tuned for desktop screens.
+The whole portfolio can be re-skinned into four themed layouts from the sidebar picker or with a link: `?mode=chrome`, `?mode=youtube`, `?mode=mario` or `?mode=terminal`. The mode is applied in place by `index.html` (CSS variables and a `data-mode` attribute on `<html>`), so all sections stay live. The Mario mode turns the page into a side-scrolling world: a HUD, clouds and hills, a brick ground that clears at the end, a walking pixel-art hero that jumps between sections, and an enemy you can squash for points. Its characters are original pixel art, not Nintendo artwork. The Terminal mode accepts commands such as `ls`, `cd about`, `open resume` and `help`. The layouts are tuned for desktop screens.
 
 ---
 
