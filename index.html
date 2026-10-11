@@ -664,7 +664,7 @@
   .principle .pn{color:var(--signal);}
   .skill{border-radius:5px;}
   .contact-card{padding:48px;background:var(--surface);}
-  .contact-card::after{content:"NEXT DECISION →";position:absolute;right:-12px;bottom:8px;font-family:'Inter',sans-serif;font-size:58px;font-weight:600;letter-spacing:-.06em;color:var(--line);white-space:nowrap;pointer-events:none;}
+  .contact-card::after{content:"NEXT DECISION →";display:block;margin-top:40px;text-align:right;font-family:'Inter',sans-serif;font-size:clamp(26px,3.6vw,50px);font-weight:600;letter-spacing:-.06em;line-height:1;color:var(--line);white-space:nowrap;overflow:hidden;pointer-events:none;}
   .contact-card>*{position:relative;z-index:1;}
 
   @media(max-width:960px){
@@ -796,6 +796,8 @@
   /* Mario world: sky, clouds and hills behind the page, brick ground and a walking hero */
   html[data-mode="mario"] .mb-hud,html[data-mode="mario"] .mb-hud *{font-family:'Press Start 2P',monospace !important;}
   html[data-mode="mario"] body{background:#5c94fc;}
+  html[data-mode="mario"] .workspace-bar{top:calc(var(--top-h) + 10px);}
+  html[data-mode="mario"] #modeTop{background:#5c94fc;}
   html[data-mode="mario"] .shell{position:relative;z-index:1;}
   html[data-mode="mario"] #modeBottom{pointer-events:none;}
   html[data-mode="mario"] h1.name{font-family:'Press Start 2P',monospace !important;font-size:22px !important;line-height:1.5 !important;letter-spacing:0 !important;}
