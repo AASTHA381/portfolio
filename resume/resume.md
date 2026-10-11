@@ -1,6 +1,6 @@
 # Aastha Saini — Résumé (one-page outline)
 
-> Editable outline. The PDF the portfolio serves is **`Aastha-Saini-Resume.pdf`** (the final version, maintained directly; not rendered from this outline).
+> Editable outline. The PDF the portfolio serves is **`Aastha-Saini-Product-Resume.pdf`** (the final version, maintained directly; not rendered from this outline).
 
 ---
 
