@@ -5,7 +5,7 @@
 ---
 
 **Aastha Saini** — Product Manager · Analytics · B2B Platforms
-📧 381aastha@gmail.com · 🔗 linkedin.com/in/aastha-saini03 · github.com/AASTHA381 · Portfolio: aastha381.github.io/portfolio
+📧 aastha2000s@gmail.com · 🔗 linkedin.com/in/aastha-saini03 · github.com/AASTHA381 · Portfolio: aastha381.github.io/portfolio
 
 ## Summary
 Product manager with a **data & finance analytics** background transitioning into product. At TradeIndia (B2B marketplace) I owned the product lifecycle across 3 product lines, authored **136 PRDs** and drove a 10% DAU lift; at HCLTech built Python/SQL automation and Power BI dashboards. Pairs analytical rigour with 0→1 execution.
