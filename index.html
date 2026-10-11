@@ -801,7 +801,7 @@
   html[data-mode="youtube"] nav.rail-nav{margin-top:0;gap:12px;}
   html[data-mode="youtube"] nav.rail-nav a{display:grid;grid-template-columns:132px minmax(0,1fr);gap:12px;align-items:center;padding:0;color:var(--muted);font-family:'Inter',sans-serif;font-size:13.5px;letter-spacing:0;text-transform:none;}
   html[data-mode="youtube"] nav.rail-nav a .bar{display:none;}
-  html[data-mode="youtube"] nav.rail-nav a::before{content:attr(data-th);aspect-ratio:16/9;border-radius:8px;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:#fff;background:linear-gradient(135deg,#2a2a2a,#141414 55%,#3a0a14);}
+  html[data-mode="youtube"] nav.rail-nav a::before{content:attr(data-th);aspect-ratio:16/9;border-radius:8px;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:#fff;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),var(--thumb) center/cover no-repeat,#141414;text-shadow:0 1px 3px #000;}
   html[data-mode="youtube"] nav.rail-nav a:hover,html[data-mode="youtube"] nav.rail-nav a.active{color:var(--ink);}
   html[data-mode="youtube"] nav.rail-nav a.active::before{box-shadow:0 0 0 2px var(--accent);}
   html[data-mode="youtube"] nav.rail-nav a::after{display:none;}
@@ -874,6 +874,7 @@
   html[data-mode="mario"] .workspace-bar{top:calc(var(--top-h) + 10px);}
   html[data-mode="mario"] #modeTop{background:#5c94fc;}
   html[data-mode="mario"] .shell{position:relative;z-index:1;}
+  html[data-mode="mario"] aside{height:calc(100vh - var(--top-h) - var(--bot-h) - 100px);}
   html[data-mode="mario"] #modeBottom{pointer-events:none;}
   html[data-mode="mario"] h1.name{font-family:'Press Start 2P',monospace !important;font-size:22px !important;line-height:1.5 !important;letter-spacing:0 !important;}
   html[data-mode="mario"] .sec-head h2{font-family:'Press Start 2P',monospace !important;font-size:15px !important;line-height:1.6 !important;letter-spacing:0 !important;font-weight:400 !important;}
@@ -900,10 +901,18 @@
   .mb-hero.jump .px{animation:jump .6s ease-out;}
   @keyframes bob{50%{transform:translateY(-3px)}}
   @keyframes jump{0%{transform:translateY(0)}40%{transform:translateY(-70px)}100%{transform:translateY(0)}}
-  .mb-bug{position:absolute;bottom:100%;left:0;width:36px;z-index:2;pointer-events:auto;cursor:pointer;animation:patrol 10s linear infinite alternate;}
+  .mb-bug{position:absolute;bottom:100%;left:0;width:36px;z-index:2;pointer-events:auto;cursor:pointer;}
   .mb-bug .px{transform-origin:50% 100%;transition:transform .15s;}
   .mb-bug.squash .px{transform:scaleY(.3);}
-  @keyframes patrol{from{transform:translateX(0)}to{transform:translateX(calc(100vw - 40px))}}
+  .mb-qblock{position:absolute;bottom:calc(100% + 60px);left:0;width:36px;height:36px;z-index:2;display:grid;place-items:center;padding:0;pointer-events:auto;cursor:pointer;background:#f8b800;border:3px solid #000;box-shadow:inset -4px -4px 0 #b87800;font-family:'Press Start 2P',monospace;font-size:14px;color:#000;transition:transform .15s,background .15s;}
+  .mb-qblock.hit{background:#8a5a2b;box-shadow:inset -4px -4px 0 #4a2e12;transform:translateY(-6px);}
+  .mb-pop{position:fixed;left:50%;bottom:calc(var(--bot-h) + 150px);z-index:130;width:min(440px,calc(100vw - 32px));box-sizing:border-box;padding:16px 44px 16px 16px;background:#fff;color:#111;border:3px solid #000;box-shadow:5px 5px 0 #000;font-family:'Inter',sans-serif;opacity:0;transform:translate(-50%,12px);pointer-events:none;transition:opacity .25s,transform .25s;}
+  .mb-pop.show{opacity:1;transform:translate(-50%,0);pointer-events:auto;}
+  .mb-pop-tag{font-family:'Press Start 2P',monospace;font-size:10px;line-height:1.5;color:#c84c0c;margin-bottom:8px;}
+  .mb-pop-head{font-size:17px;font-weight:700;margin-bottom:6px;}
+  .mb-pop-text{margin:0;font-size:14px;line-height:1.5;color:#333;}
+  .mb-pop-go{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:#8a2c00;}
+  .mb-pop-x{position:absolute;top:6px;right:8px;border:0;background:none;font-size:20px;line-height:1;cursor:pointer;color:#000;padding:4px;}
   .mb-flag{position:absolute;bottom:100%;right:56px;width:6px;height:200px;background:#fff;border:2px solid #000;}
   .mb-flag::before{content:"";position:absolute;left:6px;top:150px;width:40px;height:26px;background:#00a800;border:3px solid #000;transition:top 1.4s steps(8);}
   .mb-ground.clear .mb-flag::before{top:6px;}
@@ -949,12 +958,12 @@
       </div>
 
       <nav class="rail-nav" id="railnav">
-        <a href="#about" data-th="01"><span class="bar"></span>Positioning</a>
-        <a href="#ai" data-th="02"><span class="bar"></span>AI judgement</a>
-        <a href="#work" data-th="03"><span class="bar"></span>Product board</a>
-        <a href="#experience" data-th="04"><span class="bar"></span>Evidence</a>
-        <a href="#approach" data-th="05"><span class="bar"></span>Operating model</a>
-        <a href="#contact" data-th="06"><span class="bar"></span>Next problem</a>
+        <a href="#about" data-th="01" style="--thumb:url('assets/shots/smartcart.png')"><span class="bar"></span>Positioning</a>
+        <a href="#ai" data-th="02" style="--thumb:url('assets/shots/askdocs.png')"><span class="bar"></span>AI judgement</a>
+        <a href="#work" data-th="03" style="--thumb:url('assets/shots/yatrayatri.png')"><span class="bar"></span>Product board</a>
+        <a href="#experience" data-th="04" style="--thumb:url('assets/shots/pmstudy.png')"><span class="bar"></span>Evidence</a>
+        <a href="#approach" data-th="05" style="--thumb:url('assets/shots/dayflow.png')"><span class="bar"></span>Operating model</a>
+        <a href="#contact" data-th="06" style="--thumb:url('assets/shots/linkvault.png')"><span class="bar"></span>Next problem</a>
       </nav>
 
       <button class="cmdk-trigger" id="cmdkTrigger" aria-label="Open command palette">
@@ -1720,6 +1729,7 @@
     ];
     var current = null, activeId = 'about', seen = {};
     var marioTimer = null, marioScore = 0, walkTimer = null, jumpTimer = null;
+    var beatDone = {}, popEl = null, popQueue = [], popTimer = null;
 
     // Original pixel art in a platformer style. It does not reproduce any Nintendo character.
     var HERO = [
@@ -1760,6 +1770,17 @@
       "WWWWWWWWWWWWWWWW"
     ];
     var CLOUD_PAL = { W:'#ffffff' };
+    // Milestones along the track. Each one uses a fact from the portfolio.
+    var BEATS = [
+      { p:0.12, kind:'bug', head:'Listening tour', text:'Customer discovery surfaced 55 bugs & feature gaps.' },
+      { p:0.24, kind:'block', head:'Problem before feature', text:'Shaped 3 product lines, starting from customer discovery.' },
+      { p:0.36, kind:'bug', head:'Friction hunter', text:'Friction analysis drove a 10% DAU lift.' },
+      { p:0.48, kind:'block', head:'Right tool, right job', text:'AI when reasoning adds value. Deterministic when rules are better.' },
+      { p:0.60, kind:'bug', head:'Automate the boring part', text:'Python & SQL reporting cut manual cost by 60%.' },
+      { p:0.72, kind:'block', head:'Paperwork that ships', text:'Authored 136 PRDs, BRDs and FSDs.' },
+      { p:0.84, kind:'bug', head:'Field-first thinking', text:'A computer-vision pipeline for an agritech MVP cut FPO onboarding verification time by 40%.' },
+      { p:0.94, kind:'block', head:'1-UP: nine builds', text:'Nine shipped product builds. Ready for the next problem?', link:true }
+    ];
 
     function px(rows, pal){
       var w = 0, out = '';
@@ -1835,7 +1856,11 @@
             '</div>',
           bottom: '<div class="mb-ground" id="mbGround">' +
             '<div class="mb-hero" id="mbHero">' + px(HERO, HERO_PAL) + '</div>' +
-            '<div class="mb-bug" id="mbBug">' + px(BUG, BUG_PAL) + '</div>' +
+            BEATS.map(function(b, i){
+              return b.kind === 'bug'
+                ? '<div class="mb-bug" data-beat="' + i + '" aria-hidden="true">' + px(BUG, BUG_PAL) + '</div>'
+                : '<button type="button" class="mb-qblock" data-beat="' + i + '" aria-label="Power-up block">?</button>';
+            }).join('') +
             '<div class="mb-flag" aria-hidden="true"></div>' +
             '</div>'
         };
@@ -1907,15 +1932,25 @@
       clearTimeout(jumpTimer);
       jumpTimer = setTimeout(function(){ hero.classList.remove('jump'); }, 600);
     }
-    function marioPos(){
+    function trackW(){
+      var g = document.getElementById('mbGround');
+      return (g ? g.clientWidth : innerWidth) - 60;
+    }
+    function marioPos(silent){
       var hero = document.getElementById('mbHero'), ground = document.getElementById('mbGround');
       if (!hero || !ground) return;
       var max = root.scrollHeight - root.clientHeight;
       var p = max > 0 ? Math.min(1, root.scrollTop / max) : 0;
-      hero.style.left = Math.round(p * (innerWidth - 60)) + 'px';
+      var w = trackW();
+      hero.style.left = Math.round(p * w) + 'px';
+      BEATS.forEach(function(b, i){
+        var el = document.querySelector('[data-beat="' + i + '"]');
+        if (el) el.style.left = Math.round(b.p * w) + 'px';
+      });
       hero.classList.add('walk');
       clearTimeout(walkTimer);
       walkTimer = setTimeout(function(){ hero.classList.remove('walk'); }, 300);
+      BEATS.forEach(function(b, i){ if (!beatDone[i] && p >= b.p) triggerBeat(i, silent); });
       var done = p >= 0.98;
       ground.classList.toggle('clear', done);
       if (done && marioTimer){
@@ -1924,6 +1959,51 @@
         var t = document.getElementById('mbTime');
         if (t) t.textContent = 'CLEAR';
       }
+    }
+    function triggerBeat(i, silent){
+      var b = BEATS[i];
+      var el = document.querySelector('[data-beat="' + i + '"]');
+      beatDone[i] = true;
+      if (el) el.classList.add(b.kind === 'bug' ? 'squash' : 'hit');
+      if (silent) return;
+      jumpHero();
+      var pts = b.kind === 'bug' ? 100 : 200;
+      marioScore += pts;
+      paintScore();
+      showPop(b, pts);
+    }
+    function ensurePop(){
+      if (popEl) return;
+      popEl = document.createElement('div');
+      popEl.className = 'mb-pop';
+      popEl.setAttribute('role', 'status');
+      popEl.setAttribute('aria-live', 'polite');
+      document.body.appendChild(popEl);
+    }
+    function dropPop(){
+      clearTimeout(popTimer);
+      popQueue = [];
+      if (popEl){ popEl.remove(); popEl = null; }
+    }
+    function showPop(b, pts){
+      ensurePop();
+      popQueue = [{ b: b, pts: pts, tag: b.kind === 'bug' ? 'BUG STOMPED' : 'POWER-UP' }];
+      nextPop();
+    }
+    function nextPop(){
+      clearTimeout(popTimer);
+      var item = popQueue.shift();
+      if (!popEl) return;
+      if (!item){ popEl.classList.remove('show'); return; }
+      var b = item.b;
+      popEl.innerHTML = '<div class="mb-pop-tag"></div><div class="mb-pop-head"></div><p class="mb-pop-text"></p>' +
+        (b.link ? '<a class="mb-pop-go" href="#contact" data-go="contact">Go to contact &rarr;</a>' : '') +
+        '<button type="button" class="mb-pop-x" aria-label="Close">&times;</button>';
+      popEl.querySelector('.mb-pop-tag').textContent = item.tag + ' +' + item.pts;
+      popEl.querySelector('.mb-pop-head').textContent = b.head;
+      popEl.querySelector('.mb-pop-text').textContent = b.text;
+      popEl.classList.add('show');
+      popTimer = setTimeout(nextPop, 5200);
     }
     function startMarioTimer(){
       var t = 400;
@@ -1966,6 +2046,8 @@
       current = m;
       clearInterval(marioTimer);
       marioTimer = null;
+      dropPop();
+      beatDone = {};
       if (m){
         var built = BUILD[m]();
         root.setAttribute('data-mode', m);
@@ -1975,7 +2057,7 @@
         if (m === 'mario'){
           marioScore = 0;
           startMarioTimer();
-          marioPos();
+          marioPos(true);
         }
       } else {
         root.removeAttribute('data-mode');
@@ -2015,16 +2097,15 @@
       }
     }, { passive: true });
 
+    addEventListener('resize', function(){ if (current === 'mario') marioPos(true); });
+
     document.addEventListener('click', function(e){
       var el = e.target.closest ? e.target : null;
-      var bug = el && el.closest('#mbBug');
-      if (bug && current === 'mario'){
-        if (!bug.classList.contains('squash')){
-          bug.classList.add('squash');
-          marioScore += 100;
-          paintScore();
-          setTimeout(function(){ bug.classList.remove('squash'); }, 1500);
-        }
+      if (el && el.closest('.mb-pop-x')){ nextPop(); return; }
+      var beat = el && current === 'mario' && el.closest('[data-beat]');
+      if (beat){
+        var i = +beat.getAttribute('data-beat');
+        if (!beatDone[i]){ jumpHero(); triggerBeat(i); }
         return;
       }
       var t = el && el.closest('[data-go]');
