@@ -1,6 +1,6 @@
 # Aastha Saini — Résumé (one-page outline)
 
-> Editable source. The polished PDF is **`Aastha-Saini-Resume.pdf`** (rendered from `resume.html`).
+> Editable outline. The PDF the portfolio serves is **`Aastha-Saini-Resume.pdf`** (the final version, maintained directly; not rendered from this outline).
 
 ---
 
@@ -8,15 +8,16 @@
 📧 381aastha@gmail.com · 🔗 linkedin.com/in/aastha-saini03 · github.com/AASTHA381 · Portfolio: aastha381.github.io/portfolio
 
 ## Summary
-Product manager with a **data & finance analytics** background transitioning into product. At TradeIndia (B2B marketplace) authored **136 PRDs**, led competitor benchmarking vs IndiaMART and structured app audits; at HCLTech built Python/SQL automation and Power BI dashboards. Pairs analytical rigour with 0→1 execution.
+Product manager with a **data & finance analytics** background transitioning into product. At TradeIndia (B2B marketplace) I owned the product lifecycle across 3 product lines, authored **136 PRDs** and drove a 10% DAU lift; at HCLTech built Python/SQL automation and Power BI dashboards. Pairs analytical rigour with 0→1 execution.
 
 ## Experience
 
-**Product Manager Intern — TradeIndia.com (Infocom Network Pvt Ltd)** · Apr 2026 – Jun 2026
-- Authored **136 PRDs** across buyer & seller journeys (onboarding, profile, inquiry, requirement) covering feature gaps, bug fixes and module improvements.
-- Ran **end-to-end competitor benchmarking** of TradeIndia vs IndiaMART across buyer journeys, seller tools, onboarding and inquiry.
-- Surfaced **55 bugs & feature gaps** in one structured app audit; Jira tickets for developer handoff, several prioritised into active sprints.
-- Contributed to a **1-year product roadmap** (buyer & seller); Play/App Store review sentiment analysis; CTA optimisation (PBR, Call Now, WhatsApp, Send Inquiry) across prod/pre-prod.
+**Product Intern — TradeIndia.com (Infocom Network Pvt Ltd)** · Apr 2026 – Jun 2026
+- Owned the end-to-end product lifecycle across **3 product lines**, from ideation and user research through launch and iteration.
+- Managed a **computer-vision pipeline** for an agritech MVP (Sentinel-2, Google Earth Engine) to automate tree-canopy detection, cutting FPO onboarding verification time by **40%**.
+- Drove a **10% increase in DAU** and improved retention by identifying friction points through data analysis.
+- Surfaced **55 bugs & feature gaps** through customer discovery interviews; prioritised the backlog with RICE and MoSCoW.
+- Authored **136 PRDs**, BRDs and FSDs for features shipped to production; created a 1-year plan for buyer and seller sides; ran CTA optimisation (PBR, Call Now, WhatsApp, Send Inquiry) across prod and pre-prod.
 
 **Analyst — HCLTech**, Noida · Aug 2022 – May 2025
 - Automated financial reporting with **Python & SQL** → **−60% manual cost**; improved budget-variance accuracy.
@@ -41,11 +42,3 @@ Product Strategy · PRDs · Competitor Benchmarking · App Audits · Roadmapping
 
 ---
 *Full case studies & live demos → aastha381.github.io/portfolio*
-
-## Regenerate the PDF
-```bash
-cd resume
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --headless=new --disable-gpu --no-pdf-header-footer \
-  --print-to-pdf="Aastha-Saini-Resume.pdf" "file://$PWD/resume.html"
-```
