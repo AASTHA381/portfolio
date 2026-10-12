@@ -1,0 +1,120 @@
+/* Super Aastha — playable portfolio for ?mode=mario. Original pixel art; no Nintendo assets. */
+.sa-root{position:fixed;inset:0;z-index:400;display:none;overflow:hidden;background:#5c94fc;color:#fff;font-family:'Press Start 2P',monospace;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;}
+.sa-root.open{display:block;}
+html.sa-lock,html.sa-lock body{overflow:hidden !important;}
+.sa-root *{box-sizing:border-box;}
+/* Beat the Mario skin's global "body *" mono font override. */
+.sa-root.sa-root,.sa-root.sa-root *{font-family:'Press Start 2P',monospace !important;}
+.sa-root.sa-root :is(.sa-cue span,.sa-body,.sa-body *,.sa-more,.sa-panel p,.sa-case dd){font-family:'JetBrains Mono',ui-monospace,monospace !important;}
+.sa-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
+.sa-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
+/* HUD */
+.sa-hud{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;justify-content:space-around;gap:10px;padding:12px 16px 0;font-size:11px;line-height:1.8;text-shadow:2px 2px 0 #000;pointer-events:none;}
+.sa-hud span{display:flex;flex-direction:column;align-items:center;white-space:nowrap;}
+.sa-hud i{font-style:normal;font-size:8px;color:#fbd39b;}
+.sa-tools{position:absolute;top:58px;right:12px;z-index:3;display:flex;gap:8px;}
+.sa-root.mode-title .sa-tools,.sa-root.mode-title .sa-hud{visibility:hidden;}
+
+/* Buttons */
+.sa-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:34px;padding:9px 12px;border:3px solid #000;border-radius:0;background:#fff;color:#111;box-shadow:3px 3px 0 #000;font:inherit;font-size:9px;line-height:1.4;text-decoration:none;cursor:pointer;}
+.sa-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 #000;}
+.sa-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #000;}
+.sa-btn:focus-visible{outline:3px solid #ffd23f;outline-offset:3px;}
+.sa-btn.pri{background:#e45c10;color:#fff;}
+.sa-btn.ghost{background:rgba(0,0,0,.55);color:#fff;border-color:#fff;box-shadow:none;}
+
+/* Speech cue */
+.sa-cue{position:absolute;left:14px;top:104px;z-index:3;display:flex;align-items:flex-start;gap:10px;max-width:min(460px,calc(100vw - 450px));padding:10px 12px;background:rgba(0,0,0,.82);border:3px solid #ffd23f;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;line-height:1.5;color:#fff;opacity:0;transform:translateY(-8px);transition:opacity .2s,transform .2s;pointer-events:none;}
+.sa-cue.show{opacity:1;transform:none;}
+.sa-cue b{flex:none;display:grid;place-items:center;width:28px;height:28px;background:#e45c10;border:2px solid #fff;font-family:'Press Start 2P',monospace;font-size:8px;font-weight:400;}
+
+/* Fact card */
+.sa-card{position:absolute;top:104px;right:14px;z-index:3;width:min(400px,calc(100vw - 28px));max-height:calc(100% - 200px);overflow:auto;padding:14px 40px 14px 14px;background:#fff8ec;color:#111;border:3px solid #000;box-shadow:5px 5px 0 #000;opacity:0;transform:translateY(-8px);transition:opacity .2s,transform .2s;pointer-events:none;}
+.sa-card.show{opacity:1;transform:none;pointer-events:auto;}
+.sa-tag{font-size:8px;line-height:1.7;color:#c84c0c;margin-bottom:8px;}
+.sa-title{font-size:11px;line-height:1.7;margin:0 0 8px;}
+.sa-body{margin:0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12.5px;line-height:1.55;color:#222;}
+.sa-body ul{margin:0;padding-left:18px;}
+.sa-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;}
+.sa-chips span{padding:4px 6px;background:#111;color:#ffd23f;font-size:7px;line-height:1.4;}
+.sa-ability{margin-top:10px;padding:7px 8px;background:#e9f9ff;border:2px dashed #0b6f95;color:#0b4f6a;font-size:8px;line-height:1.7;}
+.sa-more{display:inline-block;margin-top:10px;padding:0;border:0;background:none;color:#8a2c00;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:700;text-decoration:underline;cursor:pointer;}
+.sa-x{position:absolute;top:6px;right:6px;width:28px;height:28px;padding:0;border:0;background:none;color:#000;font-size:20px;line-height:1;cursor:pointer;}
+.sa-x:focus-visible{outline:3px solid #e45c10;}
+
+/* Overlays: title, map, pause, case file, course clear */
+.sa-layer{position:absolute;inset:0;z-index:5;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.45);}
+.sa-layer.show{display:flex;}
+.sa-layer.clear-bg{background:transparent;}
+.sa-panel{position:relative;width:min(720px,100%);max-height:calc(100vh - 32px);overflow:auto;padding:20px;background:#fff8ec;color:#111;border:4px solid #000;box-shadow:7px 7px 0 #000;}
+.sa-panel h2{margin:0 0 6px;font-size:14px;line-height:1.6;font-weight:400;color:#c84c0c;}
+.sa-panel p{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;line-height:1.55;color:#222;margin:0 0 10px;}
+.sa-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+.sa-keys{margin-top:16px;font-size:8px;line-height:2.4;color:#fff;text-shadow:1px 1px 0 #000;}
+.sa-keys kbd{display:inline-block;margin:0 2px;padding:2px 6px;border:2px solid #fff;background:rgba(0,0,0,.35);font:inherit;}
+
+.sa-titlecard{text-align:center;}
+.sa-logo{display:inline-block;padding:18px 26px;background:#c84c0c;border:4px solid #000;box-shadow:7px 7px 0 #000;}
+.sa-logo b{display:block;font-size:clamp(20px,4vw,34px);font-weight:400;color:#ffd23f;text-shadow:3px 3px 0 #000;letter-spacing:1px;}
+.sa-logo small{display:block;margin-top:12px;font-size:9px;}
+.sa-menu{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:26px;}
+.sa-menu .sa-btn{min-width:min(330px,80vw);font-size:10px;}
+.sa-sub{margin-top:10px;font-size:8px;line-height:1.8;color:#fff;text-shadow:2px 2px 0 #000;}
+
+/* World map */
+.sa-map{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px;counter-reset:w;}
+.sa-node{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 8px;border:3px solid #000;background:#e9c46a;box-shadow:3px 3px 0 #000;font:inherit;font-size:8px;line-height:1.6;color:#111;text-align:center;cursor:pointer;}
+.sa-node:hover{background:#ffd23f;}
+.sa-node:focus-visible{outline:3px solid #e45c10;outline-offset:3px;}
+.sa-node .n{display:grid;place-items:center;width:34px;height:34px;background:#f8b800;border:3px solid #000;font-size:11px;}
+.sa-node.done .n{background:#7fd47f;}
+.sa-node.here{background:#fff;}
+.sa-node small{color:#6b4a00;font-size:7px;}
+
+/* Case file */
+.sa-case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:16px;margin-top:10px;}
+.sa-case img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border:3px solid #000;background:#ddd;}
+.sa-case dl{margin:0;display:grid;gap:8px;}
+.sa-case dt{font-size:7px;color:#c84c0c;}
+.sa-case dd{margin:2px 0 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;line-height:1.5;color:#222;}
+.sa-kicker{font-size:8px;line-height:1.7;color:#555;}
+.sa-state{display:inline-block;margin-top:6px;padding:4px 6px;background:#111;color:#7fd47f;font-size:7px;}
+
+/* Course clear */
+.sa-big{display:block;margin-bottom:14px;text-align:center;font-size:clamp(18px,3.4vw,28px);color:#ffd23f;text-shadow:3px 3px 0 #000;}
+.sa-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:12px 0;}
+.sa-stats div{padding:8px;border:2px solid #000;background:#fff;font-size:7px;line-height:1.8;color:#555;}
+.sa-stats b{display:block;font-size:12px;font-weight:400;color:#111;}
+
+/* Touch controls */
+.sa-touch{position:absolute;left:0;right:0;bottom:0;z-index:4;display:none;justify-content:space-between;align-items:flex-end;padding:0 16px 16px;pointer-events:none;}
+.sa-root.touch .sa-touch{display:flex;}
+.sa-pad{display:flex;gap:10px;pointer-events:auto;}
+.sa-pad button{width:62px;height:62px;border:3px solid #000;border-radius:50%;background:rgba(255,255,255,.82);box-shadow:3px 3px 0 #000;font:inherit;font-size:14px;color:#111;touch-action:none;}
+.sa-pad button.a{background:#e45c10;color:#fff;}
+.sa-pad button.b{background:#2d4fa0;color:#fff;}
+.sa-pad button.on{transform:translate(2px,2px);box-shadow:1px 1px 0 #000;}
+
+/* Launch button in the Mario HUD */
+.mb-play-game{align-self:center;padding:9px 12px;border:3px solid #000;background:#e45c10;color:#fff;box-shadow:3px 3px 0 #000;font-family:'Press Start 2P',monospace !important;font-size:10px;text-shadow:none;cursor:pointer;white-space:nowrap;}
+.mb-play-game:hover{background:#ff7a2e;}
+.mb-play-game:focus-visible{outline:3px solid #fff;outline-offset:2px;}
+
+@media (max-width:900px){
+  .sa-cue{top:92px;max-width:calc(100vw - 28px);font-size:12px;}
+  .sa-root:has(.sa-card.show) .sa-cue{opacity:0;}
+}
+@media (max-width:760px){
+  .sa-hud{font-size:8px;gap:4px;padding:8px 6px 0;}
+  .sa-hud i{font-size:6px;}
+  .sa-hud .opt{display:none;}
+  .sa-tools{top:44px;right:6px;gap:5px;}
+  .sa-tools .sa-btn{font-size:7px;padding:6px 7px;min-height:28px;}
+  .sa-card{top:92px;right:8px;width:calc(100vw - 16px);max-height:calc(100% - 230px);}
+  .sa-case{grid-template-columns:1fr;}
+  .sa-map{grid-template-columns:repeat(2,1fr);}
+  .sa-panel{padding:14px;}
+}
+@media (prefers-reduced-motion:reduce){.sa-cue,.sa-card{transition:none;}.sa-btn:hover,.sa-btn:active{transform:none;}}
+@media print{.sa-root{display:none !important;}}

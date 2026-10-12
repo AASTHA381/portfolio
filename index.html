@@ -24,6 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/super-aastha.css" />
 
 <style>
   :root{
@@ -1229,6 +1230,7 @@
     </div>
   </div>
 
+<script src="assets/super-aastha.js"></script>
 <script>
   (function(){
     "use strict";
@@ -1342,6 +1344,8 @@
           links:[['PRD','https://github.com/AASTHA381/pom-rag-chatbot/blob/main/docs/PRD.md',1],['Code','https://github.com/AASTHA381/pom-rag-chatbot']]
         }
       ];
+      // Shared with the Super Aastha game (assets/super-aastha.js) so its pipes use the same decision files.
+      window.PORTFOLIO_CASES = cases;
 
       var index = document.getElementById('caseIndex');
       if (!index) return;
@@ -1869,6 +1873,7 @@
             stat('COINS', '<span class="mb-coin" aria-hidden="true"></span><b id="mbCoins">×0</b>') +
             stat('SCORE', '<b id="mbScore">000000</b>') +
             stat('TIME', '<b id="mbTime">400</b>') +
+            '<button type="button" class="mb-play-game" data-sa-open aria-label="Play the portfolio as a game">&#9654; PLAY</button>' +
             '</div>',
           bottom: '<div class="mb-ground" id="mbGround">' +
             '<div class="mb-hero" id="mbHero">' + px(HERO, HERO_PAL) + '</div>' +
@@ -2059,6 +2064,7 @@
 
     function setMode(m){
       if (MODES.indexOf(m) === -1) m = null;
+      if (m !== 'mario' && window.SuperAastha) window.SuperAastha.close();
       current = m;
       clearInterval(marioTimer);
       marioTimer = null;
@@ -2074,6 +2080,7 @@
           marioScore = 0;
           startMarioTimer();
           marioPos(true);
+          if (window.SuperAastha) window.SuperAastha.autoOpen();
         }
       } else {
         root.removeAttribute('data-mode');
@@ -2118,6 +2125,7 @@
     document.addEventListener('click', function(e){
       var el = e.target.closest ? e.target : null;
       if (el && el.closest('.mb-pop-x')){ nextPop(); return; }
+      if (el && el.closest('[data-sa-open]')){ if (window.SuperAastha) window.SuperAastha.open(); return; }
       var beat = el && current === 'mario' && el.closest('[data-beat]');
       if (beat){
         var i = +beat.getAttribute('data-beat');
