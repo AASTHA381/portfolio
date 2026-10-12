@@ -778,7 +778,7 @@
   .mb-chips button.on{background:#f1f1f1;color:#0f0f0f;}
 
   /* YouTube conversion: player hero, Up next rail, thumbnail shelf */
-  .yt-player,.yt-meta,.ct-thumb{display:none;}
+  .yt-player,.yt-meta,.ct-thumb,.yt-chapters{display:none;}
   html[data-mode="youtube"] .yt-player{display:block;border-radius:12px;overflow:hidden;background:#000;}
   html[data-mode="youtube"] .yt-meta{display:block;margin:18px 0 30px;}
   html[data-mode="youtube"] .shell{grid-template-columns:minmax(0,1fr) 320px;gap:40px;max-width:1240px;}
@@ -805,6 +805,12 @@
   html[data-mode="youtube"] nav.rail-nav a:hover,html[data-mode="youtube"] nav.rail-nav a.active{color:var(--ink);}
   html[data-mode="youtube"] nav.rail-nav a.active::before{box-shadow:0 0 0 2px var(--accent);}
   html[data-mode="youtube"] nav.rail-nav a::after{display:none;}
+  html[data-mode="youtube"] .yt-chapters{display:block;margin:0 0 22px;padding:16px 18px 8px;background:var(--surface);border-radius:12px;}
+  html[data-mode="youtube"] .yt-chapters-title{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:var(--ink);margin:0 0 4px;}
+  html[data-mode="youtube"] .yt-chapters a{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line);color:var(--ink);text-decoration:none;font-family:'Inter',sans-serif;font-size:14px;}
+  html[data-mode="youtube"] .yt-chapters a:first-of-type{border-top:0;}
+  html[data-mode="youtube"] .yt-chapters .yt-ts{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);}
+  html[data-mode="youtube"] .yt-chapters a:hover,html[data-mode="youtube"] .yt-chapters a.active{color:var(--accent-ink);}
 
   html[data-mode="youtube"] .yt-screen{position:relative;aspect-ratio:16/9;overflow:hidden;background:radial-gradient(circle at 28% 35%,#3b0d18 0,#161016 42%,#0b0b0b 100%);}
   html[data-mode="youtube"] .yt-play{position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;border-radius:14px;background:var(--accent);}
@@ -957,6 +963,16 @@
         <a href="?mode=terminal" data-mode-link="terminal">Terminal</a>
       </div>
 
+      <nav class="yt-chapters" aria-label="Chapters">
+        <p class="yt-chapters-title">Chapters</p>
+        <a href="#about"><span class="yt-ts">0:00</span><span>Positioning</span></a>
+        <a href="#ai"><span class="yt-ts">1:10</span><span>AI judgement</span></a>
+        <a href="#work"><span class="yt-ts">2:05</span><span>Product board</span></a>
+        <a href="#experience"><span class="yt-ts">3:12</span><span>Evidence</span></a>
+        <a href="#approach"><span class="yt-ts">4:00</span><span>Operating model</span></a>
+        <a href="#contact"><span class="yt-ts">4:45</span><span>Next problem</span></a>
+      </nav>
+
       <nav class="rail-nav" id="railnav">
         <a href="#about" data-th="01" style="--thumb:url('assets/shots/smartcart.png')"><span class="bar"></span>Positioning</a>
         <a href="#ai" data-th="02" style="--thumb:url('assets/shots/askdocs.png')"><span class="bar"></span>AI judgement</a>
@@ -1002,7 +1018,7 @@
           <div class="yt-progress"><i></i></div>
         </div>
         <div class="yt-meta">
-          <p class="yt-title">Aastha Saini, Product Manager: 136 PRDs, 55 bugs &amp; feature gaps surfaced, 10% DAU lift</p>
+          <p class="yt-title">Product Manager building with AI: 136 PRDs, 55 bugs &amp; feature gaps surfaced, and a 10% DAU lift</p>
           <div class="yt-row">
             <div class="yt-channel"><span class="yt-av" aria-hidden="true">AS</span><span><b>Aastha Saini</b><small>Product Manager · AI used with intent</small></span><a class="yt-sub" href="#contact">Hire me</a></div>
             <div class="yt-actions">
@@ -1463,20 +1479,20 @@
     });
 
     /* Active nav via IntersectionObserver */
-    var links = Array.prototype.slice.call(document.querySelectorAll('#railnav a'));
+    var links = Array.prototype.slice.call(document.querySelectorAll('#railnav a, .yt-chapters a'));
     var map = {};
     var workbenchNames = {
       about:'00 · positioning', ai:'01 · AI judgement', work:'02 · product board',
       experience:'03 · evidence', approach:'04 · operating model', contact:'05 · next problem'
     };
     var wsActive = document.getElementById('wsActive');
-    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    links.forEach(function(a){ var k = a.getAttribute('href').slice(1); (map[k] = map[k] || []).push(a); });
     var secObserver = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
         if (en.isIntersecting) {
           links.forEach(function(l){ l.classList.remove('active'); });
           document.querySelectorAll('main section').forEach(function(s){ s.classList.remove('current'); });
-          if (map[en.target.id]) map[en.target.id].classList.add('active');
+          (map[en.target.id] || []).forEach(function(l){ l.classList.add('active'); });
           en.target.classList.add('current');
           if (workbenchNames[en.target.id]) wsActive.textContent = workbenchNames[en.target.id];
         }
