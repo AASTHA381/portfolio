@@ -800,11 +800,12 @@
 
   html[data-mode="youtube"] nav.rail-nav{margin-top:0;gap:12px;}
   html[data-mode="youtube"] nav.rail-nav a{display:grid;grid-template-columns:132px minmax(0,1fr);gap:12px;align-items:center;padding:0;color:var(--muted);font-family:'Inter',sans-serif;font-size:13.5px;letter-spacing:0;text-transform:none;}
-  html[data-mode="youtube"] nav.rail-nav a .bar{display:none;}
+  html[data-mode="youtube"] nav.rail-nav a .bar,html[data-mode="youtube"] nav.rail-nav a .lbl{display:none;}
+  html[data-mode="youtube"] nav.rail-nav a.rail-extra{display:none;}
   html[data-mode="youtube"] nav.rail-nav a::before{content:attr(data-th);aspect-ratio:16/9;border-radius:8px;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:#fff;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),var(--thumb) center/cover no-repeat,#141414;text-shadow:0 1px 3px #000;}
   html[data-mode="youtube"] nav.rail-nav a:hover,html[data-mode="youtube"] nav.rail-nav a.active{color:var(--ink);}
   html[data-mode="youtube"] nav.rail-nav a.active::before{box-shadow:0 0 0 2px var(--accent);}
-  html[data-mode="youtube"] nav.rail-nav a::after{display:none;}
+  html[data-mode="youtube"] nav.rail-nav a::after{content:attr(data-yt);display:block;}
   html[data-mode="youtube"] .yt-chapters{display:block;margin:0 0 22px;padding:16px 18px 8px;background:var(--surface);border-radius:12px;}
   html[data-mode="youtube"] .yt-chapters-title{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:var(--ink);margin:0 0 4px;}
   html[data-mode="youtube"] .yt-chapters a{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line);color:var(--ink);text-decoration:none;font-family:'Inter',sans-serif;font-size:14px;}
@@ -973,12 +974,12 @@
       </nav>
 
       <nav class="rail-nav" id="railnav">
-        <a href="#about" data-th="01" style="--thumb:url('assets/shots/smartcart.png')"><span class="bar"></span>Positioning</a>
-        <a href="#ai" data-th="02" style="--thumb:url('assets/shots/askdocs.png')"><span class="bar"></span>AI judgement</a>
-        <a href="#work" data-th="03" style="--thumb:url('assets/shots/yatrayatri.png')"><span class="bar"></span>Product board</a>
-        <a href="#experience" data-th="04" style="--thumb:url('assets/shots/pmstudy.png')"><span class="bar"></span>Evidence</a>
-        <a href="#approach" data-th="05" style="--thumb:url('assets/shots/dayflow.png')"><span class="bar"></span>Operating model</a>
-        <a href="#contact" data-th="06" style="--thumb:url('assets/shots/linkvault.png')"><span class="bar"></span>Next problem</a>
+        <a href="#about" class="rail-extra" data-th="00" style="--thumb:url('assets/shots/smartcart.png')"><span class="bar"></span><span class="lbl">Positioning</span></a>
+        <a href="#ai" data-th="01" data-yt="AI Judgement" style="--thumb:url('assets/shots/askdocs.png')"><span class="bar"></span><span class="lbl">AI judgement</span></a>
+        <a href="#work" data-th="02" data-yt="Product Projects" style="--thumb:url('assets/shots/yatrayatri.png')"><span class="bar"></span><span class="lbl">Product board</span></a>
+        <a href="#experience" data-th="03" data-yt="Work Experience" style="--thumb:url('assets/shots/pmstudy.png')"><span class="bar"></span><span class="lbl">Evidence</span></a>
+        <a href="#approach" data-th="04" data-yt="How I Operate" style="--thumb:url('assets/shots/dayflow.png')"><span class="bar"></span><span class="lbl">Operating model</span></a>
+        <a href="#contact" data-th="05" data-yt="Next Problem" style="--thumb:url('assets/shots/linkvault.png')"><span class="bar"></span><span class="lbl">Next problem</span></a>
       </nav>
 
       <button class="cmdk-trigger" id="cmdkTrigger" aria-label="Open command palette">
