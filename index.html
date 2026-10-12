@@ -739,29 +739,11 @@
   html[data-mode] section{scroll-margin-top:calc(var(--top-h) + 16px);}
   @media (max-width:960px){html[data-mode] aside{position:static;height:auto;}}
 
-  html[data-mode="chrome"]{--top-h:84px;--bot-h:0px;--bg:#ffffff;--surface:#ffffff;--surface-2:#f1f3f4;--ink:#202124;--muted:#5f6368;--faint:#80868b;--line:rgba(60,64,67,.16);--line-strong:rgba(60,64,67,.32);--accent:#1a73e8;--accent-soft:rgba(26,115,232,.10);--accent-ink:#1a66d1;--signal:#188038;--signal-soft:rgba(24,128,56,.10);--sel:rgba(26,115,232,.2);--shadow:0 2px 8px rgba(60,64,67,.18);}
   html[data-mode="youtube"]{--top-h:104px;--bot-h:0px;--bg:#0f0f0f;--surface:#181818;--surface-2:#272727;--ink:#f1f1f1;--muted:#aaaaaa;--faint:#777777;--line:rgba(255,255,255,.10);--line-strong:rgba(255,255,255,.22);--accent:#ff0033;--accent-soft:rgba(255,0,51,.14);--accent-ink:#ff4e6b;--signal:#3ea6ff;--signal-soft:rgba(62,166,255,.12);--sel:rgba(255,0,51,.3);--shadow:none;}
-  html[data-mode="terminal"]{--top-h:36px;--bot-h:40px;--bg:#1e1e2e;--surface:#181825;--surface-2:#24273a;--ink:#cdd6f4;--muted:#a6adc8;--faint:#6c7086;--line:rgba(205,214,244,.10);--line-strong:rgba(205,214,244,.22);--accent:#a6e3a1;--accent-soft:rgba(166,227,161,.12);--accent-ink:#a6e3a1;--signal:#89b4fa;--signal-soft:rgba(137,180,250,.12);--sel:rgba(166,227,161,.25);--shadow:none;}
   html[data-mode="mario"]{--top-h:72px;--bot-h:84px;--bg:#5c94fc;--surface:#ffffff;--surface-2:#fbd39b;--ink:#000000;--muted:#222222;--faint:#333333;--line:#000000;--line-strong:#000000;--accent:#e45c10;--accent-soft:#fbd39b;--accent-ink:#8a2c00;--signal:#00a800;--signal-soft:#c8f0c8;--sel:#fbd39b;--shadow:none;}
 
-  html[data-mode="terminal"] body, html[data-mode="terminal"] body *{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace !important;}
   html[data-mode="mario"] body, html[data-mode="mario"] body *{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace !important;}
   html[data-mode="mario"] :is(.card,.feature,.studio-hero,.studio-stat,.principle,.xrow,.phase,.pipe-node,.case-cell,.ai-card,.skill,.tag,.chip,.icbtn,.cbtn,.stat){border:3px solid #000 !important;border-radius:0 !important;box-shadow:4px 4px 0 #000;}
-  html[data-mode="chrome"] body{background:#ffffff;}
-
-  /* Chrome bars */
-  .mb-chrome{height:100%;display:flex;flex-direction:column;background:#dee1e6;color:#202124;font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-size:13px;}
-  .mb-tabs{display:flex;align-items:flex-end;gap:4px;height:38px;padding:8px 8px 0;overflow:hidden;}
-  .mb-tab{display:flex;align-items:center;gap:8px;height:30px;min-width:0;max-width:190px;padding:0 14px;border:0;border-radius:8px 8px 0 0;background:#cfd3d9;color:#3c4043;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap;}
-  .mb-tab span{overflow:hidden;text-overflow:ellipsis;}
-  .mb-tab.on{background:#ffffff;color:#202124;}
-  .mb-fav{width:14px;height:14px;flex:none;display:grid;place-items:center;border-radius:3px;background:#1a73e8;color:#fff;font-style:normal;font-size:9px;font-weight:700;}
-  .mb-bar{flex:1;display:flex;align-items:center;gap:6px;padding:0 12px;background:#ffffff;border-bottom:1px solid #dadce0;}
-  .mb-btn{width:28px;height:28px;flex:none;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;color:#5f6368;font:inherit;font-size:16px;cursor:pointer;}
-  .mb-btn.dis{opacity:.4;}
-  .mb-url{flex:1;min-width:0;display:flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:999px;background:#f1f3f4;color:#202124;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .mb-lock{width:8px;height:8px;flex:none;border-radius:50%;background:#188038;}
-  .mb-pill{flex:none;padding:7px 14px;border-radius:999px;background:#1a73e8;color:#fff;font-weight:500;text-decoration:none;}
 
   /* YouTube bars */
   .mb-yt{height:100%;background:#0f0f0f;color:#f1f1f1;font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-size:13px;border-bottom:1px solid #303030;}
@@ -863,22 +845,6 @@
   html[data-mode="youtube"] .case-tab b{font-size:14px;font-weight:600;color:var(--ink);}
   html[data-mode="youtube"] .case-tab small{margin-top:4px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted);}
 
-  /* Terminal bars */
-  .mb-tbar{height:100%;display:flex;align-items:flex-end;gap:2px;padding:0 8px;background:#11111b;overflow:hidden;}
-  .mb-tbar button{height:30px;flex:none;padding:0 14px;border:0;border-radius:6px 6px 0 0;background:#181825;color:#a6adc8;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap;}
-  .mb-tbar button.on{background:#1e1e2e;color:#cdd6f4;}
-  .mb-tbot{height:100%;display:flex;align-items:center;gap:10px;padding:0 14px;margin:0;background:#181825;border-top:1px solid #313244;color:#cdd6f4;font-size:13px;}
-  .mb-ps{flex:none;color:#a6e3a1;white-space:nowrap;}
-  .mb-cmd{flex:0 0 260px;min-width:0;border:0;outline:none;background:transparent;color:#cdd6f4;font:inherit;}
-  .mb-out{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#a6adc8;}
-  .mb-stat{flex:none;padding:4px 10px;background:#89b4fa;color:#1e1e2e;white-space:nowrap;}
-
-  /* Mario bars */
-  @media (max-width:960px){
-    .mb-tabs,.mb-tbar{overflow-x:auto;}
-    .mb-cmd{flex-basis:140px;}
-    .mb-stat{display:none;}
-  }
   /* Mario world: sky, clouds and hills behind the page, brick ground and a walking hero */
   html[data-mode="mario"] .mb-hud,html[data-mode="mario"] .mb-hud *{font-family:'Press Start 2P',monospace !important;}
   html[data-mode="mario"] body{background:#5c94fc;}
@@ -962,10 +928,8 @@
       <p class="rail-lead">I turn ambiguous user and operational problems into documented, testable and shipped products.</p>
       <div class="mode-picker" aria-label="Choose a layout mode">
         <a href="index.html" data-mode-link="">Default</a>
-        <a href="?mode=chrome" data-mode-link="chrome">Chrome</a>
         <a href="?mode=youtube" data-mode-link="youtube">YouTube</a>
         <a href="?mode=mario" data-mode-link="mario">Mario</a>
-        <a href="?mode=terminal" data-mode-link="terminal">Terminal</a>
       </div>
 
       <nav class="yt-chapters" aria-label="Chapters">
@@ -1764,9 +1728,8 @@
     var topEl = document.getElementById('modeTop');
     var botEl = document.getElementById('modeBottom');
     var sceneEl = document.getElementById('modeScene');
-    var RESUME = 'resume/Aastha-Saini-Product-Resume.pdf';
     var MAIL = 'mailto:aastha2000s@gmail.com';
-    var MODES = ['chrome', 'youtube', 'mario', 'terminal'];
+    var MODES = ['youtube', 'mario'];
     var SECTIONS = [
       { id:'about',      label:'Positioning',     term:'about.md',    world:'1-1' },
       { id:'ai',         label:'AI judgement',    term:'ai.md',       world:'1-2' },
@@ -1864,20 +1827,7 @@
     }
 
     var BUILD = {
-      chrome: function(){
-        var tabs = SECTIONS.map(function(s){
-          return '<button type="button" class="mb-tab" data-go="' + s.id + '" data-tab="' + s.id + '"><i class="mb-fav">' + s.label.charAt(0) + '</i><span>' + s.label + '</span></button>';
-        }).join('');
-        return {
-          top: '<div class="mb-chrome">' +
-            '<div class="mb-tabs"><button type="button" class="mb-tab" data-go=""><i class="mb-fav">A</i><span>Aastha Saini</span></button>' + tabs + '</div>' +
-            '<div class="mb-bar"><span class="mb-btn dis">&larr;</span><span class="mb-btn dis">&rarr;</span><button type="button" class="mb-btn" data-go="" aria-label="Back to top">&#8635;</button>' +
-            '<div class="mb-url"><span class="mb-lock"></span><span id="mbUrl">aastha381.github.io/portfolio</span></div>' +
-            '<a class="mb-pill" href="' + RESUME + '" target="_blank" rel="noopener">Résumé</a></div></div>',
-          bottom: ''
-        };
-      },
-      youtube: function(){
+            youtube: function(){
         var chips = '<button type="button" data-go="" data-chip="">All</button>' + SECTIONS.map(function(s){
           return '<button type="button" data-go="' + s.id + '" data-chip="' + s.id + '">' + s.label + '</button>';
         }).join('');
@@ -1913,17 +1863,6 @@
             '<div class="mb-flag" aria-hidden="true"></div>' +
             '</div>'
         };
-      },
-      terminal: function(){
-        var tabs = '<button type="button" data-go="" data-tab="">aastha — zsh</button>' + SECTIONS.map(function(s){
-          return '<button type="button" data-go="' + s.id + '" data-tab="' + s.id + '">' + s.term + '</button>';
-        }).join('');
-        return {
-          top: '<div class="mb-tbar">' + tabs + '</div>',
-          bottom: '<form class="mb-tbot" data-form="cmd" autocomplete="off"><span class="mb-ps">aastha@mac ~/portfolio %</span>' +
-            '<input class="mb-cmd" name="cmd" aria-label="Terminal command" placeholder="type help" spellcheck="false" autocomplete="off">' +
-            '<span class="mb-out" id="mbOut"></span><span class="mb-stat" id="mbStatus">~/portfolio</span></form>'
-        };
       }
     };
 
@@ -1935,29 +1874,6 @@
       if (!id){ window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
       var el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function runCmd(raw){
-      var parts = (raw || '').trim().split(/\s+/);
-      var cmd = (parts[0] || '').toLowerCase();
-      var arg = (parts[1] || '').toLowerCase().replace(/(\.md|\.txt|\/)$/, '');
-      var out = '';
-      if (cmd === 'help') out = 'commands: ls · cd <section> · cat <section> · open resume · mail · clear';
-      else if (cmd === 'ls') out = SECTIONS.map(function(s){ return s.term; }).join('  ');
-      else if (cmd === 'cd' || cmd === 'cat'){
-        if (!arg){ go(''); out = '~/portfolio'; }
-        else {
-          var hit = find(arg);
-          if (hit){ go(hit.id); out = (cmd === 'cat' ? 'opening ' : 'moved to ') + hit.term; }
-          else out = cmd + ': no such section: ' + arg;
-        }
-      }
-      else if (cmd === 'open' && arg === 'resume'){ window.open(RESUME, '_blank', 'noopener'); out = 'opening resume.pdf'; }
-      else if (cmd === 'mail'){ location.href = MAIL; out = 'opening mail…'; }
-      else if (cmd === 'clear'){ out = ''; }
-      else if (cmd) out = 'command not found: ' + cmd;
-      var o = document.getElementById('mbOut');
-      if (o) o.textContent = out;
     }
 
     function onSearch(form){
@@ -2068,16 +1984,8 @@
       activeId = id;
       if (!current) return;
       var s = find(id);
-      if (current === 'chrome'){
-        document.querySelectorAll('.mb-tab[data-tab]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-tab') === id); });
-        var url = document.getElementById('mbUrl');
-        if (url) url.textContent = 'aastha381.github.io/portfolio' + (s ? '#' + id : '');
-      } else if (current === 'youtube'){
+      if (current === 'youtube'){
         document.querySelectorAll('[data-chip]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-chip') === id); });
-      } else if (current === 'terminal'){
-        document.querySelectorAll('.mb-tbar [data-tab]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-tab') === id); });
-        var st = document.getElementById('mbStatus');
-        if (st && s) st.textContent = '~/portfolio/' + s.term;
       } else if (current === 'mario'){
         var w = document.getElementById('mbWorld'); if (w && s) w.textContent = s.world;
         var c = document.getElementById('mbCoins'); if (c) c.textContent = '×' + Object.keys(seen).length;
@@ -2168,10 +2076,9 @@
     document.addEventListener('submit', function(e){
       var kind = e.target.getAttribute('data-form');
       if (kind === 'search'){ e.preventDefault(); onSearch(e.target); }
-      else if (kind === 'cmd'){ e.preventDefault(); runCmd(e.target.cmd.value); e.target.cmd.value = ''; }
     });
     document.addEventListener('keydown', function(e){
-      if (e.target.closest && e.target.closest('.mb-search, .mb-cmd')) e.stopPropagation();
+      if (e.target.closest && e.target.closest('.mb-search')) e.stopPropagation();
     });
 
     setMode(new URLSearchParams(location.search).get('mode'));
