@@ -51,7 +51,8 @@ html.sa-lock,html.sa-lock body{overflow:hidden !important;}
 .sa-panel h2{margin:0 0 6px;font-size:14px;line-height:1.6;font-weight:400;color:#c84c0c;}
 .sa-panel p{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;line-height:1.55;color:#222;margin:0 0 10px;}
 .sa-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
-.sa-keys{margin-top:16px;font-size:8px;line-height:2.4;color:#fff;text-shadow:1px 1px 0 #000;}
+.sa-keys{max-width:min(360px,90vw);margin:16px auto 0;font-size:8px;line-height:2.4;color:#fff;text-shadow:1px 1px 0 #000;}
+.sa-key-item{display:inline-block;white-space:nowrap;margin:0 6px;}
 .sa-keys kbd{display:inline-block;margin:0 2px;padding:2px 6px;border:2px solid #fff;background:rgba(0,0,0,.35);font:inherit;}
 
 .sa-titlecard{text-align:center;}

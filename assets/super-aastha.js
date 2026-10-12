@@ -913,9 +913,10 @@
   }
   function keysHint(){
     var k = el('div', 'sa-keys');
-    k.innerHTML = isTouch()
+    var hint = isTouch()
       ? '◀ ▶ MOVE &nbsp; A JUMP &nbsp; B ENTER PIPE'
       : '<kbd>←</kbd><kbd>→</kbd> MOVE &nbsp; <kbd>↑</kbd>/<kbd>SPACE</kbd> JUMP &nbsp; <kbd>↓</kbd> PIPE &nbsp; <kbd>P</kbd> PAUSE &nbsp; <kbd>ESC</kbd> CLASSIC VIEW';
+    k.innerHTML = hint.split(' &nbsp; ').map(function(s){ return '<span class="sa-key-item">' + s + '</span>'; }).join(' ');
     return k;
   }
 
