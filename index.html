@@ -814,14 +814,17 @@
   html[data-mode="youtube"] .yt-chapters .yt-ts{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);}
   html[data-mode="youtube"] .yt-chapters a:hover,html[data-mode="youtube"] .yt-chapters a.active{color:var(--accent-ink);}
 
-  html[data-mode="youtube"] .yt-screen{position:relative;aspect-ratio:16/9;overflow:hidden;background:radial-gradient(circle at 28% 35%,#3b0d18 0,#161016 42%,#0b0b0b 100%);}
-  html[data-mode="youtube"] .yt-play{position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;border-radius:14px;background:var(--accent);}
-  html[data-mode="youtube"] .yt-play::after{content:"";position:absolute;left:27px;top:15px;border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;}
-  html[data-mode="youtube"] .yt-screen-text{position:absolute;left:22px;right:22px;bottom:18px;display:grid;gap:4px;}
-  html[data-mode="youtube"] .yt-screen-text b{font-size:clamp(22px,3vw,34px);font-weight:700;letter-spacing:-.01em;color:#fff;}
-  html[data-mode="youtube"] .yt-screen-text span{font-size:14px;color:#cfcfcf;}
-  html[data-mode="youtube"] .yt-progress{position:relative;height:4px;background:#303030;}
-  html[data-mode="youtube"] .yt-progress i{position:absolute;left:0;top:0;bottom:0;width:38%;background:var(--accent);}
+  html[data-mode="youtube"] .yt-screen{position:relative;aspect-ratio:16/9;overflow:hidden;cursor:pointer;background:#0a0e28;}
+  /* Intro video rendered from Aastha's photo; its on-screen copy comes from this page. */
+  html[data-mode="youtube"] .yt-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+  html[data-mode="youtube"] .yt-play{position:absolute;z-index:3;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;padding:0;border:0;border-radius:14px;background:var(--accent);cursor:pointer;opacity:0;transition:opacity .2s;}
+  html[data-mode="youtube"] .yt-play::after{content:"";position:absolute;left:25px;top:15px;width:6px;height:18px;box-sizing:content-box;border-left:6px solid #fff;border-right:6px solid #fff;}
+  html[data-mode="youtube"] .yt-screen:hover .yt-play,html[data-mode="youtube"] .yt-play:focus-visible,html[data-mode="youtube"] .yt-player.paused .yt-play{opacity:1;}
+  html[data-mode="youtube"] .yt-play:focus-visible{outline:3px solid #fff;outline-offset:3px;}
+  html[data-mode="youtube"] .yt-player.paused .yt-play::after{left:27px;width:0;height:0;border-right:0;border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;}
+  html[data-mode="youtube"] .yt-progress{position:relative;height:4px;background:#303030;cursor:pointer;}
+  html[data-mode="youtube"] .yt-progress::before{content:"";position:absolute;left:0;right:0;top:-6px;bottom:-6px;}
+  html[data-mode="youtube"] .yt-progress i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--accent);}
   html[data-mode="youtube"] .yt-title{font-family:'Inter',sans-serif;font-size:20px;font-weight:600;line-height:1.35;letter-spacing:0;color:var(--ink);}
   html[data-mode="youtube"] .yt-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:14px;}
   html[data-mode="youtube"] .yt-channel{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
@@ -1011,12 +1014,12 @@
       </div>
       <!-- ABOUT -->
       <section id="about" class="reveal">
-        <div class="yt-player" aria-hidden="true">
-          <div class="yt-screen">
-            <span class="yt-play"></span>
-            <div class="yt-screen-text"><b>Aastha Saini</b><span>Product Manager · Analytics &amp; B2B Platforms</span></div>
+        <div class="yt-player">
+          <div class="yt-screen" id="ytScreen">
+            <video class="yt-video" id="ytVideo" src="assets/hero/aastha-intro.mp4" poster="assets/hero/aastha-intro-poster.jpg" muted loop playsinline preload="none" aria-label="27-second intro video: Aastha Saini, Product Manager. Positioning, skills, selected work, evidence and contact details."></video>
+            <button type="button" class="yt-play" id="ytPlay" aria-label="Play intro video"></button>
           </div>
-          <div class="yt-progress"><i></i></div>
+          <div class="yt-progress" id="ytProgress" aria-hidden="true"><i></i></div>
         </div>
         <div class="yt-meta">
           <p class="yt-title">Product Manager building with AI</p>
@@ -1249,6 +1252,31 @@
       applyTheme(next);
       try { localStorage.setItem('theme', next); } catch(e){}
     });
+
+    /* YouTube-mode player: intro video with click-to-pause and a live, seekable progress bar. */
+    (function(){
+      var player = document.querySelector('.yt-player'), screen = document.getElementById('ytScreen'), btn = document.getElementById('ytPlay');
+      var video = document.getElementById('ytVideo'), bar = document.getElementById('ytProgress'), fill = bar && bar.firstElementChild;
+      if (!player || !screen || !btn || !video) return;
+      var userPaused = reduce, raf = 0;
+      function sync(){ var on = !video.paused; player.classList.toggle('paused', !on); btn.setAttribute('aria-label', on ? 'Pause intro video' : 'Play intro video'); }
+      function tick(){ if (fill && video.duration) fill.style.width = (video.currentTime / video.duration * 100) + '%'; raf = video.paused ? 0 : requestAnimationFrame(tick); }
+      function tryPlay(){ var p = video.play(); if (p && p.catch) p.catch(function(){ sync(); }); }
+      video.addEventListener('play', function(){ sync(); if (!raf) raf = requestAnimationFrame(tick); });
+      video.addEventListener('pause', sync);
+      video.addEventListener('seeked', tick);
+      screen.addEventListener('click', function(){ if (video.paused){ userPaused = false; tryPlay(); } else { userPaused = true; video.pause(); } });
+      if (bar) bar.addEventListener('click', function(e){
+        if (!video.duration) return;
+        var r = bar.getBoundingClientRect();
+        video.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * video.duration;
+      });
+      // Play only while the player is on screen; it is display:none outside YouTube mode, so other modes never load the video.
+      if ('IntersectionObserver' in window) new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if (en.isIntersecting){ if (!userPaused) tryPlay(); } else if (!video.paused) video.pause(); });
+      }, { threshold: 0.25 }).observe(video);
+      sync();
+    })();
 
     /* Product decision explorer — facts sourced from each project's PRD/README */
     (function(){
